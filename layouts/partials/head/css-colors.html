@@ -1,0 +1,12 @@
+<style>
+  :root {
+    --primary-color: {{ default "#FF1818" .Site.Params.primaryColor }};
+    --secondary-color: {{ default "#CCFF00" .Site.Params.secondaryColor }};
+    --text-color: {{ default "#333" .Site.Params.textColor }};
+    --quote-color: {{ default "#666" .Site.Params.quoteColor }};
+    --background-color: {{ default "#fdfdfd" .Site.Params.backgroundColor }};
+    --link-color: var(--text-color);
+    --link-hover-color: var(--primary-color);
+    --link-hover-bg-color: var(--secondary-color);
+}
+</style>

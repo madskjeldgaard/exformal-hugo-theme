@@ -1,0 +1,58 @@
+{{ define "main" }}
+<article class="artist-post">
+  <h1 class="artist-title">{{ .Params.artistname }}</h1>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}"></time>
+
+  <!-- photo -->
+  {{ if .Params.artistphoto }}
+  <section class="artist-cover">
+    <img class="artist-cover-image" src="{{ .Params.artistphoto }}" />
+
+    <!-- Cover artist as caption -->
+    {{ if .Params.artistphotocredit }}
+    <p class="artist-cover-caption">Photo by {{ .Params.artistphotocredit }}</p>
+    {{ end }}
+
+  </section>
+  {{ end }}
+
+  <!-- description of artist -->
+  <section class="artist-content">
+    {{ .Content }}
+  </section>
+
+  {{ if .Params.links }} <!-- Check if there are any links -->
+
+  <h3>Links</h3>
+  <ul class="artist-links">
+    {{ range .Params.links }}
+    <li><a href="{{ .url }}" target="_blank">{{ .title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  <h3>Releases</h3>
+
+  <ul class="releases-list">
+
+    <!-- A list of releases by this artist. The releases type has a param called releaseartist. Use that to select items to show -->
+
+    {{ $currentArtist := .Params.artistname }} <!-- Store the current artist's name -->
+    {{ range .Site.RegularPages.ByDate.Reverse }}
+    {{ if eq .Type "releases" }}
+    {{ if eq .Params.releaseartist $currentArtist }} <!-- Compare with the stored artist name -->
+    <li>
+      <a href="{{ .Permalink }}">{{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
+    </li>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+  </ul>
+
+
+</article>
+{{ end }}

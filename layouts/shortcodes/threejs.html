@@ -1,0 +1,15 @@
+<!-- Insert threejs scripts with this shortcode -->
+<!-- The shortcode wil set up global variables for the threejs script to use. -->
+
+
+<div id="{{ .Get "id" }}" style="width: 100%; height: 100%; text-align: {{ with .Get "align" }}{{ . }}{{ else }}left{{ end }};">
+    <div style="display: inline-block; width: {{ .Get "width" }}px; height: {{ .Get "height" }}px;">
+        <!-- Placeholder for Three.js canvas -->
+    </div>
+</div>
+<script>
+    var threeJsContainerId = "{{ .Get "id" }}";
+    var canvasWidth = "{{ .Get "width" }}";
+    var canvasHeight = "{{ .Get "height" }}";
+</script>
+<script src="/js/three/{{ .Get "jsfile" }}"></script>

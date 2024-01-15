@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+
+
+  <!-- only show title if it is allowed in the front matter -->
+  {{ if .Params.showTitle }}
+  <h1>{{ .Title }}</h1>
+  {{ end }}
+
+{{ if .Params.subTitle }}
+  <p class="subtitle" >{{ .Params.subTitle }}</p>
+  {{ end }}
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}"></time>
+
+  {{ .Content }}
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+</article>
+{{ end }}

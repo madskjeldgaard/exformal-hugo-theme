@@ -1,0 +1,31 @@
+<!-- footer content -->
+<div class="site-footer">
+  <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All Rights Reserved.</p>
+
+  <ul class="footer-links">
+    <li><a href="{{ .Site.BaseURL }}">exformal records</a></li>
+    <li><a href="{{ .Site.BaseURL }}/pages/about/">about</a></li>
+
+  </ul>
+  <div class="social-media">
+
+<!-- twitter -->
+    {{ with .Site.Params.social.twitter }}
+    <a href="https://twitter.com/{{ . }}">twitter</a>
+    {{ end }}
+    <!-- facebook -->
+    {{ with .Site.Params.social.facebook }}
+    <a href="https://facebook.com/{{ . }}">facebook</a>
+    {{ end }}
+<!-- instagram -->
+    {{ with .Site.Params.social.instagram }}
+    <a href="https://instagram.com/{{ . }}">instagram</a>
+    {{ end }}
+
+    {{ with .Site.Params.social.bandcamp }}
+    <a href="https://{{ . }}.bandcamp.com/">bandcamp</a>
+    {{ end }}
+
+    <!-- Add other social networks as needed -->
+  </div>
+</div>

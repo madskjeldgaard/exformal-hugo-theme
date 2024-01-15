@@ -1,0 +1,289 @@
+body {
+  font-family: 'Merriweather', serif;
+  /* Merriweather for a classic, readable look */
+  font-size: 22px;
+  /* Comfortable reading size */
+  line-height: 1.8;
+  /* Improved line spacing for readability */
+  color: var(--text-color);
+  /* Softer than black for reduced eye strain */
+  background-color: var(--background-color);
+  /* Light, neutral background */
+  letter-spacing: 0.7px;
+  /* Slight increase in letter spacing for readability */
+
+  margin: 0;
+  padding: 0;
+
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 1em;
+  /* background-color: #f2f2f2; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Link Styles */
+a {
+  color: var(--link-color);
+  /* Default link color */
+  font-weight: normal;
+  text-decoration: underline;
+  /* Removes underline from links */
+  transition: color 0.5s ease, padding 1.0s ease;
+  /* Smooth transition for color change */
+}
+
+/* Link hover and focus styles */
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+  /* Color when the user hovers over or focuses on the link */
+  background-color: var(--link-hover-bg-color);
+  /* Background color change for contrast */
+  text-decoration: none;
+  /* Adds underline on hover for better visibility */
+  font-weight: 700;
+  padding: 0 0.25em;
+}
+
+header h1 {
+  font-size: 1.0em;
+  margin: 0;
+  flex-grow: 1;
+  /* Allows the title to grow and push the menu to the center */
+  text-align: left;
+  /* Aligns the title to the left */
+}
+
+nav {
+  flex-grow: 2;
+  /* Allows the nav to take up remaining space and center the menu */
+  text-align: right;
+  /* Centers the menu items */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /* Remove default margin */
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+article {
+  margin: 2em auto;
+  /* Increased margin for a centered look */
+  padding: 2em;
+  /* Spacious padding for readability */
+  max-width: 740px;
+  /* Optimal line length for reading */
+  background-color: var(--background-color);
+  font-weight: 400;
+
+  letter-spacing: 0.2px;
+  /* Slight increase in letter spacing for readability */
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+
+}
+
+article h1 {
+  text-align: center;
+  font-size: 2.5em;
+
+}
+
+article h2 {
+  font-size: 2em;
+  color: var(--text-color);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+  /* Space between paragraphs */
+}
+
+p.release-cover-caption {
+  font-size: 0.75em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+blockquote {
+  font-style: italic;
+  /* Apply italics */
+  font-size: 1.0em;
+  margin-left: 20px;
+  /* Optional: Add some left margin */
+  /* border-left: 3px solid #ccc; /* Optional: Add a left border for styling */
+  */ padding-left: 15px;
+  /* Optional: Add some padding */
+  color: var(--quote-color);
+  /* Optional: Adjust the color */
+}
+
+.active-menu-item {
+  font-weight: bold;
+}
+
+.site-footer {
+  padding: 20px 0;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin-right: 15px;
+}
+
+
+.releases-list {
+  /* Styles for the list */
+  list-style-type: none;
+  /* Removes default list styling */
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  /* Adjust font size as needed */
+  min-height: 500px;
+}
+
+.release-item {
+  /* Styles for each release item */
+  margin-bottom: 0em;
+  /* Space between items */
+  padding: 10px;
+  /* Padding around each item */
+  border-bottom: 1px solid #ccc;
+  /* Bottom border for each item */
+}
+
+/* Meta data under the release title in the single.html */
+.release-info {
+  list-style-type: none;
+  /* Removes the default list bullet points */
+  padding: 0;
+  font-style: normal;
+  text-align: center;
+}
+
+/* For shortcodes  */
+.video-responsive,
+.soundcloud-responsive,
+.bandcamp-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe,
+.soundcloud-responsive iframe,
+.bandcamp-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* section release-desc */
+.release-desc,
+.subtitle {
+  text-align: center;
+  font-style: italic;
+}
+
+audio#audio-player {
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 0px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.threejscanvas {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.audio-player p {
+  font-style: italic;
+  font-size: 0.8em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+
+audio {
+  width: 100%;
+  border-radius: 0;
+  /* Additional styling can be added here */
+}
+
+@media (max-width: 768px) {
+  article {
+    margin: 2em 5%;
+    padding: 1em;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h1,
+  nav {
+    flex-grow: 0;
+    /* Resets flex-grow on mobile */
+    width: 100%;
+    /* Full width for smaller screens */
+    margin-bottom: 10px;
+    text-align: center;
+    /* Spacing between title and menu */
+  }
+}
