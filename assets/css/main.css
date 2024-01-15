@@ -138,12 +138,9 @@ blockquote {
   /* Apply italics */
   font-size: 1.0em;
   margin-left: 20px;
-  /* Optional: Add some left margin */
-  /* border-left: 3px solid #ccc; /* Optional: Add a left border for styling */
-  */ padding-left: 15px;
-  /* Optional: Add some padding */
+  padding-left: 15px;
+  text-align: justify;
   color: var(--quote-color);
-  /* Optional: Adjust the color */
 }
 
 .active-menu-item {
