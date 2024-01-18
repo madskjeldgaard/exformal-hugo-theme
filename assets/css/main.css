@@ -199,12 +199,18 @@ blockquote {
 
 /* For shortcodes  */
 .video-responsive,
-.soundcloud-responsive,
 .bandcamp-responsive {
   position: relative;
   padding-bottom: 56.25%;
   /* 16:9 Aspect Ratio */
   height: 0;
+  overflow: hidden;
+}
+.soundcloud-responsive {
+  position: relative;
+  padding-bottom: 40%;
+  /* 16:9 Aspect Ratio */
+  /* height: 0; */
   overflow: hidden;
 }
 
