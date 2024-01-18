@@ -23,6 +23,38 @@ chmod +x ./scripts/add_release.sh # Only needed once
 
 ## Shortcodes
 
+#### Responsive image
+The responsiveimage shortcode enables the embedding of responsive images in your Hugo site content. This shortcode dynamically resizes images for various viewport sizes and supports optional captions.
+
+```html 
+{{< responsiveimage "image.jpg" alt="Descriptive text" caption="Image caption here" >}}
+```
+##### Parameters
+- First unnamed parameter (required): Path to the image file. This can be a relative path from the static directory or from your page bundle.
+- alt (optional): Alternative text for the image, providing a description for screen readers and when the image cannot be displayed. Defaults to "picture".
+- caption (optional): A caption for the image, which will be displayed below the image.
+
+##### Features
+- Responsive Design: Automatically resizes images based on the device's screen size.
+- Srcset for Optimal Loading: Uses different image sizes for various viewport widths to optimize loading times.
+- Lazy Loading: Implements loading="lazy" for better performance, as images are loaded only when they are about to enter the viewport.
+- Optional Captions: Allows the addition of a caption below the image.
+
+##### Configuration
+Make sure the following parameters are set in your site's configuration:
+
+- site.Params.Images.maxSize: The maximum size for image resizing. Defaults to 1024 if not set.
+- site.Params.Images.setSizes: An array of sizes for which to generate srcset images. For example, [400, 800, 1200].
+- site.Params.Images.sizes: The sizes attribute for the <img> tag, which specifies how wide the image is expected to be on different screens.
+
+Example Configuration (config.toml)
+```toml
+[Params.Images]
+maxSize = 1024
+setSizes = [400, 800, 1200]
+sizes = "(max-width: 800px) 100vw, 800px"
+```
+
 ### Media 
 #### Audioplayer
 
@@ -36,7 +68,7 @@ Parameters
 - src: The URL or path to the audio file.
 - title (optional): The title of the audio track.
 - author (optional): The name of the author or artist.
-- tracklist (optional): HTML-formatted list of tracks. Use <br> for line breaks.
+- tracklist (optional): HTML-formatted list of tracks. Use `<br>` for line breaks.
 
 #### Bandcamp album
 

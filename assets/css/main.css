@@ -140,6 +140,7 @@ blockquote {
   margin-left: 20px;
   padding-left: 15px;
   text-align: justify;
+  text-justify: inter-word;
   color: var(--quote-color);
 }
 
@@ -207,6 +208,19 @@ blockquote {
   overflow: hidden;
 }
 
+.mixcloud-embed {
+  margin: 20px 0;
+  --embed-bg-color: var(--background-color);
+  --embed-text-color: var(--text-color);
+}
+
+.mixcloud-embed iframe {
+  background-color: var(--embed-bg-color);
+  color: var(--embed-text-color);
+  /* Apply any other desired styles */
+}
+
+
 .video-responsive iframe,
 .soundcloud-responsive iframe,
 .bandcamp-responsive iframe {
@@ -254,15 +268,67 @@ img {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+.audio-player-container {
+  margin-bottom: 20px;
+}
 
+.audio-info {
+  margin-top: 10px;
+}
 
-audio {
+.audio-title {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.audio-author {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.tracklist {
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.audio-player {
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
   width: 100%;
-  border-radius: 0;
-  /* Additional styling can be added here */
+  max-width: 600px;
+  /* Adjust as needed */
+}
+
+/* Customizing the audio player controls */
+/* Note: Custom control styles may vary based on browser support */
+
+audio::-webkit-media-controls-panel {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-timeline {
+  color: var(--primary-color);
+}
+
+audio::-moz-range-thumb {
+  background: var(--primary-color);
+}
+
+audio::-moz-range-track {
+  background: var(--secondary-color);
 }
 
 @media (max-width: 768px) {
+  blockquote {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
   article {
     margin: 2em 5%;
     padding: 1em;
