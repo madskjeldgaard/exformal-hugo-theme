@@ -1,0 +1,16 @@
+<blockquote class="book-quote">
+    {{ .Get "text" | markdownify }}
+    {{ $author := .Get "author" }}
+    {{ $title := .Get "title" }}
+    {{ $url := .Get "url" }}
+
+    {{ if or $author $title }}
+        <cite>
+            {{ if $url }}<a href="{{ $url }}">{{ end }}
+            {{- if $author }}— {{ $author }}{{ end }}
+            {{- if and $author $title }}, {{ end }}
+            {{- if $title }}{{ $title }}{{ end }}
+            {{ if $url }}</a>{{ end }}
+        </cite>
+    {{ end }}
+</blockquote>

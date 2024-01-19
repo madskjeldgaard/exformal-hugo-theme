@@ -144,6 +144,24 @@ blockquote {
   color: var(--quote-color);
 }
 
+.book-quote {
+  font-style: italic;
+  margin: 20px 0;
+  padding: 15px;
+  border-left: 0px solid #ccc;
+  text-align: justify;
+  text-justify: inter-word;
+  color: var(--quote-color);
+}
+
+.book-quote cite {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: bold;
+}
+
 .responsive-figure {
   max-width: 100%;
   /* Ensure the figure doesn't overflow its container */
@@ -336,6 +354,9 @@ img {
   max-width: 600px;
   /* Adjust as needed */
 }
+
+
+
 
 /* Customizing the audio player controls */
 /* Note: Custom control styles may vary based on browser support */
