@@ -1,0 +1,13 @@
+{{/* Fetch the image URL */}}
+{{ $src := printf "/%s" (.Get "src") }}
+{{ $alttext := .Get "alttext" | default "picture" }}
+{{ $caption := .Get "caption" }}
+
+<figure class="responsive-figure">
+    <img loading="lazy" src="{{ $src }}"
+         alt="{{ $alttext }}"
+         class="responsive-image" />
+    {{ if $caption }}
+        <figcaption class="image-caption">{{ $caption }}</figcaption>
+    {{ end }}
+</figure>

@@ -144,6 +144,36 @@ blockquote {
   color: var(--quote-color);
 }
 
+.responsive-figure {
+  max-width: 100%;
+  /* Ensure the figure doesn't overflow its container */
+  margin: 0 auto;
+  /* Center the figure */
+  text-align: center;
+  /* Center align the caption */
+}
+
+.responsive-image {
+  max-width: 100%;
+  /* Responsive image scaling */
+  height: auto;
+  /* Maintain aspect ratio */
+  border-radius: 5px;
+  /* Optional: Adds rounded corners to the image */
+}
+
+.image-caption {
+  margin-top: 8px;
+  /* Space between image and caption */
+  color: #666;
+  /* Caption text color */
+  font-size: 0.9em;
+  /* Caption text size */
+  font-style: italic;
+  /* Caption text style */
+}
+
+
 .active-menu-item {
   font-weight: bold;
 }
@@ -206,6 +236,7 @@ blockquote {
   height: 0;
   overflow: hidden;
 }
+
 .soundcloud-responsive {
   position: relative;
   padding-bottom: 40%;
