@@ -7,8 +7,33 @@ function usage() {
   echo "Commands:"
   echo "  add_release"
   echo "  add_artist"
+  echo "  add_text"
   exit 1
 }
+
+function add_text()
+{
+  read -p "Enter Title: " title
+  read -p "Enter subTitle: " subtitle
+  read -p "Enter Draft: " draft
+
+  filename=$(echo "${title}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
+  date=$(date +%Y-%m-%d)
+
+  echo "+++
+title = \"$title\"
+subTitle = \"$subtitle\"
+showTitle = true
+date = \"$date\"
+draft = $draft
++++
+
+some text
+" > "content/texts/${filename}.md"
+
+}
+
+
 
 function add_artist(){
   read -p "Enter Artist Name: " artistname
@@ -76,6 +101,14 @@ do
   case $arg in
     add_release)
     add_release
+    shift
+    ;;
+  add_artist)
+    add_artist
+    shift
+    ;;
+  add_text)
+    add_text
     shift
     ;;
   fuzzy)
