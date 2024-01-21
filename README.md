@@ -30,20 +30,27 @@ The quote shortcode enables the embedding of quotes in your Hugo site content. T
 {{< quote text="This is the quote text. and here is some more text for the text so that you can really see it in action." author="Author Name" title="Book Title" url="https://dr.dk">}}
 ```
 
-#### Responsive image
-The responsiveimage shortcode enables the embedding of responsive images in your Hugo site content. This shortcode dynamically resizes images for various viewport sizes and supports optional captions.
+#### Parameters
+
+- `text` (required): The quote text. Supports html.
+- `author` (optional): The name of the author.
+- `title` (optional): The title of the book.
+- `url` (optional): The url of the book.
+
+#### Image
+
+Insert image
 
 ```html 
 {{< image src="image.jpg" alt="Descriptive text" caption="Image caption here" >}}
 ```
+
 ##### Parameters
-- src (required): Path to the image file. This can be a relative path from the static directory or from your page bundle.
-- alt (optional): Alternative text for the image, providing a description for screen readers and when the image cannot be displayed. Defaults to "picture".
-- caption (optional): A caption for the image, which will be displayed below the image.
+- `src` (required): Path to the image file. This can be a relative path from the static directory or from your page bundle.
+- `alt` (optional): Alternative text for the image, providing a description for screen readers and when the image cannot be displayed. Defaults to "picture".
+- `caption` (optional): A caption for the image, which will be displayed below the image.
 
 ##### Features
-- Responsive Design: Automatically resizes images based on the device's screen size.
-- Srcset for Optimal Loading: Uses different image sizes for various viewport widths to optimize loading times.
 - Lazy Loading: Implements loading="lazy" for better performance, as images are loaded only when they are about to enter the viewport.
 - Optional Captions: Allows the addition of a caption below the image.
 
@@ -81,6 +88,18 @@ Use the track-id from Soundcloud. Go to a soundcloud track, press share, embed a
 
 ```html
 {{< soundcloud-track "1405272364" >}}
+```
+
+#### Vimeo
+
+```html
+{{< vimeo "video_id" >}}
+```
+
+#### Youtube
+
+```html
+{{< youtube "video_id" >}}
 ```
 
 ## Installation
