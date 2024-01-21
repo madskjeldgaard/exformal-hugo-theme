@@ -1,5 +1,5 @@
 <blockquote class="book-quote">
-    {{ .Get "text" | markdownify }}
+    {{ .Get "text" | safeHTML }}
     {{ $author := .Get "author" }}
     {{ $title := .Get "title" }}
     {{ $url := .Get "url" }}

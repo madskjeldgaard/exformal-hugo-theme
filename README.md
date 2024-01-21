@@ -24,7 +24,7 @@ To easily add a release or an artist or something else, simply run the included 
 
 #### Quotes
 
-The quote shortcode enables the embedding of quotes in your Hugo site content. This shortcode will optionally show the author and the title of the book. The text supports being marked up with markdown.
+The quote shortcode enables the embedding of quotes in your Hugo site content. This shortcode will optionally show the author and the title of the book. The text supports being marked up with html.
 
 ```html
 {{< quote text="This is the quote text. and here is some more text for the text so that you can really see it in action." author="Author Name" title="Book Title" url="https://dr.dk">}}
