@@ -105,12 +105,12 @@ article {
 
 article h1 {
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2.0em;
 
 }
 
 article h2 {
-  font-size: 2em;
+  font-size: 1.5em;
   color: var(--text-color);
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -388,7 +388,7 @@ audio::-moz-range-track {
   }
 
   article {
-    margin: 2em 5%;
+    margin: 1em 5%;
     padding: 1em;
   }
 
