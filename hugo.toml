@@ -2,11 +2,6 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Exformal'
 
-[[menus.main]]
-name = 'Releases'
-pageRef = '/releases'
-weight = 10
-
 [module]
   [module.hugoVersion]
     extended = false
