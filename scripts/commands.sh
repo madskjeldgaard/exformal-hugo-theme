@@ -42,6 +42,11 @@ function add_artist(){
   filename=$(echo "${artistname}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
   date=$(date +%Y-%m-%d)
 
+  artist_dir="content/artists"
+  mkdir -p $artist_dir
+
+  touch "${artist_dir}/${filename}.md"
+
   echo "+++
 title = \"$artistname\"
 artistname = \"$artistname\"
@@ -49,10 +54,16 @@ artistbio = \"$artistbio\"
 artistphoto = \"\"
 artistphotocredit = \"\"
 date = \"$date\"
+draft=true
 
 [[links]]
 title = \"External link 1\"
 url = \"https://example.com/link1\"
+
+[[links]]
+title = \"External link 2\"
+url = \"https://example.com/link2\"
+
 +++
   " > "content/artists/${filename}.md"
 }
@@ -69,7 +80,10 @@ function add_release(){
 # Format the filename
 filename=$(echo "${artist_name}-${album_name}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
 date=$(date +%Y-%m-%d)
-file="content/releases/${filename}.md"
+target_dir="content/releases"
+mkdir -p $target_dir
+file="${target_dir}/${filename}.md"
+touch "$file"
 
 # Create a new file with front matter
 echo "+++
@@ -87,6 +101,10 @@ date = \"$date\"
 [[links]]
 title = \"External link 1\"
 url = \"https://example.com/link1\"
+
+[[links]]
+title = \"External link 2\"
+url = \"https://example.com/link2\"
 +++
 
 $description

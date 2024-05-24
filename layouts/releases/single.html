@@ -1,61 +1,52 @@
 {{ define "main" }}
 <article class="release-post">
-  <h1 class="release-title">{{ .Params.releasetitle }}</h1>
+  <header>
+    <h1 class="release-title">{{ .Params.releasetitle }}</h1>
+    <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}"></time>
+  </header>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}"></time>
-
-  <!-- short subtitle for release -->
   <section class="release-desc">
-    <p>{{ .Params.releasedescshort }}</p>
-  </section>
-
-  <!-- Basic info -->
-  <section class="release-info">
     <p>{{ .Params.releaseartist }}, {{ .Params.releaseyear }}. {{ .Params.releaseformat }}.</p>
   </section>
 
-  <!-- cover -->
-  {{ if .Params.releasecover }}
-  <section class="release-cover">
-    <img class="release-cover-image" src="{{ .Params.releasecover }}" />
-
-    <!-- Cover artist as caption -->
-    {{ if .Params.releasecoverartist }}
-    <p class="release-cover-caption">Cover art by {{ .Params.releasecoverartist }}</p>
+  {{ with .Params.releasecover }}
+  <figure class="release-cover">
+    <img class="release-cover-image" src="/{{ . }}" alt="Cover image for {{ $.Params.releasetitle }}" />
+    {{ with $.Params.releasecoverartist }}
+    <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
     {{ end }}
-
-  </section>
+  </figure>
   {{ end }}
 
-  <!-- description of release -->
+  <hr>
+
   <section class="release-content">
     {{ .Content }}
   </section>
 
-  {{ if .Params.links }} <!-- Check if there are any links -->
-
-  <h3>Links</h3>
-  <ul class="release-links">
-    {{ range .Params.links }}
-    <li><a href="{{ .url }}" target="_blank">{{ .title }}</a></li>
-    {{ end }}
-  </ul>
+  {{ if .Params.links }}
+  <section>
+    <h3>Links</h3>
+    <ul class="release-links">
+      {{ range .Params.links }}
+      <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
   {{ end }}
 
-  <h3>More releases</h3>
-
-  <ul class="releases-list">
-    {{ range .Site.RegularPages.ByDate.Reverse }}
-    {{ if eq .Type "releases" }}
-    <li>
-      <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
-    </li>
-    {{ end }}
-    {{ end }}
-  </ul>
-
-
+  <section>
+    <h3>More releases</h3>
+    <ul class="releases-list">
+      {{ range .Site.RegularPages.ByDate.Reverse }}
+      {{ if eq .Type "releases" }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }},
+          {{ .Params.releaseyear }}</a>
+      </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </section>
 </article>
 {{ end }}

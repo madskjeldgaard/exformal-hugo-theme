@@ -1,12 +1,16 @@
 {{ define "main" }}
+<main>
 <article>
-<h2>Releases</h2>
-<ul class="releases-list">
-    {{ range .Pages }}
-   <li class="release-item">
-    <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
-  </li>
-    {{ end }}
-</ul>
+  <header>
+    <h2>Releases</h2>
+  </header>
+    <ul class="releases-list">
+      {{ range .Pages }}
+      <li class="release-item">
+        <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
+      </li>
+      {{ end }}
+    </ul>
 </article>
+</main>
 {{ end }}
