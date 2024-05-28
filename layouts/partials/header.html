@@ -1,2 +1,11 @@
-<a href="{{ .Site.BaseURL }}" title="Home">{{ .Site.Title }}</a>
+<!-- If a logo is defined in Params.logo, use that, otherwise text -->
+
+{{ if .Site.Params.logo }}
+  <a href="{{ .Site.BaseURL }}" title="Home">
+    <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" class="website-logo">
+  </a>
+{{ else }}
+  <a href="{{ .Site.BaseURL }}" title="Home">{{ .Site.Title }}</a>
+{{ end }}
+
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}

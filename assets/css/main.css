@@ -323,6 +323,14 @@ img {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+img.website-logo {
+  max-width: 200px;
+  max-height: 75px;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
 .audio-player-container {
   margin-bottom: 20px;
 }
