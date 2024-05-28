@@ -53,6 +53,60 @@ a:focus {
   padding: 0 0.25em;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+a.buylink {
+  color: var(--secondary-color);
+  background-color: var(--link-hover-color);
+  padding: 0 0.25em;
+  /* Default link color */
+  font-weight: bold;
+  text-decoration: none;
+  /* Removes underline from links */
+  transition: color 0.5s ease, padding 1.0s ease;
+  /* Smooth transition for color change */
+}
+
+a.buylink {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  padding: 0.5em;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Disable all hover and f ocus for image links */
+a.image-link:hover, a.image-link:focus {
+  color: var(--link-color);
+  background-color: transparent;
+  text-decoration: none;
+  font-weight: normal;
+  padding: 0;
+}
 header h1 {
   font-size: 1.0em;
   margin: 0;

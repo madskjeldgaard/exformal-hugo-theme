@@ -6,16 +6,28 @@
   </header>
 
   <section class="release-desc">
-    <p>{{ .Params.releaseartist }}, {{ .Params.releaseyear }}. {{ .Params.releaseformat }}.</p>
+    <p>{{ .Params.releaseartist }}, {{ .Params.releaseyear }}. {{ .Params.releaseformat }}.
+    </p>
   </section>
 
   {{ with .Params.releasecover }}
-  <figure class="release-cover">
-    <img class="release-cover-image" src="/{{ . }}" alt="Cover image for {{ $.Params.releasetitle }}" />
-    {{ with $.Params.releasecoverartist }}
-    <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
-    {{ end }}
-  </figure>
+  {{ $cover := . }}
+  {{ with $.Params.buylink }}
+    <figure class="release-cover">
+<a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
+        <img class="release-cover-image" src="{{ $cover | absURL }}" alt="Cover image for {{ $.Params.releasetitle }}" />
+        {{ with $.Params.releasecoverartist }}
+        <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
+        {{ end }}
+      </a>
+    </figure>
+  {{ end }}
+{{ end }}
+
+  {{ with .Params.buylink }}
+  <section class="release-desc">
+    <a href="{{ . }}" target="_blank" rel="noopener" class="buylink">BUY / LISTEN</a>
+  </section>
   {{ end }}
 
   <section class="release-content">
