@@ -82,9 +82,10 @@ a.buylink {
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   padding: 0.5em;
-  font-size: 0.75em;
+  font-size: 1.0;
   font-weight: bold;
   text-decoration: none;
+  border-radius: 10px; /* Adjust this value as needed */
 }
 
 @keyframes gradient {
