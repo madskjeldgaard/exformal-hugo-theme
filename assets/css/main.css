@@ -1,7 +1,7 @@
 body {
   font-family: 'Merriweather', serif;
   /* Merriweather for a classic, readable look */
-  font-size: 18px;
+  font-size: 20px;
   /* Comfortable reading size */
   line-height: 1.8;
   /* Improved line spacing for readability */
@@ -53,64 +53,56 @@ a:focus {
   padding: 0 0.25em;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 a.buylink {
   color: var(--secondary-color);
-  background-color: var(--link-hover-color);
-  padding: 0 0.25em;
-  /* Default link color */
-  font-weight: bold;
-  text-decoration: none;
-  /* Removes underline from links */
-  transition: color 0.5s ease, padding 1.0s ease;
-  /* Smooth transition for color change */
-}
-
-a.buylink {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
+  transition: color 0.5s ease, padding 1.0s ease;
   padding: 0.5em;
   font-size: 1.0;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 10px; /* Adjust this value as needed */
+  border-radius: 10px;
+  /* center it */
+}
+
+.centered-text {
+  text-align: center;
 }
 
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
+.release-content {
+  padding-top: 1em;
+}
+
 /* Disable all hover and f ocus for image links */
-a.image-link:hover, a.image-link:focus {
+a.image-link:hover,
+a.image-link:focus {
   color: var(--link-color);
   background-color: transparent;
   text-decoration: none;
   font-weight: normal;
   padding: 0;
 }
+
 header h1 {
   font-size: 1.0em;
   margin: 0;
+  padding: 0.25em;
   flex-grow: 1;
   /* Allows the title to grow and push the menu to the center */
   text-align: left;
@@ -142,7 +134,7 @@ nav ul li a {
 }
 
 article {
-  margin: 2em auto;
+  margin: 1em auto;
   /* Increased margin for a centered look */
   padding: 2em;
   /* Spacious padding for readability */
@@ -161,14 +153,13 @@ article {
 article h1 {
   text-align: center;
   font-size: 2.0em;
-
 }
 
 article h2 {
   font-size: 1.5em;
   color: var(--text-color);
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 p {
@@ -345,9 +336,21 @@ blockquote {
 /* section release-desc */
 .release-desc,
 .subtitle {
+  font-size: 1.125em;
+  margin: 1em;
   text-align: center;
   font-style: italic;
+  text-align: justify;
+  text-justify: inter-word;
 }
+
+.release-metadata {
+  font-size: 0.9em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
 
 audio#audio-player {
   margin: 0 auto;
@@ -360,14 +363,6 @@ audio#audio-player {
   width: 100%;
   height: 100%;
   text-align: center;
-}
-
-.audio-player p {
-  font-style: italic;
-  font-size: 0.8em;
-  text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
 img {
@@ -415,14 +410,19 @@ img.website-logo {
   border-radius: 5px;
   width: 100%;
   max-width: 600px;
-  /* Adjust as needed */
 }
 
-
-
+.center-audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Customizing the audio player controls */
-/* Note: Custom control styles may vary based on browser support */
+audio {
+  width: 100%;
+
+}
 
 audio::-webkit-media-controls-panel {
   background-color: var(--background-color);

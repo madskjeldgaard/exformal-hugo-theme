@@ -1,33 +1,49 @@
 {{ define "main" }}
 <article class="release-post">
-  <header>
-    <h1 class="release-title">{{ .Params.releasetitle }}</h1>
-    <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}"></time>
-  </header>
+  <time datetime="{{ .Date | time.Format " 2006-01-02T15:04:05-07:00" }}"></time>
 
+  <h1 class="release-title">{{ .Params.releaseartist }} – {{ .Params.releasetitle }} ({{ .Params.releaseyear }})</h1>
+
+  {{ with .Params.releasedescshort }}
   <section class="release-desc">
-    <p>{{ .Params.releaseartist }}, {{ .Params.releaseyear }}. {{ .Params.releaseformat }}.
-    </p>
+    <p>{{ . }}</p>
   </section>
+  {{ end }}
+
+  <hr>
+
+  {{with .Params.releaseaudio }}
+  <section class="release-audio center-audio">
+    <audio controls>
+      <source src="{{ . | absURL }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+  {{ end }}
+
 
   {{ with .Params.releasecover }}
   {{ $cover := . }}
   {{ with $.Params.buylink }}
-    <figure class="release-cover">
-<a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
-        <img class="release-cover-image" src="{{ $cover | absURL }}" alt="Cover image for {{ $.Params.releasetitle }}" />
-        {{ with $.Params.releasecoverartist }}
-        <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
-        {{ end }}
-      </a>
-    </figure>
+  <figure class="release-cover">
+    <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
+      <img class="release-cover-image" src="{{ $cover | absURL }}" alt="Cover image for {{ $.Params.releasetitle }}" />
+      {{ with $.Params.releasecoverartist }}
+      <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
+      {{ end }}
+    </a>
+  </figure>
   {{ end }}
-{{ end }}
+  {{ end }}
+
+  <section class="release-metadata">
+    <p>{{ .Params.releaseartist }}, {{ .Params.releaseyear }}. {{ .Params.releaseformat }}.</p>
+  </section>
 
   {{ with .Params.buylink }}
-  <section class="release-desc">
-    <a href="{{ . }}" target="_blank" rel="noopener" class="buylink">BUY / LISTEN</a>
-  </section>
+  <div class="buylink-container centered-text">
+    <a href="{{ . }}" target="_blank" rel="noopener" class="buylink">BUY</a>
+  </div>
   {{ end }}
 
   <section class="release-content">
@@ -51,7 +67,8 @@
       {{ range .Site.RegularPages.ByDate.Reverse }}
       {{ if eq .Type "releases" }}
       <li>
-        <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }},
+        <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat
+          }},
           {{ .Params.releaseyear }}</a>
       </li>
       {{ end }}
