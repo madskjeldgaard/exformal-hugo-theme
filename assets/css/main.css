@@ -444,6 +444,50 @@ audio::-moz-range-track {
   background: var(--secondary-color);
 }
 
+/* Style input fields and buttons */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  width: 100%;
+  /* Full width for input fields */
+  padding: 0.5em;
+  /* Spacing inside the input fields */
+  margin-bottom: 1em;
+  /* Space between input fields */
+  border: 1px solid #ccc;
+  /* Border around input fields */
+  border-radius: 5px;
+  /* Rounded corners for input fields */
+  font-size: 1em;
+  /* Font size for input fields */
+}
+
+input[type="submit"],
+button {
+  padding: 0.5em 1em;
+  /* Spacing inside the buttons */
+  border: none;
+  /* Removes default button border */
+  border-radius: 5px;
+  /* Rounded corners for buttons */
+  font-size: 1em;
+  /* Font size for buttons */
+  cursor: pointer;
+  /* Changes cursor to pointer on hover */
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #f2f2f2;
+  /* Light background color on hover */
+}
+
+
 @media (max-width: 768px) {
   blockquote {
     margin-left: 0;
