@@ -487,8 +487,54 @@ button:hover {
   /* Light background color on hover */
 }
 
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.hamburger-menu div {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: var(--text-color);
+}
 
 @media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+    padding-top: 1em;
+  }
+
+
+  nav {
+    display: none;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  nav ul li a {
+    display: block;
+    text-decoration: none;
+  }
+
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+
+
   blockquote {
     margin-left: 0;
     padding-left: 0;

@@ -10,7 +10,20 @@ Renders a menu for the given menu ID.
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 
+<script>
+$(document).ready(function() {
+    $('.hamburger-menu').click(function() {
+        $('nav').toggle();
+    });
+});
+</script>
+
 {{- with index site.Menus $menuID }}
+  <div class="hamburger-menu">
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
   <nav>
     <ul>
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
