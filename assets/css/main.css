@@ -505,7 +505,7 @@ button:hover {
 @media (max-width: 768px) {
   .hamburger-menu {
     display: flex;
-    padding-top: 1em;
+    margin-top: 1em;
   }
 
 
