@@ -167,7 +167,7 @@ p {
   /* Space between paragraphs */
 }
 
-p.release-cover-caption {
+p.release-cover-caption, p.photo-caption {
   font-size: 0.75em;
   text-align: center;
   margin: 0;
