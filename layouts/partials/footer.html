@@ -6,7 +6,8 @@
   <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All Rights Reserved.</p>
 
   <ul class="footer-links">
-    <li><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></li>
+
+    {{- partial "socials.html" }}
   </ul>
 </div>
 {{ end }}

@@ -62,40 +62,6 @@ $(document).ready(function() {
     </li>
   {{- end }}
 
-<!-- bandcamp -->
-{{- if site.Params.social.bandcamp }}
-  <li>
-    <a href="{{ site.Params.social.bandcamp }}" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-bandcamp"></i>
-    </a>
-  </li>
-{{- end }}
+{{- partial "socials.html" }}
 
-
-<!-- instagram -->
-{{- if site.Params.social.instagram }}
-  <li>
-    <a href="{{ site.Params.social.instagram }}" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i>
-    </a>
-  </li>
-{{- end }}
-
-<!-- twitter -->
-{{- if site.Params.social.twitter }}
-  <li>
-    <a href="{{ site.Params.social.twitter }}" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-twitter"></i>
-    </a>
-  </li>
-{{- end }}
-
-<!-- Github -->
-{{- if site.Params.social.github }}
-  <li>
-    <a href="{{ site.Params.social.github }}" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-github"></i>
-    </a>
-  </li>
-{{- end }}
 {{- end }}
