@@ -151,11 +151,11 @@ article {
 
 article h1 {
   text-align: center;
-  font-size: 2.0em;
+  font-size: 1.5em;
 }
 
 article h2 {
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: var(--text-color);
   margin-top: 0.25em;
   margin-bottom: 0.25em;
@@ -538,7 +538,6 @@ button:hover {
     display: flex;
     margin-top: 1em;
   }
-
 
   nav {
     display: none;
