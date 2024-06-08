@@ -22,23 +22,65 @@
   {{ end }}
 
 
+  <!-- Cover and Catalogue text -->
+<div class="release-info">
   {{ with .Params.releasecover }}
   {{ $cover := . }}
   {{ with $.Params.buylink }}
-  <figure class="release-cover">
+  <!-- <figure class="release-cover"> -->
     <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
       <img class="release-cover-image" src="{{ $cover | absURL }}" alt="Cover image for {{ $.Params.releasetitle }}" />
       {{ with $.Params.releasecoverartist }}
       <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
       {{ end }}
     </a>
-  </figure>
+  <!-- </figure> -->
   {{ end }}
   {{ end }}
 
-  <section class="release-metadata">
-    <p>{{ .Params.releaseartist }}, {{ .Params.releaseyear }}. {{ .Params.releaseformat }}.</p>
+  <!-- Catalogue text -->
+  {{with .Params.releasecattext }}
+  <section class="release-cat-text">
+    <h4>About</h4>
+    <p>{{.}}</p>
+
+    <!-- <h4>Metadata</h4> -->
+    <ul>
+
+    {{with $.Params.releaseartist }}
+    <li>ARTIST: {{ . }}</li>
+    {{ end }}
+
+    {{with $.Params.artistwebsite }}
+    <li>WEBSITE: <a href="{{ . }}" target="_blank" rel="noopener">{{ $.Params.releaseartist }}</a></li>
+    {{ end }}
+
+    {{with $.Params.releasetitle }}
+    <li>TITLE: {{ . }}</li>
+    {{ end }}
+
+    {{with $.Params.releaseformat }}
+    <li>FORMAT: {{ . }}</li>
+    {{ end }}
+
+    {{with $.Params.releaseyear }}
+    <li>YEAR: {{ . }}</li>
+    {{ end }}
+
+    {{with $.Params.releasecatnum }}
+    <li>CATALOGUE NUMBER: {{ . }}</li>
+    {{ end }}
+
+    {{with $.Params.buylink }}
+    <li>SHOP: <a href="{{ . }}">{{ $.Params.releasetitle }}</a></li>
+    {{ end }}
+
+
+    </ul>
+
   </section>
+  {{end}}
+</div>
 
   {{ with .Params.buylink }}
   <div class="buylink-container centered-text">

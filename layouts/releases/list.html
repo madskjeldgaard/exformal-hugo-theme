@@ -12,8 +12,9 @@
           <a href="{{.Permalink }}">
             <h4 class="portfolio-grid-title">{{.Params.releasetitle}} ({{.Params.releaseyear}})</h4>
           </a>
-          <p class="portfolio-grid-byline">by <a href="{{ .Params.artistlink }}">{{ .Params.releaseartist }}</a>
-          </p>
+          <!-- TODO: -->
+          <!-- <p class="portfolio-grid-byline">by <a href="{{ .Params.artistlink }}">{{ .Params.releaseartist }}</a> -->
+          <p class="portfolio-grid-byline">by {{ .Params.releaseartist }}</p>
 
           {{ .Params.releasedescshort }}
         </div>

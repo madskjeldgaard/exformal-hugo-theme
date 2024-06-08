@@ -52,6 +52,10 @@ a:focus {
   font-weight: 700;
 }
 
+.buylink-container {
+  margin: 1em;
+}
+
 a.buylink {
   color: var(--secondary-color);
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -59,6 +63,7 @@ a.buylink {
   animation: gradient 5s ease infinite;
   transition: color 0.5s ease, padding 1.0s ease;
   padding: 0.5em;
+  margin: 2.5em;
   font-size: 1.0;
   font-weight: bold;
   text-decoration: none;
@@ -282,13 +287,50 @@ blockquote {
   /* Bottom border for each item */
 }
 
-/* Meta data under the release title in the single.html */
-.release-info {
-  list-style-type: none;
-  /* Removes the default list bullet points */
-  padding: 0;
-  font-style: normal;
+
+/* metadata */
+.release-metadata {
+  font-size: 0.9em;
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.release-cat-text {
+  font-size: 0.66em;
+  background: var(--secondary-bg-color);
+  color: var(--secondary-text-color);
+  padding: 1em;
+  margin: 2em;
+}
+
+.release-cat-text h4 {
+  margin: 0;
+  padding: 0;
+}
+
+img.release-cover-image {
+  margin: 1em 0;
+}
+
+.release-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2em 0;
+}
+
+.release-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .release-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /* For shortcodes  */
@@ -344,13 +386,12 @@ blockquote {
   text-justify: inter-word;
 }
 
-.release-metadata {
-  font-size: 0.9em;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
 
+
+figure {
+  padding: 0;
+  margin: 0;
+}
 
 audio#audio-player {
   margin: 0 auto;
