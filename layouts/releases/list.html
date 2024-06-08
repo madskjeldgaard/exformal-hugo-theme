@@ -1,16 +1,25 @@
 {{ define "main" }}
 <main>
-<article>
-  <header>
-    <h2>Releases</h2>
-  </header>
-    <ul class="releases-list">
+  <section>
+    <div class="portfolio-grid">
       {{ range .Pages }}
-      <li class="release-item">
-        <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
-      </li>
+      <div class="portfolio-item">
+        <a href="{{ .Permalink }}">
+          <img src="{{ .Params.releasecover | absURL }}" alt="Cover image for {{ .Params.releasetitle }}">
+        </a>
+        <div class="portfolio-description">
+
+          <a href="{{.Permalink }}">
+            <h4 class="portfolio-grid-title">{{.Params.releasetitle}} ({{.Params.releaseyear}})</h4>
+          </a>
+          <p class="portfolio-grid-byline">by <a href="{{ .Params.artistlink }}">{{ .Params.releaseartist }}</a>
+          </p>
+
+          {{ .Params.releasedescshort }}
+        </div>
+      </div>
       {{ end }}
-    </ul>
-</article>
+    </div>
+  </section>
 </main>
 {{ end }}

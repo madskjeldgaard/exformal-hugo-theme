@@ -501,6 +501,38 @@ button:hover {
   background-color: var(--text-color);
 }
 
+.portfolio-grid {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  grid-auto-rows: auto;
+}
+
+.portfolio-item {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.1s ease;
+  /* transform-origin: top left; */
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-item .portfolio-description {
+  padding: 10px;
+  font-size: 0.75em;
+  box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
   .hamburger-menu {
     display: flex;
