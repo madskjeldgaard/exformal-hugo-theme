@@ -50,7 +50,6 @@ a:focus {
   text-decoration: none;
   /* Adds underline on hover for better visibility */
   font-weight: 700;
-  padding: 0 0.25em;
 }
 
 a.buylink {
