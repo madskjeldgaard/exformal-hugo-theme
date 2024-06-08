@@ -318,7 +318,6 @@ img.release-cover-image {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 2em 0;
 }
 
 .release-info ul {
