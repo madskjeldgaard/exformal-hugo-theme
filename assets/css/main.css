@@ -166,7 +166,8 @@ p {
   /* Space between paragraphs */
 }
 
-p.release-cover-caption, p.photo-caption {
+p.release-cover-caption,
+p.photo-caption {
   font-size: 0.75em;
   text-align: center;
   margin: 0;
@@ -497,7 +498,7 @@ button:hover {
 
 .hamburger-menu div {
   width: 2rem;
-  height: 0.25rem;
+  height: 0.33rem;
   background-color: var(--text-color);
 }
 
@@ -538,6 +539,7 @@ button:hover {
     display: flex;
     margin-top: 1em;
   }
+
 
   nav {
     display: none;
