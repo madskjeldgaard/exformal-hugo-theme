@@ -5,9 +5,11 @@
 <div class="site-footer">
   <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All Rights Reserved.</p>
 
-  <ul class="footer-links">
+  <p>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> and the <a href="https://github.com/madskjeldgaard/exformal-hugo-theme" target="_blank" rel="noopener">Exformal Theme</a>.</p>
 
+  <ul class="footer-links">
     {{- partial "socials.html" }}
   </ul>
+
 </div>
 {{ end }}
