@@ -554,15 +554,23 @@ button:hover {
 .portfolio-item {
   position: relative;
   width: 100%;
+}
+
+.portfolio-item .image-wrapper {
   overflow: hidden;
+  padding-top: 100%;
+  /* This makes the wrapper a square */
+  position: relative;
 }
 
 .portfolio-item img {
-  width: 100%;
-  height: auto;
+  transition:  transform 0.5s;
   object-fit: cover;
-  transition: transform 0.1s ease;
-  /* transform-origin: top left; */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .portfolio-item:hover img {
