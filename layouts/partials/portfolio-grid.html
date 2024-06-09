@@ -1,6 +1,6 @@
 <div class="portfolio-grid">
   {{ $type := .type }}
-  {{ range where .pages "Type" $type }}
+  {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
     <a href="{{ .Permalink }}">
       <div class="image-wrapper">
@@ -8,7 +8,9 @@
       </div>
     </a>
     <div class="portfolio-description">
-      <a href="{{.Permalink }}"> <h4 class="portfolio-grid-title">{{.Params.title}} ({{.Params.year}})</h4> </a>
+      <a href="{{.Permalink }}">
+        <h4 class="portfolio-grid-title">{{.Params.title}} ({{.Params.year}})</h4>
+      </a>
       {{ .Params.description }}
     </div>
   </div>
