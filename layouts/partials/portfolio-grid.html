@@ -4,7 +4,13 @@
   <div class="portfolio-item">
     <a href="{{ .Permalink }}">
       <div class="image-wrapper">
-        <img src="{{ .Params.cover | absURL }}" alt="Cover image for {{ .Params.title }}">
+        {{ $image := resources.Get .Params.cover }}
+        {{ if $image }}
+        {{ $resized := $image.Resize "500x" }}
+        <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
+        {{ else }}
+        <img src="/path/to/default/image.jpg" alt="Cover image for {{ .Params.title }}">
+        {{ end }}
       </div>
     </a>
     <div class="portfolio-description">

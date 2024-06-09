@@ -8,7 +8,13 @@
 
     <section>
     <figure>
-      <img src="{{ .Params.cover | absURL }}" alt="Cover image for {{ .Title }}">
+      {{ $image := resources.Get .Params.cover }}
+      {{ if $image }}
+        {{ $resized := $image.Resize "800x" }}
+        <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+      {{ else }}
+        <img src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
+      {{ end }}
     </figure>
     </section>
 
