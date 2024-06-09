@@ -1,0 +1,16 @@
+<div class="portfolio-grid">
+  {{ $type := .type }}
+  {{ range .pages }}
+  <div class="portfolio-item">
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.cover | absURL }}" alt="Cover image for {{ .Params.title }}">
+    </a>
+    <div class="portfolio-description">
+      <a href="{{.Permalink }}">
+        <h4 class="portfolio-grid-title">{{.Params.title}} ({{.Params.year}})</h4>
+      </a>
+      {{ .Params.description }}
+    </div>
+  </div>
+  {{ end }}
+</div>

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Params.year }}</p>
+    </header>
+    <figure>
+      <img src="{{ .Params.cover | absURL }}" alt="Cover image for {{ .Title }}">
+    </figure>
+    <section>
+      {{ .Content }}
+    </section>
+  </article>
+</main>
+{{ end }}
