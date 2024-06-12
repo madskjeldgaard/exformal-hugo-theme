@@ -31,6 +31,7 @@ footer {
 
 /* Link Styles */
 a {
+  word-break: break-all;
   color: var(--link-color);
   /* Default link color */
   font-weight: normal;
