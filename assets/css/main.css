@@ -293,8 +293,6 @@ blockquote {
 .release-metadata {
   font-size: 0.9em;
   text-align: left;
-  margin: 0;
-  padding: 0;
 }
 
 .release-cat-text {
@@ -318,7 +316,7 @@ blockquote {
 }
 
 .release-info .cover-item {
-  padding: 0 1em;
+  padding: 0em 1em;
 }
 
 
@@ -558,7 +556,9 @@ button:hover {
   /* This makes the wrapper a square */
   position: relative;
 }
-.image-wrapper.has-alt-image .base-image, .image-wrapper.has-alt-image .alt-image {
+
+.image-wrapper.has-alt-image .base-image,
+.image-wrapper.has-alt-image .alt-image {
   position: absolute;
   transition: opacity 1s ease-in-out;
 }
@@ -580,6 +580,7 @@ button:hover {
 .image-wrapper.has-alt-image:hover .alt-image {
   opacity: 1;
 }
+
 .portfolio-item img {
   object-fit: cover;
   position: absolute;
@@ -658,6 +659,13 @@ button:hover {
     margin-top: 1em;
   }
 
+  .release-info .cover-item {
+    padding: 1em 0;
+  }
+
+  .cover-item.release-metadata {
+    padding: 1em;
+  }
 
   nav {
     display: none;
