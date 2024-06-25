@@ -546,8 +546,8 @@ button:hover {
 .portfolio-grid {
   padding: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1em;
   grid-auto-rows: auto;
 }
 
@@ -578,15 +578,25 @@ button:hover {
 }
 
 .portfolio-item .portfolio-description {
-  padding: 10px;
-  font-size: 0.75em;
+  margin: 1em 0;
+  font-size: 0.9em;
   box-sizing: border-box;
+}
+
+.portfolio-text-top {
+  text-align: left;
+}
+
+/* Remove text decoration from links in .portfolio-text-top */
+.portfolio-text-top a, .portfolio-description a {
+  text-decoration: none;
+  font-weight: normal;
 }
 
 /* Metadata etc in releases */
 
 section.release-metadata {
-  margin: 0 1em;
+  /* margin: 0 1em; */
   padding: 0 1em 1em 1em;
   border: 1px solid var(--text-color);
 }

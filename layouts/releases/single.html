@@ -22,24 +22,25 @@
   {{ end }}
 
 
-  <!-- Cover and Catalogue text -->
+<!-- Cover and Catalogue text -->
 <div class="release-info">
   {{ with .Params.releasecover }}
-  {{ $cover := . }}
+  {{ $cover := resources.Get . }}
+  {{ if $cover }}
+  {{ $resized := $cover.Resize "800x" }}
   {{ with $.Params.buylink }}
-  <!-- <figure class="release-cover"> -->
-    <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
-      <img class="release-cover-image" src="{{ $cover | absURL }}" alt="Cover image for {{ $.Params.releasetitle }}" />
-      {{ with $.Params.releasecoverartist }}
-      <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
-      {{ end }}
-    </a>
-  <!-- </figure> -->
+  <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
+    <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ $.Params.releasetitle }}" />
+    {{ with $.Params.releasecoverartist }}
+    <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
+    {{ end }}
+  </a>
+  {{ else }}
+  <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ $.Params.releasetitle }}" />
   {{ end }}
   {{ end }}
-
+  {{ end }}
 </div>
-
 
   <section class="release-metadata">
     {{ partial "release-metadata.html" . }}

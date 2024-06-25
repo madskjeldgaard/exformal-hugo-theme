@@ -9,7 +9,7 @@
         {{ $resized := $image.Resize "500x" }}
         <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
         {{ else }}
-        <img src="/path/to/default/image.jpg" alt="Cover image for {{ .Params.title }}">
+        <img src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
         {{ end }}
       </div>
     </a>

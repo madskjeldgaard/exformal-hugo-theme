@@ -1,26 +1,10 @@
 {{ define "main" }}
 <main>
+
+  <!-- <h1 class="centered-text">Releases</h1> -->
+
   <section>
-    <div class="portfolio-grid">
-      {{ range .Pages }}
-      <div class="portfolio-item">
-        <a href="{{ .Permalink }}">
-          <img src="{{ .Params.releasecover | absURL }}" alt="Cover image for {{ .Params.releasetitle }}">
-        </a>
-        <div class="portfolio-description">
-
-          <a href="{{.Permalink }}">
-            <h4 class="portfolio-grid-title">{{.Params.releasetitle}} ({{.Params.releaseyear}})</h4>
-          </a>
-          <!-- TODO: -->
-          <!-- <p class="portfolio-grid-byline">by <a href="{{ .Params.artistlink }}">{{ .Params.releaseartist }}</a> -->
-          <p class="portfolio-grid-byline">by {{ .Params.releaseartist }}</p>
-
-          {{ .Params.releasedescshort }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
+    {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }}
   </section>
 </main>
 {{ end }}
