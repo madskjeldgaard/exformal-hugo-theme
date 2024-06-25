@@ -292,7 +292,7 @@ blockquote {
 /* metadata */
 .release-metadata {
   font-size: 0.9em;
-  text-align: center;
+  text-align: left;
   margin: 0;
   padding: 0;
 }
@@ -301,8 +301,8 @@ blockquote {
   font-size: 0.66em;
   background: var(--secondary-bg-color);
   color: var(--secondary-text-color);
-  padding: 1em;
-  margin: 2em;
+  /* padding: 1em; */
+  /* margin: 2em; */
 }
 
 .release-cat-text h4 {
@@ -310,9 +310,6 @@ blockquote {
   padding: 0;
 }
 
-img.release-cover-image {
-  margin: 1em 0;
-}
 
 .release-info {
   display: flex;
@@ -320,11 +317,10 @@ img.release-cover-image {
   align-items: flex-start;
 }
 
-.release-info ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.release-info .cover-item {
+  padding: 0 1em;
 }
+
 
 @media (min-width: 768px) {
   .release-info {
@@ -616,7 +612,7 @@ button:hover {
 
 /* Metadata etc in releases */
 
-section.release-metadata {
+.release-metadata {
   /* margin: 0 1em; */
   padding: 0 1em 1em 1em;
   border: 1px solid var(--text-color);
