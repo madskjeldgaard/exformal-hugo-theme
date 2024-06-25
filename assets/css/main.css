@@ -583,6 +583,47 @@ button:hover {
   box-sizing: border-box;
 }
 
+/* Metadata etc in releases */
+
+section.release-metadata {
+  margin: 0 1em;
+  padding: 0 1em 1em 1em;
+  border: 1px solid var(--text-color);
+}
+
+.releasecattext {
+  text-justify: inter-word;
+  text-align: left;
+}
+
+.table {
+  display: table;
+  font-family: Helvetica, sans-serif;
+
+  /* Make all text uppercase */
+  /* text-transform: uppercase; */
+  font-size:  0.75em;
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  width: 50%;
+  text-align: left;
+}
+
+.header .cell, .meta-cat-header {
+  text-align: left;
+  font-size: 1.125em;
+  text-transform: uppercase;
+  padding: 1em 0;
+  /* font-weight: bold; */
+}
+
 @media (max-width: 768px) {
   .hamburger-menu {
     display: flex;

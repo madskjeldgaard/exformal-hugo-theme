@@ -8,9 +8,9 @@
   <section class="release-desc">
     <p>{{ . }}</p>
   </section>
+  <hr>
   {{ end }}
 
-  <hr>
 
   {{with .Params.releaseaudio }}
   <section class="release-audio center-audio">
@@ -38,59 +38,25 @@
   {{ end }}
   {{ end }}
 
-  <!-- Catalogue text -->
-  {{with .Params.releasecattext }}
-  <section class="release-cat-text">
-    <h4>About</h4>
-    <p>{{.}}</p>
-
-    <!-- <h4>Metadata</h4> -->
-    <ul>
-
-    {{with $.Params.releaseartist }}
-    <li>ARTIST: {{ . }}</li>
-    {{ end }}
-
-    {{with $.Params.artistwebsite }}
-    <li>WEBSITE: <a href="{{ . }}" target="_blank" rel="noopener">{{ $.Params.releaseartist }}</a></li>
-    {{ end }}
-
-    {{with $.Params.releasetitle }}
-    <li>TITLE: {{ . }}</li>
-    {{ end }}
-
-    {{with $.Params.releaseformat }}
-    <li>FORMAT: {{ . }}</li>
-    {{ end }}
-
-    {{with $.Params.releaseyear }}
-    <li>YEAR: {{ . }}</li>
-    {{ end }}
-
-    {{with $.Params.releasecatnum }}
-    <li>CATALOGUE NUMBER: {{ . }}</li>
-    {{ end }}
-
-    {{with $.Params.buylink }}
-    <li>SHOP: <a href="{{ . }}">{{ $.Params.releasetitle }}</a></li>
-    {{ end }}
-
-
-    </ul>
-
-  </section>
-  {{end}}
 </div>
 
-  {{ with .Params.buylink }}
+
+  <section class="release-metadata">
+    {{ partial "release-metadata.html" . }}
+  </section>
+
+
+  <section class="release-content">
+    {{ .Content }}
+  </section>
+
+  <hr>
+{{ with .Params.buylink }}
   <div class="buylink-container centered-text">
     <a href="{{ . }}" target="_blank" rel="noopener" class="buylink">BUY</a>
   </div>
   {{ end }}
 
-  <section class="release-content">
-    {{ .Content }}
-  </section>
 
   {{ if .Params.links }}
   <section>
