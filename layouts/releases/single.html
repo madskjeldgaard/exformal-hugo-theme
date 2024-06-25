@@ -12,18 +12,11 @@
   {{ end }}
 
 
-  {{with .Params.releaseaudio }}
-  <section class="release-audio center-audio">
-    <audio controls>
-      <source src="{{ . | absURL }}" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </section>
-  {{ end }}
-
 
 <!-- Cover and Catalogue text -->
 <div class="release-info">
+
+    <!-- Cover image -->
     <div class="cover-item">
   {{ with .Params.releasecover }}
   {{ $cover := resources.Get . }}
@@ -43,12 +36,28 @@
   {{ end }}
       </div>
 
+
+
+    <!-- Metadata -->
     <div class="cover-item">
     <div class="release-metadata">
     {{ partial "release-metadata.html" . }}
     </div>
     </div>
+
+    <!-- Audio player -->
+{{with .Params.releaseaudio }}
+  <div class="cover-item release-audio center-audio">
+    <audio controls>
+      <source src="{{ . | absURL }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  {{ end }}
 </div>
+
+
+
 
 
 

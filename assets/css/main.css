@@ -308,15 +308,17 @@ blockquote {
   padding: 0;
 }
 
-
+/* Uncomment to set items side by side */
+/*
 .release-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
 }
+*/
 
 .release-info .cover-item {
-  padding: 0em 1em;
+  padding: 1em;
 }
 
 
@@ -441,7 +443,7 @@ img.website-logo {
 
 .audio-player {
   background-color: var(--background-color);
-  border: 1px solid var(--text-color);
+  border: 1px dashed var(--text-color);
   border-radius: 5px;
   width: 100%;
   max-width: 600px;
@@ -456,11 +458,21 @@ img.website-logo {
 /* Customizing the audio player controls */
 audio {
   width: 100%;
-
 }
 
+audio::-webkit-media-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+
 audio::-webkit-media-controls-panel {
-  background-color: var(--background-color);
+  background-color: var(--secondary-bg-color);
   color: var(--text-color);
 }
 
@@ -494,7 +506,7 @@ textarea {
   /* Spacing inside the input fields */
   margin-bottom: 1em;
   /* Space between input fields */
-  border: 1px solid #ccc;
+  border: 1px dashed #ccc;
   /* Border around input fields */
   border-radius: 5px;
   /* Rounded corners for input fields */
@@ -560,7 +572,7 @@ button:hover {
 .image-wrapper.has-alt-image .base-image,
 .image-wrapper.has-alt-image .alt-image {
   position: absolute;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.25s linear;
 }
 
 .image-wrapper.has-alt-image .base-image {
@@ -616,7 +628,8 @@ button:hover {
 .release-metadata {
   /* margin: 0 1em; */
   padding: 0 1em 1em 1em;
-  border: 1px solid var(--text-color);
+  border: 1px dashed var(--text-color);
+  border-radius: 5px;
 }
 
 .releasecattext {

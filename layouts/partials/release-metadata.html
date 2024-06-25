@@ -45,9 +45,9 @@
   </div>
   {{ range .Params.tracklist }}
   <div class="row">
-    {{ $data := split . ": " }}
-    <div class="cell">{{ index $data 0 }}:</div>
-    <div class="cell">{{ index $data 1 }}</div>
+    {{ $data := split . ". " }}
+    <div class="cell"></div>
+    <div class="cell">{{ index $data 0 }}. {{ index $data 1 }}</div>
   </div>
   {{ end }}
 </div>
