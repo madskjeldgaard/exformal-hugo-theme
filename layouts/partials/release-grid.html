@@ -1,29 +1,29 @@
 <div class="portfolio-grid">
-  {{ $type := "releases" }} <!-- Change this to the type of your release pages -->
+  {{ $type := "releases" }}
   {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
-
-
     <div class="portfolio-description portfolio-text-top">
       <a href="{{.Permalink }}">
         {{.Params.releasecatnum}} | {{.Params.releaseartist}}<br>
         {{.Params.releasetitle}}
       </a>
     </div>
-
     <a href="{{ .Permalink }}">
-      <div class="image-wrapper">
-        {{ $image := resources.Get .Params.releasecover }} <!-- Change this to the name of your cover image parameter -->
-
+      <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
+        {{ $image := resources.Get .Params.releasecover }}
+        {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
         {{ $resized := $image.Resize "500x" }}
-        <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.releasetitle }}"> <!-- Change this to the name of your release title parameter -->
+        <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.releasetitle }}">
         {{ else }}
-        <img src="/covers/default.png" alt="Cover image for {{ .Params.releasetitle }}"> <!-- Change this to the name of your release title parameter -->
+        <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.releasetitle }}">
+        {{ end }}
+        {{ if $altImage }}
+        {{ $resizedAlt := $altImage.Resize "500x" }}
+        <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.releasetitle }}">
         {{ end }}
       </div>
     </a>
-
   </div>
   {{ end }}
 </div>

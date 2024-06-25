@@ -562,9 +562,29 @@ button:hover {
   /* This makes the wrapper a square */
   position: relative;
 }
+.image-wrapper.has-alt-image .base-image, .image-wrapper.has-alt-image .alt-image {
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+}
 
+.image-wrapper.has-alt-image .base-image {
+  opacity: 1;
+  z-index: 1;
+}
+
+.image-wrapper.has-alt-image .alt-image {
+  opacity: 0;
+  z-index: 2;
+}
+
+.image-wrapper.has-alt-image:hover .base-image {
+  opacity: 0;
+}
+
+.image-wrapper.has-alt-image:hover .alt-image {
+  opacity: 1;
+}
 .portfolio-item img {
-  transition:  transform 0.5s;
   object-fit: cover;
   position: absolute;
   width: 100%;
@@ -574,7 +594,7 @@ button:hover {
 }
 
 .portfolio-item:hover img {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .portfolio-item .portfolio-description {
@@ -588,7 +608,8 @@ button:hover {
 }
 
 /* Remove text decoration from links in .portfolio-text-top */
-.portfolio-text-top a, .portfolio-description a {
+.portfolio-text-top a,
+.portfolio-description a {
   text-decoration: none;
   font-weight: normal;
 }
@@ -612,7 +633,7 @@ section.release-metadata {
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
-  font-size:  0.75em;
+  font-size: 0.75em;
   width: 100%;
 }
 
@@ -626,7 +647,8 @@ section.release-metadata {
   text-align: left;
 }
 
-.header .cell, .meta-cat-header {
+.header .cell,
+.meta-cat-header {
   text-align: left;
   font-size: 1.125em;
   text-transform: uppercase;
