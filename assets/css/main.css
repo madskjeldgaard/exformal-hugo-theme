@@ -1,7 +1,7 @@
 body {
   font-family: 'Merriweather', serif;
   /* Merriweather for a classic, readable look */
-  font-size: 20px;
+  font-size: 18px;
   /* Comfortable reading size */
   line-height: 1.8;
   /* Improved line spacing for readability */
@@ -53,23 +53,47 @@ a:focus {
   font-weight: 700;
 }
 
-.buylink-container {
-  margin: 1em;
+.buy-button {
+  background-color: var(--background-color);
+  color: var(--link-hover-color);
+  border: 1px solid var(--link-hover-color);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-a.buylink {
-  color: var(--secondary-color);
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 5s ease infinite;
-  transition: color 0.5s ease, padding 1.0s ease;
-  padding: 0.5em;
-  margin: 2.5em;
-  font-size: 1.0;
-  font-weight: bold;
+
+.cover-button-container{
+  padding: 1em 0;
+  display: inline-block;
+}
+
+.cover-button {
+  background-color: var(--background-color);
+  color: var(--grey);
+  border: 1px solid var(--grey);
+  padding: 15px 32px;
+  text-align: center;
   text-decoration: none;
-  border-radius: 10px;
-  /* center it */
+  display: inline-block;
+  font-size: 0.9em;
+  margin: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cover-button:hover{
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.buy-button:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 
 .centered-text {
@@ -92,6 +116,15 @@ a.buylink {
 
 .release-content {
   padding-top: 1em;
+}
+
+/* Single release */
+
+/* .release-title{ } */
+
+.release-artist-header {
+  font-weight: normal;
+  font-style: italic;
 }
 
 /* Disable all hover and f ocus for image links */
@@ -172,6 +205,13 @@ p {
   /* Space between paragraphs */
 }
 
+.release-cover-image{
+  /* Shadow */
+  box-shadow: 0 0 5px 0 rgba(0,0,0,.25);
+  margin-bottom: 1em;
+
+}
+
 p.release-cover-caption,
 p.photo-caption {
   font-size: 0.75em;
@@ -200,7 +240,7 @@ blockquote {
   font-style: italic;
   margin: 20px 0;
   padding: 15px;
-  border-left: 0px solid #ccc;
+  border-left: 0px solid --var(grey);
   text-align: justify;
   text-justify: inter-word;
   color: var(--quote-color);
@@ -228,7 +268,7 @@ blockquote {
   /* Responsive image scaling */
   height: auto;
   /* Maintain aspect ratio */
-  border-radius: 5px;
+  border-radius: 3px;
   /* Optional: Adds rounded corners to the image */
 }
 
@@ -284,7 +324,7 @@ blockquote {
   /* Space between items */
   padding: 10px;
   /* Padding around each item */
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid --var(grey);
   /* Bottom border for each item */
 }
 
@@ -309,13 +349,12 @@ blockquote {
 }
 
 /* Uncomment to set items side by side */
-/*
+
 .release-info {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-*/
 
 .release-info .cover-item {
   padding: 1em;
@@ -443,8 +482,8 @@ img.website-logo {
 
 .audio-player {
   background-color: var(--background-color);
-  border: 1px dashed var(--text-color);
-  border-radius: 5px;
+  border: none;
+  border-radius: 3px;
   width: 100%;
   max-width: 600px;
 }
@@ -464,15 +503,15 @@ audio::-webkit-media-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--background-color);
   color: var(--text-color);
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 0.5em;
 }
 
 
 audio::-webkit-media-controls-panel {
-  background-color: var(--secondary-bg-color);
+  background-color: var(--background-color);
   color: var(--text-color);
 }
 
@@ -506,9 +545,9 @@ textarea {
   /* Spacing inside the input fields */
   margin-bottom: 1em;
   /* Space between input fields */
-  border: 1px dashed #ccc;
+  border: 1px dashed --var(grey);
   /* Border around input fields */
-  border-radius: 5px;
+  border-radius: 3px;
   /* Rounded corners for input fields */
   font-size: 1em;
   /* Font size for input fields */
@@ -520,7 +559,7 @@ button {
   /* Spacing inside the buttons */
   border: none;
   /* Removes default button border */
-  border-radius: 5px;
+  border-radius: 3px;
   /* Rounded corners for buttons */
   font-size: 1em;
   /* Font size for buttons */
@@ -610,7 +649,7 @@ button:hover {
 }
 
 .portfolio-text-bottom p {
-    font-size: 0.75em !important;
+  font-size: 0.75em !important;
 }
 
 /* Metadata etc in releases */
@@ -619,17 +658,22 @@ button:hover {
   /* margin: 0 1em; */
   padding: 0 1em 1em 1em;
   border: 1px dashed var(--text-color);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .releasecattext {
   text-justify: inter-word;
   text-align: left;
+  color: var(--grey);
+}
+
+.metadata-block {
+  color: var(--grey);
+  font-family: Helvetica, sans-serif;
 }
 
 .table {
   display: table;
-  font-family: Helvetica, sans-serif;
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
@@ -670,6 +714,15 @@ button:hover {
     padding: 1em;
   }
 
+  /* Disable flex for mobile */
+  .release-info {
+    display: block;
+  }
+
+  .release-cover-image{
+    margin: 1em 0;
+  }
+
   nav {
     display: none;
   }
@@ -683,7 +736,7 @@ button:hover {
   nav ul li {
     display: block;
     padding: 10px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid --var(grey);
   }
 
   nav ul li a {

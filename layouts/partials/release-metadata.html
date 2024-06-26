@@ -1,5 +1,7 @@
 <!-- This partial represents all metadata for a music release -->
 
+<div class="metadata-block">
+
 <!-- Catalogue text -->
 {{ with .Params.releasecattext }}
 <div class="table">
@@ -50,4 +52,6 @@
     <div class="cell">{{ index $data 0 }}. {{ index $data 1 }}</div>
   </div>
   {{ end }}
+</div>
+
 </div>
