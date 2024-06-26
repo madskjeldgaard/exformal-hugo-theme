@@ -28,14 +28,14 @@
       {{ $resized := $cover.Resize "800x" }}
       {{ with $.Params.buylink }}
       <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
-        <img class="release-cover-image" src="{{ $resized.Permalink }}"
+        <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}"
           alt="Cover image for {{ $.Params.releasetitle }}" />
         {{ with $.Params.releasecoverartist }}
-        <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
+        <figcaption class="release-cover-caption ">Cover art by {{ . }}</figcaption>
         {{ end }}
       </a>
       {{ else }}
-      <img class="release-cover-image" src="/path/to/default/image.jpg"
+      <img class="release-cover-image zoom-on-hover" src="/path/to/default/image.jpg"
         alt="Cover image for {{ $.Params.releasetitle }}" />
       {{ end }}
       {{ end }}
@@ -49,7 +49,7 @@
       {{ $resized := $cover.Fill "800x800 Center" }}
       {{ with $.Params.buylink }}
       <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
-        <img class="release-cover-image" src="{{ $resized.Permalink }}"
+        <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}"
           alt="Cover image for {{ $.Params.releasetitle }}" />
         {{ with $.Params.releasecoverartist }}
         <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
@@ -68,6 +68,14 @@
       </audio>
     </div>
     {{ end }}
+
+    <!-- Catalogue text -->
+    {{ with .Params.releasecattext }}
+    <div class="release-cat-text">
+      {{ . }}
+    </div>
+    {{ end }}
+
 
     <!-- Buy link -->
     {{ with .Params.buylink }}
