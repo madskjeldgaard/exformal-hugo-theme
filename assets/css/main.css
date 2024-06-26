@@ -2,6 +2,54 @@
 /*   --data-font: {{ }} */
 /* } */
 
+/* jplayer */
+.jp-play {
+  /* border-radius: 0 0 5px; */
+  background-color: var(--background-color);
+  padding: 0.25em;
+  font-size: 1.5em;
+}
+
+.release-audio{
+  margin: 1em 0;
+}
+
+.jp-title{
+  padding: 0 1em;
+}
+
+.jp-controls{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+  color: var(--text-color);
+  font-size: 0.75em;
+}
+
+.jp-currenttime{
+  margin-right: 1em;
+}
+
+.jp-duration{
+  margin-left: 1em;
+}
+
+.jp-progress {
+  width: 300px;
+  height: 5px;
+  background: #ddd;
+}
+
+.jp-seek-bar {
+  width: 100%;
+  height: 100%;
+}
+
+.jp-play-bar {
+  height: 100%;
+  background: #0095dd;
+}
 
 /*
 * Animations
@@ -12,6 +60,11 @@
 
 .zoom-on-hover:hover {
   transform: scale(1.05);
+}
+
+/* Used to list releases among other things */
+th {
+  text-align: left;
 }
 
 body {
@@ -231,7 +284,8 @@ p {
 p.release-cover-caption,
 p.photo-caption {
   font-size: 0.75em;
-  text-align: center;
+  font-family: Helvetica, sans-serif;
+  text-align: right;
   margin: 0;
   padding: 0;
 }
@@ -607,7 +661,7 @@ button:hover {
 .portfolio-grid {
   padding: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
   gap: 1em;
   grid-auto-rows: auto;
 }
@@ -715,9 +769,7 @@ button:hover {
 .meta-cat-header {
   text-align: left;
   font-size: 1.125em;
-  text-transform: uppercase;
   padding: 1em 0;
-  /* font-weight: bold; */
 }
 
 @media (max-width: 768px) {
