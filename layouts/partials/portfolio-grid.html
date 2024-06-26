@@ -6,7 +6,7 @@
       <div class="image-wrapper">
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
-        {{ $resized := $image.Resize "500x" }}
+        {{ $resized := $image.Resize "800x" }}
         <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
         {{ else }}
         <img src="/covers/default.png" alt="Cover image for {{ .Params.title }}">

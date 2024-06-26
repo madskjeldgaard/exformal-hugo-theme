@@ -13,13 +13,13 @@
         {{ $image := resources.Get .Params.releasecover }}
         {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
-        {{ $resized := $image.Resize "500x" }}
+        {{ $resized := $image.Resize "800x" }}
         <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.releasetitle }}">
         {{ else }}
         <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.releasetitle }}">
         {{ end }}
         {{ if $altImage }}
-        {{ $resizedAlt := $altImage.Resize "500x" }}
+        {{ $resizedAlt := $altImage.Resize "800x" }}
         <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.releasetitle }}">
         {{ end }}
       </div>
