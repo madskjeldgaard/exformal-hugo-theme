@@ -1,9 +1,0 @@
-<ul class="releases-list">
-    {{ range .Site.RegularPages.ByDate.Reverse }}
-        {{ if eq .Type "releases" }}
-            <li>
-    <a href="{{ .Permalink }}">{{ .Params.releaseartist }} – {{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
-            </li>
-        {{ end }}
-    {{ end }}
-</ul>
