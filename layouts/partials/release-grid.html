@@ -13,17 +13,21 @@
         {{ $image := resources.Get .Params.releasecover }}
         {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
-        {{ $resized := $image.Resize "800x" }}
+        {{ $resized := $image.Resize "1600x q80" }}
         <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.releasetitle }}">
         {{ else }}
         <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.releasetitle }}">
         {{ end }}
         {{ if $altImage }}
-        {{ $resizedAlt := $altImage.Resize "800x" }}
+        {{ $resizedAlt := $altImage.Resize "1600x q80" }}
         <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.releasetitle }}">
         {{ end }}
       </div>
     </a>
+
+    <!-- <div class="portfolio-description portfolio-text-bottom"> -->
+    <!--   <p> {{.Params.releasecattext}} </p> -->
+    <!-- </div> -->
   </div>
   {{ end }}
 </div>

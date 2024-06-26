@@ -602,25 +602,15 @@ button:hover {
   left: 0;
 }
 
-.portfolio-item:hover img {
-  /* transform: scale(1.1); */
-}
-
-.portfolio-item .portfolio-description {
-  margin: 1em 0;
-  font-size: 0.9em;
-  box-sizing: border-box;
-}
-
-.portfolio-text-top {
-  text-align: left;
-}
-
 /* Remove text decoration from links in .portfolio-text-top */
 .portfolio-text-top a,
 .portfolio-description a {
   text-decoration: none;
   font-weight: normal;
+}
+
+.portfolio-text-bottom p {
+    font-size: 0.75em !important;
 }
 
 /* Metadata etc in releases */
