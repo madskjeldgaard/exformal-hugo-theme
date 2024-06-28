@@ -2,6 +2,8 @@
 /*   --data-font: {{ }} */
 /* } */
 
+
+
 /* jplayer */
 .jp-play {
   /* border-radius: 0 0 5px; */
@@ -10,28 +12,29 @@
   font-size: 1.5em;
 }
 
-.release-audio{
+.release-audio {
   margin: 1em 0;
 }
 
-.jp-title{
+.jp-title {
   padding: 0 1em;
 }
 
-.jp-controls{
+.jp-controls {
   display: flex;
   justify-content: left;
   align-items: center;
   font-family: Helvetica, sans-serif;
   color: var(--text-color);
   font-size: 0.75em;
+  margin-left: 1em;
 }
 
-.jp-currenttime{
+.jp-currenttime {
   margin-right: 1em;
 }
 
-.jp-duration{
+.jp-duration {
   margin-left: 1em;
 }
 
@@ -108,7 +111,17 @@ a {
   /* Removes underline from links */
   transition: color 0.5s ease, padding 1.0s ease;
   /* Smooth transition for color change */
+
+
 }
+
+a#no-underline-link,
+a#no-underline-link:hover,
+a#no-underline-link:active {
+  text-decoration: none;
+}
+
+
 
 /* Link hover and focus styles */
 a:hover,
@@ -136,7 +149,7 @@ a:focus {
 }
 
 
-.cover-button-container{
+.cover-button-container {
   padding: 0em 0;
   display: inline-block;
 }
@@ -155,7 +168,7 @@ a:focus {
   transition: background-color 0.3s ease;
 }
 
-.cover-button:hover{
+.cover-button:hover {
   color: var(--primary-color);
   background-color: var(--secondary-color);
 }
@@ -274,9 +287,9 @@ p {
   /* Space between paragraphs */
 }
 
-.release-cover-image{
+.release-cover-image {
   /* Shadow */
-  box-shadow: 0 0 5px 0 rgba(0,0,0,.25);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25);
   margin-bottom: 1em;
 
 }
@@ -426,6 +439,21 @@ blockquote {
   align-items: flex-start;
 }
 
+.release-info>.child1 {
+  flex: 1;
+  /* This child will take up 1 part of the available space */
+}
+
+.release-info>.child2 {
+  flex: 1;
+  /* This child will take up 2 parts of the available space */
+}
+
+.release-info>.child3 {
+  flex: 1;
+  /* This child will take up 1 part of the available space */
+}
+
 .release-info .cover-item {
   padding: 1em;
 }
@@ -526,7 +554,8 @@ img.website-logo {
   display: block;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
-.artist-bio{
+
+.artist-bio {
   text-align: center;
   font-style: italic;
 }
@@ -722,14 +751,17 @@ button:hover {
   font-weight: normal;
 }
 
+.meta-data-text p {
+  font-size: 0.9em;
+}
+
 .portfolio-text-bottom p {
   font-size: 0.75em !important;
 }
 
 /* Metadata etc in releases */
-
-.release-metadata {
-  /* margin: 0 1em; */
+.cover-item .release-metadata {
+  margin: 0 1em 1em 1em;
   padding: 0 1em 1em 1em;
   border: 1px dashed var(--text-color);
   border-radius: 3px;
@@ -795,7 +827,7 @@ button:hover {
     display: block;
   }
 
-  .release-cover-image{
+  .release-cover-image {
     margin: 1em 0;
   }
 

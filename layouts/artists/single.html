@@ -19,20 +19,10 @@
     {{ .Content }}
   </section>
 
-  {{ if .Params.links }} <!-- Check if there are any links -->
-
-  <h3>Links</h3>
-  <ul class="artist-links">
-    {{ range .Params.links }}
-    <li><a href="{{ .url }}" target="_blank">{{ .title }}</a></li>
-    {{ end }}
-  </ul>
-  {{ end }}
 
   <h3>Releases</h3>
 
-  <ul class="releases-list">
-
+  <ul>
     <!-- A list of releases by this artist. The releases type has a param called releaseartist. Use that to select items to show -->
     {{ $currentArtist := .Params.artistname }} <!-- Store the current artist's name -->
     {{ range .Site.RegularPages.ByDate.Reverse }}
@@ -46,5 +36,16 @@
     {{ end }}
 
   </ul>
+
+{{ if .Params.links }} <!-- Check if there are any links -->
+  <h3>Links</h3>
+  <ul class="artist-links">
+    {{ range .Params.links }}
+    <li><a href="{{ .url }}" target="_blank">{{ .title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+
 </article>
 {{ end }}

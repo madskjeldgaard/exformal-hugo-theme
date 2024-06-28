@@ -1,15 +1,20 @@
 {{ define "main" }}
 <article class="release-post">
   <time datetime="{{ .Date | time.Format " 2006-01-02T15:04:05-07:00" }}"></time>
-  <h4 class="centered-text release-artist-header">{{ .Params.releaseartist }}</h4>
-  <h1 class="release-title"> {{ .Params.releasetitle }}</h1>
 
-  {{ with .Params.releasedescshort }}
-  <section class="release-desc">
-    <p>{{ . }}</p>
-  </section>
-  <hr>
-  {{ end }}
+  {{/* Artist name */}}
+<h4 class="centered-text release-artist-header">
+  {{ $artistnamelink := .Params.releaseartist|lower }}
+  {{ $artistnamelink := replace $artistnamelink " " "-" }}
+  {{ $artistnamelink := replace $artistnamelink "&" "and" }}
+  <a id="no-underline-link" href="/artists/{{ $artistnamelink }}">
+    {{ .Params.releaseartist }}
+  </a>
+</h4>
+
+
+{{/* Release title */}}
+  <h1 class="release-title"> {{ .Params.releasetitle }}</h1>
 
   <!-- Cover and Catalogue text -->
   <div class="release-info">
@@ -19,7 +24,7 @@
     <!------------------------------>
 
     <!-- Cover image -->
-    <div class="cover-item">
+    <div class="cover-item child1">
       {{ with .Params.releasecover }}
       {{ $cover := resources.Get . }}
       {{ if $cover }}
@@ -78,7 +83,6 @@
       </div>
       {{ end }}
 
-
       <!-- Buy link -->
       {{ with .Params.buylink }}
       <div class="cover-button-container">
@@ -100,7 +104,26 @@
 
 
     <!-- Metadata -->
-    <div class="cover-item">
+    <div class="cover-item child2">
+
+      <!-- About text -->
+      {{ with .Params.releaseabout }}
+      <div class="release-metadata">
+        <div class="release-cat-text">
+
+          <div class="release-about-header">
+            <p>About</p>
+          </div>
+
+          <div class="release-about-text meta-data-text">
+            <p>{{ . }}</p>
+          </div>
+
+        </div>
+        </div>
+      {{ end }}
+
+
       <div class="release-metadata">
         {{ partial "release-metadata.html" . }}
       </div>
