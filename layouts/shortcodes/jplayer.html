@@ -6,14 +6,14 @@
       <div class="jp-controls">
         <button class="jp-play" role="button" tabindex="0">▶</button>
 
-      <!-- <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div> -->
-      <!-- <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div> -->
+        <!-- <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div> -->
+        <!-- <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div> -->
 
-      <!--   <div class="jp-progress"> -->
-      <!--   <div class="jp-seek-bar"> -->
-      <!--     <div class="jp-play-bar"></div> -->
-      <!--   </div> -->
-      <!-- </div> -->
+        <!--   <div class="jp-progress"> -->
+        <!--   <div class="jp-seek-bar"> -->
+        <!--     <div class="jp-play-bar"></div> -->
+        <!--   </div> -->
+        <!-- </div> -->
         <div class="jp-title" aria-label="title">&nbsp;</div>
 
         <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
@@ -22,38 +22,39 @@
     </div>
     <div class="jp-no-solution">
       <span>Update Required</span>
-      To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+      To play the media you will need to either update your browser to a recent version or update your <a
+        href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
     </div>
   </div>
 </div>
 
 <script>
-$(document).ready(function(){
-  var myPlayer = $("#jquery_jplayer_1");
-  myPlayer.jPlayer({
-    ready: function () {
-      $(this).jPlayer("setMedia", {
-        title: "{{ .Get "title" }}",
-        mp3: "{{ .Get "url" }}"
+  $(document).ready(function () {
+    var myPlayer = $("#jquery_jplayer_1");
+    myPlayer.jPlayer({
+      ready: function () {
+        $(this).jPlayer("setMedia", {
+          title: "{{ .Get "title" }}",
+          mp3: "{{ .Get "url" }}"
       });
-    },
-    swfPath: "/js",
-    supplied: "mp3",
-    wmode: "window",
-    useStateClassSkin: true,
-    autoBlur: true,
-    smoothPlayBar: true,
-    keyEnabled: true,
-    remainingDuration: true,
-    toggleDuration: true
-  });
+      },
+      swfPath: "/js",
+      supplied: "mp3",
+      wmode: "window",
+      useStateClassSkin: true,
+      autoBlur: true,
+      smoothPlayBar: true,
+      keyEnabled: true,
+      remainingDuration: true,
+      toggleDuration: true
+    });
 
-  myPlayer.bind($.jPlayer.event.play, function() {
-    $('.jp-play').text('◼');
-  });
+    myPlayer.bind($.jPlayer.event.play, function () {
+      $('.jp-play').text('◼');
+    });
 
-  myPlayer.bind($.jPlayer.event.pause, function() {
-    $('.jp-play').text('▶');
+    myPlayer.bind($.jPlayer.event.pause, function () {
+      $('.jp-play').text('▶');
+    });
   });
-});
 </script>

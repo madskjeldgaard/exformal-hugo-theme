@@ -10,25 +10,17 @@
 <body>
   <main>
     {{ $featuredTitle := .Site.Params.featuredPostTitle }}
-    {{ $texts := where .Site.RegularPages "Type" "texts" }}
-    {{ $pages := where .Site.RegularPages "Type" "pages" }}
-    {{ $combined := union $texts $pages }}
 
-    {{ range $combined }}
-
+    {{ range .Site.RegularPages }}
     {{ if eq .Title $featuredTitle }}
     <article>
       <div>{{ .Content }}</div>
     </article>
     {{ end }}
-
     {{ end }}
-
-
   </main>
 </body>
 
 </html>
-
 
 {{ end }}

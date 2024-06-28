@@ -7,17 +7,7 @@
   <time datetime="{{ $dateMachine }}"></time>
 
   <!-- photo -->
-  {{ if .Params.artistphoto }}
-  <section class="artist-cover">
-    <img class="artist-cover-image" src="{{ .Params.artistphoto }}" />
-
-    <!-- Cover artist as caption -->
-    {{ if .Params.artistphotocredit }}
-    <p class="artist-cover-caption">Photo by {{ .Params.artistphotocredit }}</p>
-    {{ end }}
-
-  </section>
-  {{ end }}
+  <!-- TODO -->
 
   <!--artistbio -->
   <section class="artist-bio">
@@ -44,13 +34,12 @@
   <ul class="releases-list">
 
     <!-- A list of releases by this artist. The releases type has a param called releaseartist. Use that to select items to show -->
-
     {{ $currentArtist := .Params.artistname }} <!-- Store the current artist's name -->
     {{ range .Site.RegularPages.ByDate.Reverse }}
     {{ if eq .Type "releases" }}
     {{ if eq .Params.releaseartist $currentArtist }} <!-- Compare with the stored artist name -->
     <li>
-      <a href="{{ .Permalink }}">{{ .Params.releasetitle }}, {{ .Params.releaseformat }}, {{ .Params.releaseyear }}</a>
+      <a href="{{ .Permalink }}">{{ .Params.releasetitle }} | {{ .Params.releaseformat }} | {{ .Params.releaseyear }}</a>
     </li>
     {{ end }}
     {{ end }}

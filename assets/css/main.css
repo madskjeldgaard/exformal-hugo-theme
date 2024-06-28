@@ -285,7 +285,7 @@ p.release-cover-caption,
 p.photo-caption {
   font-size: 0.75em;
   font-family: Helvetica, sans-serif;
-  text-align: right;
+  text-align: center;
   margin: 0;
   padding: 0;
 }
@@ -525,6 +525,10 @@ img.website-logo {
   margin: 0 auto;
   display: block;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+.artist-bio{
+  text-align: center;
+  font-style: italic;
 }
 
 .audio-player-container {

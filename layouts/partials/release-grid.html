@@ -20,7 +20,8 @@
         {{ end }}
         {{ if $altImage }}
         {{ $resizedAlt := $altImage.Resize "1600x q80" }}
-        <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.releasetitle }}">
+        <img class="alt-image" src="{{ $resizedAlt.Permalink }}"
+          alt="Alternate cover image for {{ .Params.releasetitle }}">
         {{ end }}
       </div>
     </a>
