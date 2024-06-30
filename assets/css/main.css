@@ -3,12 +3,23 @@
 /* } */
 
 
+/* Set up fonts */
+
+/* fonts/Merriweather/Merriweather-Regular.ttf */
+@font-face {
+  font-family: 'Merriweather';
+  src: url('fonts/Merriweather/Merriweather-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* jplayer */
 .jp-play {
   /* border-radius: 0 0 5px; */
   background-color: var(--background-color);
-  padding: 0.25em;
+  padding: 0;
+  margin: 0;
   font-size: 1.5em;
 }
 
@@ -27,7 +38,9 @@
   font-family: Helvetica, sans-serif;
   color: var(--text-color);
   font-size: 0.75em;
-  margin-left: 1em;
+  margin: 0;
+  margin-left: 0;
+  padding: 0;
 }
 
 .jp-currenttime {
@@ -422,8 +435,8 @@ blockquote {
   font-size: 0.66em;
   background: var(--secondary-bg-color);
   color: var(--secondary-text-color);
-  /* padding: 1em; */
-  /* margin: 2em; */
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .release-cat-text h4 {
@@ -802,9 +815,12 @@ button:hover {
 }
 
 .header .cell,
-.meta-cat-header {
+.meta-cat-header
+{
+
   text-align: left;
-  font-size: 1.125em;
+  font-size: 1.25em;
+  line-height: 1.5em;
   padding: 1em 0;
 }
 
@@ -814,12 +830,14 @@ button:hover {
     margin-top: 1em;
   }
 
+
   .release-info .cover-item {
     padding: 1em 0;
   }
 
-  .cover-item.release-metadata {
+  .cover-item .release-metadata {
     padding: 1em;
+    margin: 1em 0;
   }
 
   /* Disable flex for mobile */

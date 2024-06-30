@@ -46,89 +46,23 @@
 
       <!-- Alt cover image -->
       <!-- Same as above,  but calls the .altcover value in params -->
-      {{ with .Params.altcover }}
-      {{ $cover := resources.Get . }}
-      {{ if $cover }}
-      {{ $resized := $cover.Fill "800x800 Center" }}
-      {{ with $.Params.buylink }}
-      <a href="{{ . }}" target="_blank" rel="noopener" class="image-link">
-        <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}"
-          alt="Cover image for {{ $.Params.releasetitle }}" />
-        {{ with $.Params.releasecoverartist }}
-        <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption>
-        {{ end }}
-      </a>
-      {{ end }}
-      {{ end }}
-      {{ end }}
+      {{/* {{ with .Params.altcover }} */}}
+      {{/* {{ $cover := resources.Get . }} */}}
+      {{/* {{ if $cover }} */}}
+      {{/* {{ $resized := $cover.Fill "800x800 Center" }} */}}
+      {{/* {{ with $.Params.buylink }} */}}
+      {{/* <a href="{{ . }}" target="_blank" rel="noopener" class="image-link"> */}}
+      {{/*   <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}" */}}
+      {{/*     alt="Cover image for {{ $.Params.releasetitle }}" /> */}}
+      {{/*   {{ with $.Params.releasecoverartist }} */}}
+      {{/*   <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption> */}}
+      {{/*   {{ end }} */}}
+      {{/* </a> */}}
+      {{/* {{ end }} */}}
+      {{/* {{ end }} */}}
+      {{/* {{ end }} */}}
 
-      <!-- Artist name -->
-      {{ with .Params.releaseartist }}
-      <div class="release-artist">
-        {{ . }}
-      </div>
-      {{ end }}
-
-      <!-- Release name -->
-      {{ with .Params.releasetitle }}
-      <div class="release-title">
-        {{ . }}
-      </div>
-      {{ end }}
-
-      <!-- Catalogue text -->
-      {{ with .Params.releasecattext }}
-      <div class="release-cat-text">
-        {{ . }}
-      </div>
-      {{ end }}
-
-      <!-- Buy link -->
-      {{ with .Params.buylink }}
-      <div class="cover-button-container">
-        <a href="{{ . }}" target="_blank" rel="noopener">
-          <button class="buy-button">Buy</button>
-        </a>
-      </div>
-      {{ end }}
-
-      <!-- Additional links -->
-      {{ range .Params.additionalLinks }}
-      <div class="cover-button-container">
-        <a href="{{ .url }}" target="_blank" rel="noopener">
-          <button class="cover-button">{{ .name }}</button>
-        </a>
-      </div>
-      {{ end }}
-    </div>
-
-
-    <!-- Metadata -->
-    <div class="cover-item child2">
-
-      <!-- About text -->
-      {{ with .Params.releaseabout }}
-      <div class="release-metadata">
-        <div class="release-cat-text">
-
-          <div class="release-about-header">
-            <p>About</p>
-          </div>
-
-          <div class="release-about-text meta-data-text">
-            <p>{{ . }}</p>
-          </div>
-
-        </div>
-        </div>
-      {{ end }}
-
-
-      <div class="release-metadata">
-        {{ partial "release-metadata.html" . }}
-      </div>
-
-      <!-- Audio player JPLAYER -->
+<!-- Audio player JPLAYER -->
       <div class="release-audio">
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 
@@ -182,6 +116,76 @@
         </script>
       </div>
       <!-- END: Audio player JPLAYER -->
+
+
+      <!-- Artist name -->
+      {{ with .Params.releaseartist }}
+      <div class="release-artist">
+        {{ . }}
+      </div>
+      {{ end }}
+
+      <!-- Release name -->
+      {{ with .Params.releasetitle }}
+      <div class="release-title">
+        {{ . }}
+      </div>
+      {{ end }}
+
+      <!-- Catalogue text -->
+      {{ with .Params.releasecattext }}
+      <div class="release-cat-text">
+        {{ . }}
+      </div>
+      {{ end }}
+
+
+      <!-- Buy link -->
+      {{ with .Params.buylink }}
+      <div class="cover-button-container">
+        <a href="{{ . }}" target="_blank" rel="noopener">
+          <button class="buy-button">Buy</button>
+        </a>
+      </div>
+      {{ end }}
+
+      <!-- Additional links -->
+      {{ range .Params.additionalLinks }}
+      <div class="cover-button-container">
+        <a href="{{ .url }}" target="_blank" rel="noopener">
+          <button class="cover-button">{{ .name }}</button>
+        </a>
+      </div>
+      {{ end }}
+
+    </div>
+
+
+    <!-- Metadata -->
+    <div class="cover-item child2">
+
+      <!-- "In short" text -->
+      {{ with .Params.releaseabout }}
+      <div class="release-metadata">
+
+          <div class="release-about-header">
+            <p>In short ... </p>
+          </div>
+
+        <div class="release-cat-text">
+          <div class="release-about-text meta-data-text">
+            <p>{{ . }}</p>
+          </div>
+
+        </div>
+        </div>
+      {{ end }}
+
+
+      <div class="release-metadata">
+        {{ partial "release-metadata.html" . }}
+      </div>
+
 
     </div>
 

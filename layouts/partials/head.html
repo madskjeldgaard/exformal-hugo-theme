@@ -2,12 +2,13 @@
 <meta name="viewport" content="width=device-width">
 <link rel="icon" href="{{ "favicon.ico" | absURL }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}" type="image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+{{/* Font awesome */}}
+<link rel="stylesheet" href="fontawesome/css/all.min.css">
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
-{{ partialCached "head/font.html" . }}
+{{/* {{ partialCached "head/font.html" . }} */}}
 {{ partialCached "head/css-colors.html" . }}
 {{ partialCached "head/css.html" . }}
-{{ partialCached "head/threejs.html" . }}
 {{ partialCached "head/js.html" . }}
