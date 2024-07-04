@@ -1,0 +1,6 @@
+{{ $artistnamelink := .|lower }}
+{{ $artistnamelink := replace $artistnamelink " " "-" }}
+{{ $artistnamelink := replace $artistnamelink "&" "and" }}
+<a id="no-underline-link" aria="Read more about {{ . }}" href="/artists/{{ $artistnamelink }}">
+  {{ . }}
+</a>

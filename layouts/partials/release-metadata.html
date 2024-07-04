@@ -2,12 +2,11 @@
 
 <div class="metadata-block">
 
+  <div class="first-header">
+    <p>Metadata</p>
+  </div>
 
   <div class="table">
-    <div class="row header">
-      <div class="cell">Metadata</div>
-      <div class="cell"></div>
-    </div>
     {{ range .Params.metadata }}
     <div class="row">
       {{ $data := split . ": " }}

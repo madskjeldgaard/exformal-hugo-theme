@@ -4,11 +4,11 @@
 <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}" type="image/x-icon">
 
 {{/* Font awesome */}}
-<link rel="stylesheet" href="fontawesome/css/all.min.css">
+<link rel="stylesheet" href="/fonts/fontawesome-free-6.5.2-web/css/all.min.css">
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
-{{/* {{ partialCached "head/font.html" . }} */}}
 {{ partialCached "head/css-colors.html" . }}
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+{{ partialCached "head/seo.html" . }}
