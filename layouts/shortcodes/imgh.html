@@ -96,6 +96,13 @@
 			{{- end -}}"
 			sizes="{{ $dataSzes }}"
 		/>
+
+
+  {{- $link := .Get "link" -}}
+  {{- if $link -}}
+      <a href="{{ $link }}">
+  {{- end -}}
+
 		<img class="{{ $imgClass }}"
 			src="{{ $actualImg.RelPermalink }}"
 			width="{{ $src.Width }}"
@@ -103,6 +110,11 @@
 			alt="{{ $alt }}"
 			loading="lazy"
 		/>
+
+  {{- if $link -}}
+      </a>
+  {{- end -}}
+
 	</picture>
 </div>
 {{- if .Get "caption" -}}
