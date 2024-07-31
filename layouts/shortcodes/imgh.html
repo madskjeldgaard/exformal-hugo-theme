@@ -41,7 +41,7 @@
 	This will serve as the "fallback" image for that tiny percentage
 	of browsers that don't understand the HTML `picture` tag.
 */}}
-{{- $actualImg := $src.Resize "640x jpg" -}}
+{{- $actualImg := $src.Resize "1280x jpg" -}}
 {{/*
 	Now we'll handle the LQIP background for the div that will contain
 	the image content; the conditional at the top controls whether we're
