@@ -1,25 +1,22 @@
-{{ if .IsPage }}
-    <meta property="og:title" content="{{ .Title }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ .Permalink }}" />
-
-    {{ if .Params.releasecover }}
-        <meta property="og:image" content="{{ .Params.releasecover | absURL }}" />
-    {{ else if .Params.artistphoto }}
-        <meta property="og:image" content="{{ .Params.artistphoto | absURL }}" />
-    {{ else if .Params.featuredimage }}
-        <meta property="og:image" content="{{ .Params.featuredimage | absURL }}" />
-    {{ else }}
-        <meta property="og:image" content="{{ "default-image.jpg" | absURL }}" />
+{{/* If it's a release, use the release metadata */}}
+{{ if eq .Type "release" }}
+  {{ $release := .Params }}
+  <meta property="og:title" content="{{ $release.releasetitle }}">
+  <meta property="og:type" content="music.album">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{ with $release.releasecover }}
+    {{ $cover := resources.Get . }}
+    {{ if $cover }}
+      {{ $resized := $cover.Resize "1200x630" }}
+      <meta property="og:image" content="{{ $resized.Permalink }}">
     {{ end }}
-
-    {{ if .Params.releaseabout }}
-        <meta property="og:description" content="{{ .Params.releaseabout }}" />
-    {{ else if .Params.artistbio }}
-        <meta property="og:description" content="{{ .Params.artistbio }}" />
-    {{ else if .Params.description }}
-        <meta property="og:description" content="{{ .Params.description }}" />
-    {{ else }}
-        <meta property="og:description" content="{{ site.Params.description }}" />
-    {{ end }}
+  {{ end }}
+  <meta property="og:description" content="{{ $release.releasedescription }}">
+{{ else }}
+  {{/* Default Open Graph tags */}}
+  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Site.Params.defaultImage | absURL }}">
+  <meta property="og:description" content="{{ .Site.Params.defaultDescription }}">
 {{ end }}
