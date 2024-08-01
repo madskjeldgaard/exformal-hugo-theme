@@ -1,0 +1,25 @@
+{{ if .IsPage }}
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+
+    {{ if .Params.releasecover }}
+        <meta property="og:image" content="{{ .Params.releasecover | absURL }}" />
+    {{ else if .Params.artistphoto }}
+        <meta property="og:image" content="{{ .Params.artistphoto | absURL }}" />
+    {{ else if .Params.featuredimage }}
+        <meta property="og:image" content="{{ .Params.featuredimage | absURL }}" />
+    {{ else }}
+        <meta property="og:image" content="{{ "default-image.jpg" | absURL }}" />
+    {{ end }}
+
+    {{ if .Params.releaseabout }}
+        <meta property="og:description" content="{{ .Params.releaseabout }}" />
+    {{ else if .Params.artistbio }}
+        <meta property="og:description" content="{{ .Params.artistbio }}" />
+    {{ else if .Params.description }}
+        <meta property="og:description" content="{{ .Params.description }}" />
+    {{ else }}
+        <meta property="og:description" content="{{ site.Params.description }}" />
+    {{ end }}
+{{ end }}

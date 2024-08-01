@@ -22,7 +22,8 @@
 
   <h3>Releases</h3>
 
-  <ul>
+  <ul class="releases-list">
+
     <!-- A list of releases by this artist. The releases type has a param called releaseartist. Use that to select items to show -->
     {{ $currentArtist := .Params.artistname }} <!-- Store the current artist's name -->
     {{ range .Site.RegularPages.ByDate.Reverse }}
@@ -46,6 +47,8 @@
   </ul>
   {{ end }}
 
-
 </article>
+
+{{/* TODO: */}}
+    {{/* {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }} */}}
 {{ end }}
