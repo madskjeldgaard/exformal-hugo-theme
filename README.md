@@ -10,8 +10,10 @@ Written by Mads Kjeldgaard 2024.
 
 ## Features
 
-- Custom "release" content type organizes releases with metadata
-- Custom portfolio type
+- Custom types:
+    - Release
+    - Artist profile
+    - Portfolio
 - Auto optimize images for faster load times
 - Easy to theme directly from the site's config.toml file
 - Cloaks emails using [cloakemail shortcode](https://github.com/martignoni/hugo-cloak-email)
@@ -37,6 +39,14 @@ hugo new artists/myartist.md
 
 This will fill out the defaults for you to work from.
 
+## Making a portfolio entry
+The theme includes a portfolio archetype, trigger it by running
+
+```bash
+hugo new portfolio/myproject.md
+```
+
+This will fill out the defaults for you to work from.
 
 ## Shortcodes
 
