@@ -330,7 +330,8 @@ p {
 }
 
 p.release-cover-caption,
-p.photo-caption {
+p.photo-caption,
+p.newsdate {
   font-size: 0.75em;
   font-family: Helvetica, sans-serif;
   text-align: center;
