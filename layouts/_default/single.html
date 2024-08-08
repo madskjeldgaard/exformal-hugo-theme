@@ -1,12 +1,15 @@
 {{ define "main" }}
 <article>
 
-
-
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}"></time>
+
+
+  <!-- Only show date if the content type is not "page" -->
+  {{ if ne .Type "page" }}
   <p class="newsdate">{{ $dateHuman }}</p>
+  {{ end }}
 
   <!-- only show title if it is allowed in the front matter -->
   {{ if .Params.showTitle }}
