@@ -236,8 +236,9 @@ a:focus {
 }
 
 /* Single release */
-
-/* .release-title{ } */
+.release-title{
+  font-style: italic;
+}
 
 .release-artist-header {
   font-weight: normal;
