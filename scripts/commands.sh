@@ -76,41 +76,88 @@ function add_release(){
   read -p "Enter Release Year: " release_year
   read -p "Enter Format: " format
   read -p "Enter Short Description: " description
+  read -p "Enter Release Cover URL: " releasecover
+  read -p "Enter Alt Cover URL: " altcover
+  read -p "Enter Catalogue Number: " releasecatnum
+  read -p "Enter Artist Website: " artistwebsite
+  read -p "Enter Buy Link: " buylink
+  read -p "Enter Audio File URL: " releaseaudio
+  read -p "Enter Audio Title: " releaseaudiotitle
+  read -p "Enter About the Release: " releaseabout
+  read -p "Enter Catalogue Text: " releasecattext
+  read -p "Enter Metadata (comma-separated): " metadata
+  read -p "Enter Credits (comma-separated): " credits
+  read -p "Enter Tracklist (comma-separated): " tracklist
+  read -p "Enter Additional Link Name: " additionalLinkName
+  read -p "Enter Additional Link URL: " additionalLinkURL
 
-# Format the filename
-filename=$(echo "${artist_name}-${album_name}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
-date=$(date +%Y-%m-%d)
-target_dir="content/releases"
-mkdir -p $target_dir
-file="${target_dir}/${filename}.md"
-touch "$file"
+  # Format the filename
+  filename=$(echo "${artist_name}-${album_name}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
+  date=$(date +%Y-%m-%d)
+  target_dir="content/releases"
+  mkdir -p $target_dir
+  file="${target_dir}/${filename}.md"
+  touch "$file"
 
-# Create a new file with front matter
-echo "+++
+  # Create a new file with front matter
+  echo "+++
 title = \"$album_name\"
+draft=false
+
+# Images
+releasecover = \"$releasecover\"
+altcover = \"$altcover\"
+
+# Release basics
 releasetitle = \"$album_name\"
 releaseartist = \"$artist_name\"
 releaseyear = \"$release_year\"
 releaseformat = \"$format\"
-releasedescshort = \"$description\"
-releasedate = \"$releasedate\"
-releasecover = \"\"
-releasecoverartist = \"\"
+
+releasecatnum = \"$releasecatnum\"
+artistwebsite = \"$artistwebsite\"
+
+buylink=\"$buylink\"
 date = \"$date\"
 
-[[links]]
-title = \"External link 1\"
-url = \"https://example.com/link1\"
+# Audio player
+releaseaudio=\"$releaseaudio\"
+releaseaudiotitle=\"$releaseaudiotitle\"
 
-[[links]]
-title = \"External link 2\"
-url = \"https://example.com/link2\"
+# -------------- METADATA ----------------------
+
+# About the release (short text, a few paragraphs)
+releaseabout = \"$releaseabout\"
+
+# Catalogue text (1-2 lines)
+releasecattext = \"$releasecattext\"
+
+# Metadata
+metadata = [
+    \"Artist: $artist_name\",
+]
+
+# Credits
+credits = [
+    $(echo $credits | sed 's/,/\", \"/g' | sed 's/^/\"/' | sed 's/$/\"/')
+]
+
+# Tracks
+tracklist = [
+    $(echo $tracklist | sed 's/,/\", \"/g' | sed 's/^/\"/' | sed 's/$/\"/')
+]
+
+# Buttons
+[[additionalLinks]]
+name = \"$additionalLinkName\"
+url = \"$additionalLinkURL\"
+
 +++
 
 $description
 " > $file
 
-echo "Release post created: $file"
+  echo "Release post created: $file"
 }
 
 # Iterate over arguments
