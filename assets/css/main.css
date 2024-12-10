@@ -729,10 +729,10 @@ button:hover {
 }
 
 .portfolio-grid {
-  padding: 1em;
+  padding: 3em;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
-  gap: 1em;
+  gap: 2em;
   grid-auto-rows: auto;
 }
 
