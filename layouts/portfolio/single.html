@@ -5,6 +5,10 @@
       <h1>{{ .Title }}</h1>
       <p>{{ .Params.year }}</p>
     </header>
+    <section>
+
+      <p>{{ .Params.description }}</p>
+    </section>
 
     <section>
     <figure>
@@ -20,6 +24,27 @@
 
     <section>
       {{ .Content }}
+
+      <p>
+      <hr>
+
+
+        <section>
+          <p>
+          {{/* <h2>Related Posts</h2> */}}
+          Related:
+          {{ partial "relatedposts.html" . }}
+          </p>
+
+          <p>
+          Categories: {{ range .Params.categories }}
+          +<a href="/categories/{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+          </p>
+
+        </section>
+      </p>
+
     </section>
   </article>
 </main>

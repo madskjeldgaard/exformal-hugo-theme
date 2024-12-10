@@ -1,0 +1,41 @@
+{{ $currentPage := . }}
+{{ $currentType := .Type }}
+{{ $currentCategories := .Params.categories }}
+{{ $currentYear := .Params.year }}
+
+{{ $related := slice }}
+
+<!-- First, find posts with the same type and category -->
+{{ range where .Site.Pages "Type" $currentType }}
+  {{ if and (ne .Permalink $currentPage.Permalink) (intersect .Params.categories $currentCategories) }}
+    {{ $related = $related | append . }}
+  {{ end }}
+{{ end }}
+
+<!-- If less than 5 related posts, find posts with the same type and year -->
+{{ if lt (len $related) 5 }}
+  {{ range where .Site.Pages "Type" $currentType }}
+    {{ if and (ne .Permalink $currentPage.Permalink) (not (intersect .Params.categories $currentCategories)) (eq .Params.year $currentYear) }}
+      {{ $related = $related | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- If still less than 5 related posts, find posts with the same type but different year -->
+{{ if lt (len $related) 5 }}
+  {{ range where .Site.Pages "Type" $currentType }}
+    {{ if and (ne .Permalink $currentPage.Permalink) (not (intersect .Params.categories $currentCategories)) (ne .Params.year $currentYear) }}
+      {{ $related = $related | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- Display the related posts -->
+{{ range first 5 $related }}
+  <span class="related-post">
+    <a href="{{ .Permalink }}">
+      {{ .Title }}
+      {{/* <p>{{ .Params.description }}</p> */}}
+    </a>, &nbsp;
+  </div>
+{{ end }}
