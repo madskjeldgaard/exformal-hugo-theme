@@ -14,9 +14,9 @@
       {{ $image := resources.Get .Params.cover }}
       {{ if $image }}
         {{ $resized := $image.Resize "1000x" }}
-        <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+        <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
       {{ else }}
-        <img src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
+        <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
       {{ end }}
     </figure>
     </section>

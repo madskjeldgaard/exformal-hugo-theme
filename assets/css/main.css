@@ -109,13 +109,13 @@ body {
   /* Merriweather for a classic, readable look */
   font-size: 16px;
   /* Comfortable reading size */
-  line-height: 1.8;
+  line-height: 1.5;
   /* Improved line spacing for readability */
   color: var(--text-color);
   /* Softer than black for reduced eye strain */
   background-color: var(--background-color);
   /* Light, neutral background */
-  letter-spacing: 0.7px;
+  letter-spacing: 0.8px;
   /* Slight increase in letter spacing for readability */
 
   margin: 0;
@@ -327,7 +327,7 @@ p {
   /* Shadow */
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25);
   margin-bottom: 1em;
-
+  max-height: 600px;
 }
 
 p.release-cover-caption,
@@ -754,14 +754,6 @@ button:hover {
   transition: opacity 0.25s linear;
 }
 
-.portfolio-cover-grid-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-cover-grid-item:hover {
-  transform: scale(1.05, 1.05);
-  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
-}
 
 .image-wrapper.has-alt-image .base-image {
   opacity: 1;
@@ -813,7 +805,7 @@ button:hover {
   border-radius: 3px;
 }
 
-.release-cat-text, .post-post-text {
+.release-cat-text, .post-post-text, .portfolio-grid-description {
   font-family: Helvetica, sans-serif;
   font-size: 0.9em;
   text-justify: inter-word;
