@@ -160,29 +160,55 @@ $description
   echo "Release post created: $file"
 }
 
-# Iterate over arguments
+function add_portfolio() {
+  read -p "Enter Title: " title
+  read -p "Enter Year: " year
+  read -p "Enter Categories (comma-separated): " categories
+  read -p "Enter Date (YYYY-MM-DD): " date
+  read -p "Enter Draft (true/false): " draft
+  read -p "Enter TOC (true/false): " toc
+  read -p "Enter Cover URL: " cover
+  read -p "Enter Description: " description
+
+  filename=$(echo "${title}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
+
+  echo "---" > "content/portfolio/${filename}.md"
+  echo "title: \"${title}\"" >> "content/portfolio/${filename}.md"
+  echo "year: ${year}" >> "content/portfolio/${filename}.md"
+  echo "categories: [$(echo ${categories} | sed 's/,/, /g')]" >> "content/portfolio/${filename}.md"
+  echo "date: ${date}" >> "content/portfolio/${filename}.md"
+  echo "draft: ${draft}" >> "content/portfolio/${filename}.md"
+  echo "toc: ${toc}" >> "content/portfolio/${filename}.md"
+  echo "cover: ${cover}" >> "content/portfolio/${filename}.md"
+  echo "description: \"${description}\"" >> "content/portfolio/${filename}.md"
+  echo "---" >> "content/portfolio/${filename}.md"
+
+  echo "Portfolio post created: content/portfolio/${filename}.md"
+}
+
+# Add the new command to the case statement
 for arg in "$@"
 do
   case $arg in
     add_release)
-    add_release
-    shift
-    ;;
-  add_artist)
-    add_artist
-    shift
-    ;;
-  add_text)
-    add_text
-    shift
-    ;;
-  fuzzy)
-    fuzzy
-    shift
-    ;;
-  -h|--help)
-    usage
-    shift
-    ;;
+      add_release
+      shift
+      ;;
+    add_artist)
+      add_artist
+      shift
+      ;;
+    add_text)
+      add_text
+      shift
+      ;;
+    add_portfolio)
+      add_portfolio
+      shift
+      ;;
+    -h|--help)
+      usage
+      shift
+      ;;
   esac
 done
