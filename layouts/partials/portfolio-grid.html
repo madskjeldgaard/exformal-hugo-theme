@@ -7,9 +7,9 @@
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
         {{ $resized := $image.Resize "800x" }}
-        <img src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
+        <img src="{{ $resized.Permalink }}" class="base-image portfolio-cover-grid-item" alt="Cover image for {{ .Params.title }}">
         {{ else }}
-        <img src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
+        <img src="/covers/default.png" class="base-image portfolio-cover-grid-item" alt="Cover image for {{ .Params.title }}">
         {{ end }}
       </div>
     </a>

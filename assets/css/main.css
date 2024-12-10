@@ -754,6 +754,15 @@ button:hover {
   transition: opacity 0.25s linear;
 }
 
+.portfolio-cover-grid-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-cover-grid-item:hover {
+  transform: scale(1.05, 1.05);
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+}
+
 .image-wrapper.has-alt-image .base-image {
   opacity: 1;
   z-index: 1;
@@ -804,7 +813,7 @@ button:hover {
   border-radius: 3px;
 }
 
-.release-cat-text {
+.release-cat-text, .post-post-text {
   font-family: Helvetica, sans-serif;
   font-size: 0.9em;
   text-justify: inter-word;
