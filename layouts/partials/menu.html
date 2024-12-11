@@ -26,8 +26,13 @@ $(document).ready(function() {
   </div>
   <nav>
     <ul>
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
+         {{- range . }}
+           <li class="{{ if or (eq .URL $page.Permalink) (eq .URL $page.RelPermalink) }}active{{ end }}">
+             <a href="{{ .URL }}">{{ .Name }}</a>
+           </li>
+         {{- end }}
+       </ul>
+
   </nav>
 {{- end }}
 
