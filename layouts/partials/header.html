@@ -1,7 +1,7 @@
 <!-- If a logo is defined in Params.logo, use that, otherwise text -->
 
 {{ if .Site.Params.logo }}
-  <a href="{{ .Site.BaseURL }}" title="Home">
+  <a class="no-underline" href="{{ .Site.BaseURL }}" title="Home">
   <img src="{{ .Site.Params.logo|absURL }}" alt="{{ .Site.Title }}" class="website-logo">
   </a>
 {{ else }}

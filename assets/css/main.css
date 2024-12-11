@@ -125,13 +125,13 @@ body {
 
 /* Fluid type */
 html {
-  font-size: min(max(16px, 4vw), 20px);
+  font-size: min(max(14px, 4vw), 18px);
 }
 
 header,
 footer {
   text-align: center;
-  padding: 3em;
+  padding: 1em;
   /* background-color: #f2f2f2; */
 
   display: flex;
@@ -144,19 +144,28 @@ footer {
 a {
   color: var(--link-color);
   /* Default link color */
-  font-weight: bold;
+  font-weight: normal;
   text-decoration: none;
   /* Removes underline from links */
   transition: color 0.5s ease, padding 1.0s ease;
   /* Smooth transition for color change */
+}
 
-
+a {
+  border-bottom: 1px dotted var(--link-color);
 }
 
 a#no-underline-link,
 a#no-underline-link:hover,
 a#no-underline-link:active {
   text-decoration: none;
+}
+
+/* Remove underline for specific links */
+.no-underline,
+.no-underline a {
+  text-decoration: none;
+  border-bottom: none; /* Remove underline */
 }
 
 
@@ -270,7 +279,6 @@ pre code {
 }
 
 header h1 {
-  font-size: 1.5em;
   margin: 0;
   padding: 0.25em;
   flex-grow: 1;
@@ -342,14 +350,37 @@ article {
 
 article h1 {
   text-align: center;
-  font-size: 2.0em;
+  margin: 1em 0;
 }
 
 article h2 {
-  font-size: 1.25em;
-  color: var(--text-color);
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+}
+
+/* Header sizes using the "Perfect Fourth" scale */
+h1 {
+  font-size: 2.488em; /* 16px * 2.488 ≈ 40px */
+}
+
+h2 {
+  font-size: 1.866em; /* 16px * 1.866 ≈ 30px */
+}
+
+h3 {
+  font-size: 1.4em; /* 16px * 1.4 ≈ 22px */
+}
+
+h4 {
+  font-size: 1.25em; /* 16px * 1.25 ≈ 20px */
+}
+
+h5 {
+  font-size: 1em; /* 16px * 1em = 16px */
+}
+
+h6 {
+  font-size: 0.875em; /* 16px * 0.875 ≈ 14px */
 }
 
 p {
