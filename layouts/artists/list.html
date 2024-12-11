@@ -2,14 +2,20 @@
 <article>
   <h2>Artists</h2>
 
-    {{.Content}}
-
-  <ul class="artists-list">
-    {{ range .Pages }}
-    <li class="artist-item">
-      <a href="{{ .Permalink }}">{{ .Params.artistname }} </a>
-    </li>
+  {{/* If there is content, make a <article>, if not leave it */}}
+    {{ if gt (len .Plain ) 0 }}
+    <article>
+      {{ .Content }}
+    </article>
     {{ end }}
-  </ul>
-</article>
-{{ end }}
+
+
+    <ul class="artists-list">
+      {{ range .Pages }}
+      <li class="artist-item">
+        <a href="{{ .Permalink }}">{{ .Params.artistname }} </a>
+      </li>
+      {{ end }}
+    </ul>
+  </article>
+  {{ end }}

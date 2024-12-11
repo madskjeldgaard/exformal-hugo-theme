@@ -1,10 +1,15 @@
 {{ define "main" }}
 <main>
+
+  {{/* If there is content, make a <article>, if not leave it */}}
+    {{ if gt (len .Plain ) 0 }}
     <article>
-    {{.Content}}
+      {{ .Content }}
     </article>
-  <section>
-    {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" .Data.Pages) }}
-  </section>
+    {{ end }}
+
+    <section>
+      {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" .Data.Pages) }}
+    </section>
 </main>
 {{ end }}

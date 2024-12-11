@@ -1,22 +1,30 @@
 {{ define "main" }}
 <article>
   <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  <table>
-    {{/* <thead> */}}
-    {{/*   <tr> */}}
-    {{/*     <th>Title</th> */}}
-    {{/*     <th>Date</th> */}}
-    {{/*   </tr> */}}
-    {{/* </thead> */}}
-    <tbody>
-      {{ range .Pages }}
+
+  {{/* If there is content, make a <article>, if not leave it */}}
+    {{ if gt (len .Plain ) 0 }}
+    <article>
+      {{ .Content }}
+    </article>
+    {{ end }}
+
+
+    <table>
+      {{/* <thead> */}}
+        {{/* <tr> */}}
+          {{/* <th>Title</th> */}}
+          {{/* <th>Date</th> */}}
+          {{/* </tr> */}}
+        {{/* </thead> */}}
+      <tbody>
+        {{ range .Pages }}
         <tr>
           <td>{{ .Date.Format "2006-01-02" }}:</td>
           <td><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></td>
         </tr>
-      {{ end }}
-    </tbody>
-  </table>
-</article>
-{{ end }}
+        {{ end }}
+      </tbody>
+    </table>
+  </article>
+  {{ end }}

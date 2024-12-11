@@ -4,10 +4,15 @@
 
   <section>
 
-    {{.Content}}
+    {{/* If there is content, make a <article>, if not leave it */}}
+      {{ if gt (len .Plain ) 0 }}
+      <article>
+        {{ .Content }}
+      </article>
+      {{ end }}
 
-    <!-- Show releases as grid: -->
-    {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }}
+      <!-- Show releases as grid: -->
+      {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }}
   </section>
 </main>
 {{ end }}
