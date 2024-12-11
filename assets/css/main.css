@@ -117,7 +117,7 @@ body {
   /* Slight increase in letter spacing for readability */
 
   margin: 0 auto;
-  max-width: 720px;
+  /* max-width: 720px; */
 
   padding: 0;
 
@@ -131,7 +131,7 @@ html {
 header,
 footer {
   text-align: center;
-  padding: 1em;
+  padding: 3em;
   /* background-color: #f2f2f2; */
 
   display: flex;
@@ -144,8 +144,8 @@ footer {
 a {
   color: var(--link-color);
   /* Default link color */
-  font-weight: normal;
-  text-decoration: underline;
+  font-weight: bold;
+  text-decoration: none;
   /* Removes underline from links */
   transition: color 0.5s ease, padding 1.0s ease;
   /* Smooth transition for color change */
@@ -315,6 +315,12 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: var(--text-color);
+}
+
+nav ul li.active a {
+  font-weight: bold;
+  color: var(--primary-color);
+  /* Change this to your desired highlight color */
 }
 
 article {
@@ -614,7 +620,7 @@ img {
 }
 
 img.website-logo {
-  max-width: 200px;
+  max-width: 100px;
   max-height: 75px;
   margin: 0 auto;
   display: block;
@@ -843,7 +849,7 @@ button:hover {
   text-align: left;
   color: var(--grey);
   background-color: var(--background-color);
-  margin: 0 0 1em 0;
+  margin: 1em 0;
 }
 
 .metadata-block {
