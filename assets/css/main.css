@@ -340,11 +340,9 @@ article {
   /* Optimal line length for reading */
   background-color: var(--background-color);
   font-weight: 400;
-
-  letter-spacing: 0.2px;
+  letter-spacing: 0.25px;
   /* Slight increase in letter spacing for readability */
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-  min-height: 200px;
 
 }
 

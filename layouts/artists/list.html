@@ -1,6 +1,9 @@
 {{ define "main" }}
 <article>
   <h2>Artists</h2>
+
+    {{.Content}}
+
   <ul class="artists-list">
     {{ range .Pages }}
     <li class="artist-item">
