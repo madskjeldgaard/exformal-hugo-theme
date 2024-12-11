@@ -107,9 +107,7 @@ th {
 body {
   font-family: 'Merriweather', serif;
   /* Merriweather for a classic, readable look */
-  font-size: 16px;
-  /* Comfortable reading size */
-  line-height: 1.5;
+  line-height: 1.45;
   /* Improved line spacing for readability */
   color: var(--text-color);
   /* Softer than black for reduced eye strain */
@@ -118,9 +116,16 @@ body {
   letter-spacing: 0.8px;
   /* Slight increase in letter spacing for readability */
 
-  margin: 0;
+  margin: 0 auto;
+  max-width: 720px;
+
   padding: 0;
 
+}
+
+/* Fluid type */
+html {
+  font-size: min(max(16px, 4vw), 20px);
 }
 
 header,
@@ -137,7 +142,6 @@ footer {
 
 /* Link Styles */
 a {
-  word-break: break-all;
   color: var(--link-color);
   /* Default link color */
   font-weight: normal;
@@ -236,7 +240,7 @@ a:focus {
 }
 
 /* Single release */
-.release-title{
+.release-title {
   font-style: italic;
 }
 
@@ -255,6 +259,16 @@ a.image-link:focus {
   padding: 0;
 }
 
+/* Format code blocks */
+pre code {
+  white-space: pre;
+  overflow-x: auto;
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 header h1 {
   font-size: 1.5em;
   margin: 0;
@@ -263,6 +277,20 @@ header h1 {
   /* Allows the title to grow and push the menu to the center */
   text-align: left;
   /* Aligns the title to the left */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 8%;
+  margin-bottom: -1%;
+}
+
+code {
+  font-family: Consolas, monospace;
 }
 
 nav {
@@ -319,7 +347,8 @@ article h2 {
 }
 
 p {
-  margin-bottom: 1em;
+  margin-top: 20px;
+  margin-bottom: 20px;
   /* Space between paragraphs */
 }
 
@@ -805,7 +834,9 @@ button:hover {
   border-radius: 3px;
 }
 
-.release-cat-text, .post-post-text, .portfolio-grid-description {
+.release-cat-text,
+.post-post-text,
+.portfolio-grid-description {
   font-family: Helvetica, sans-serif;
   font-size: 0.9em;
   text-justify: inter-word;
@@ -840,8 +871,7 @@ button:hover {
 }
 
 .header .cell,
-.meta-cat-header
-{
+.meta-cat-header {
 
   text-align: left;
   font-size: 1.25em;
