@@ -165,7 +165,8 @@ a#no-underline-link:active {
 .no-underline,
 .no-underline a {
   text-decoration: none;
-  border-bottom: none; /* Remove underline */
+  border-bottom: none;
+  /* Remove underline */
 }
 
 
@@ -353,27 +354,33 @@ article h1 {
 
 /* Header sizes using the "Perfect Fourth" scale */
 h1 {
-  font-size: 2.488em; /* 16px * 2.488 ≈ 40px */
+  font-size: 2.488em;
+  /* 16px * 2.488 ≈ 40px */
 }
 
 h2 {
-  font-size: 1.866em; /* 16px * 1.866 ≈ 30px */
+  font-size: 1.866em;
+  /* 16px * 1.866 ≈ 30px */
 }
 
 h3 {
-  font-size: 1.4em; /* 16px * 1.4 ≈ 22px */
+  font-size: 1.4em;
+  /* 16px * 1.4 ≈ 22px */
 }
 
 h4 {
-  font-size: 1.25em; /* 16px * 1.25 ≈ 20px */
+  font-size: 1.25em;
+  /* 16px * 1.25 ≈ 20px */
 }
 
 h5 {
-  font-size: 1em; /* 16px * 1em = 16px */
+  font-size: 1em;
+  /* 16px * 1em = 16px */
 }
 
 h6 {
-  font-size: 0.875em; /* 16px * 0.875 ≈ 14px */
+  font-size: 0.875em;
+  /* 16px * 0.875 ≈ 14px */
 }
 
 p {
@@ -983,5 +990,9 @@ button:hover {
     margin-bottom: 10px;
     text-align: center;
     /* Spacing between title and menu */
+  }
+
+  img.website-logo {
+    display: none;
   }
 }
