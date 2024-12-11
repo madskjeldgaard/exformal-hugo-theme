@@ -293,8 +293,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 8%;
-  margin-bottom: -1%;
+  margin: 0.5em 0;
+  font-weight: normal;
 }
 
 code {
@@ -323,6 +323,7 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: var(--text-color);
+
 }
 
 nav ul li.active a {
@@ -340,7 +341,7 @@ article {
   /* Optimal line length for reading */
   background-color: var(--background-color);
   font-weight: 400;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.20px;
   /* Slight increase in letter spacing for readability */
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 
@@ -348,12 +349,6 @@ article {
 
 article h1 {
   text-align: center;
-  margin: 1em 0;
-}
-
-article h2 {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
 }
 
 /* Header sizes using the "Perfect Fourth" scale */
