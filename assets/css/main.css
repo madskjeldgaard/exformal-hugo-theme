@@ -395,7 +395,7 @@ p.newsdate {
   font-size: 0.75em;
   font-family: Helvetica, sans-serif;
   text-align: center;
-  margin: 0;
+  margin: 0.25em 0 0.5em 0;
   padding: 0;
 }
 
@@ -638,7 +638,7 @@ audio#audio-player {
 img {
   max-width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 1em auto;
   display: block;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
@@ -952,7 +952,6 @@ button:hover {
 
   nav ul li a {
     display: block;
-    text-decoration: none;
   }
 
   nav ul li a:hover {
