@@ -1,8 +1,5 @@
 {{ define "main" }}
 <main>
-
-  <h1 class="centered-text">Portfolio</h1>
-
   <section>
     {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" .Data.Pages) }}
   </section>
