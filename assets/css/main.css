@@ -126,7 +126,7 @@ body {
 
 /* Fluid type */
 html {
-  font-size: min(max(14px, 4vw), 18px);
+  font-size: min(max(12px, 3vw), 14px);
 }
 
 header,
