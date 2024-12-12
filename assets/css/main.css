@@ -205,7 +205,9 @@ a:focus {
 }
 
 
-.cover-button {
+
+
+.cover-button, .pdf-paginator button {
   background-color: var(--background-color);
   color: var(--grey);
   border: 1px solid var(--grey);
@@ -216,6 +218,28 @@ a:focus {
   font-size: 0.9em;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.pdf-paginator button {
+  padding: 0.5em;
+  margin: 1em 1em 1em 0;
+  font-family: Helvetica, sans-serif;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-weight: bold;
+}
+
+.pdf-paginator {
+  /* Place in the center */
+  display: flex;
+}
+
+.embed-pdf-container #overlayText a {
+  font-family: Helvetica, sans-serif;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-weight: bold;
+  padding: 0 0.5em;
 }
 
 .cover-button:hover {

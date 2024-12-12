@@ -173,9 +173,7 @@
   <section>
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
-    <hr>
-    <h1>More releases</h1>
-    <!-- Show releases as grid: -->
+      <h1 class="centered-text">~</h1>
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>

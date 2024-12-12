@@ -41,8 +41,7 @@
       {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
       {{ if $pages }}
 
-      <h3>More projects:</h3>
-      <!-- Show releases as grid: -->
+      <h1 class="centered-text">~</h1>
       {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" $pages) }}
       {{end}}
     </section>
