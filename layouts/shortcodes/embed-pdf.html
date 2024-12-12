@@ -59,21 +59,14 @@
 
   #overlayText a {
     position: relative;
-    top: 10px;
-    right: 4px;
-    color: #000;
-    margin: auto;
-    background-color: #eeeeee;
-    padding: 0.3em 1em;
-    border: solid 2px;
-    border-radius: 12px;
-    border-color: #00000030;
+    margin: auto 1em;
+    padding: 1.0em 1em;
     text-decoration: none;
   }
 
   #overlayText svg {
-    height: clamp(1em, 2vw, 1.4em);
-    width:  clamp(1em, 2vw, 1.4em);
+    height: clamp(1em, 1vw, 1.0em);
+    width:  clamp(1em, 1vw, 1.0em);
   }
 
 
@@ -92,23 +85,22 @@
     <div class="pdf-loadingWrapper" id="pdf-loadingWrapper-{{ substr (.Get "url" | md5) 0 8 }}">
         <div class="pdf-loading" id="pdf-loading-{{ substr (.Get "url" | md5) 0 8 }}"></div>
     </div>
-    <div id="overlayText">
-      <a href="{{ .Get "url" }}" aria-label="Download" download>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-            <path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z" />
-        </svg>
-      </a>
-    </div>
-    <canvas class="pdf-canvas" id="pdf-canvas-{{ substr (.Get "url" | md5) 0 8 }}"></canvas>
+
+<div class="pdf-paginator">
+<button id="pdf-prev-{{ substr (.Get "url" | md5) 0 8 }}">←</button>
+    <button id="pdf-next-{{ substr (.Get "url" | md5) 0 8 }}">→</button> &nbsp; &nbsp;
+</div>
+
+        <canvas class="pdf-canvas" id="pdf-canvas-{{ substr (.Get "url" | md5) 0 8 }}"></canvas>
 </div>
 
 <div class="pdf-paginator" id="pdf-paginator-{{ substr (.Get "url" | md5) 0 8 }}">
-    <button id="pdf-prev-{{ substr (.Get "url" | md5) 0 8 }}">←</button>
-    <button id="pdf-next-{{ substr (.Get "url" | md5) 0 8 }}">→</button> &nbsp; &nbsp;
+    {{/* <button id="pdf-prev-{{ substr (.Get "url" | md5) 0 8 }}">←</button> */}}
+    {{/* <button id="pdf-next-{{ substr (.Get "url" | md5) 0 8 }}">→</button> &nbsp; &nbsp; */}}
     <span>
       <span class="pdf-pagenum" id="pdf-pagenum-{{ substr (.Get "url" | md5) 0 8 }}"></span> / <span class="pdf-pagecount" id="pdf-pagecount-{{ substr (.Get "url" | md5) 0 8 }}"></span>
     </span>
-    <a class="pdf-source" id="pdf-source-{{ substr (.Get "url" | md5) 0 8 }}" href="{{ .Get "url" }}">[pdf]</a>
+    <a class="pdf-source" id="pdf-source-{{ substr (.Get "url" | md5) 0 8 }}" href="{{ .Get "url" }}">[download]</a>
 </div>
 
 <noscript>
