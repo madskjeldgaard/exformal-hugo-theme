@@ -880,6 +880,10 @@ article .portfolio-grid {
   color: var(--text-color);
 }
 
+p.single-portfolio-desc {
+  margin-top: 0.5em;
+}
+
 .portfolio-text-bottom p {
   font-size: 0.75em !important;
 }
