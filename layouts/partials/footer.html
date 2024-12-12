@@ -7,15 +7,22 @@
 
   <p>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> and the <a
       href="https://github.com/madskjeldgaard/exformal-hugo-theme" target="_blank" rel="noopener">Exformal Theme</a>.
+  {{/* Link to site-wide RSS feed */}}
+  <a href="{{ "/index.xml" | relURL }}" target="_blank" rel="noopener">RSS feed</a>.
+
   </p>
 
   <ul class="footer-links">{{partial "socials.html"}}</ul>
 
   {{/* RSS */}}
   {{ with .OutputFormats.Get "rss" -}}
-  {{ printf `
-  <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+
+  <a href="{{ .Permalink }}" target="_blank" rel="noopener">RSS</a>
+
   {{ end -}}
+
+
 
 
 </div>
