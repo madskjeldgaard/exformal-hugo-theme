@@ -250,10 +250,7 @@ a:focus {
   padding-top: 1em;
 }
 
-/* Single release */
-.release-title {
-  font-style: italic;
-}
+
 
 .release-artist-header {
   font-weight: normal;
@@ -353,6 +350,13 @@ article h1 {
   text-align: center;
 }
 
+/* titles */
+.release-title,
+.portfolio-title,
+.artist-title {
+  font-style: italic;
+}
+
 /* Header sizes using the "Perfect Fourth" scale */
 h1 {
   font-size: 2.488em;
@@ -394,6 +398,7 @@ p {
   /* Shadow */
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25);
   margin-bottom: 1em;
+  margin-top: 0;
   max-height: 600px;
 }
 
