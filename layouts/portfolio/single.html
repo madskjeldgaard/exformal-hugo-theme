@@ -2,12 +2,11 @@
 <main>
   <article>
     <header>
-      <h1 class="portfolio-title">{{ .Title }}</h1>
-      <p>{{ .Params.year }}</p>
+      <h1 class="portfolio-title">{{ .Title }} ({{ .Params.year }})</h1>
     </header>
-    {{/* <section> */}}
-    {{/*   <p>{{ .Params.description }}</p> */}}
-    {{/* </section> */}}
+    <section>
+      <p class="single-portfolio-desc">{{ .Params.description }}</p>
+    </section>
 
 
     <section>
@@ -30,11 +29,7 @@
 
 
         <section class="post-post-text">
-          <p>
-          {{/* <h2>Related Posts</h2> */}}
-          Related:
-          {{ partial "relatedposts.html" . }}
-          </p>
+          {{/* <p>Related: {{ partial "relatedposts-list.html" . }} </p> */}}
 
           <p>
           Categories: {{ range .Params.categories }}
@@ -46,6 +41,21 @@
       </p>
 
     </section>
+
+  {{/* More */}}
+  <section>
+    {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
+    {{ if $pages }}
+
+    {{/* <hr> */}}
+
+    <h3>More projects:</h3>
+    <!-- Show releases as grid: -->
+    {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" $pages) }}
+    {{end}}
+  </section>
+
   </article>
+
 </main>
 {{ end }}

@@ -808,6 +808,11 @@ button:hover {
   grid-auto-rows: auto;
 }
 
+article .portfolio-grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding-top: 0;
+}
+
 .portfolio-item {
   position: relative;
   width: 100%;
@@ -863,6 +868,13 @@ button:hover {
 
 .meta-data-text p {
   font-size: 0.9em;
+}
+
+.single-portfolio-desc {
+  font-size: 1.125em;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  color: var(--text-color);
 }
 
 .portfolio-text-bottom p {
