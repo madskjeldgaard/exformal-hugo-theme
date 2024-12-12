@@ -810,7 +810,7 @@ button:hover {
 
 article .portfolio-grid {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  padding-top: 0;
+  padding: 0;
 }
 
 .portfolio-item {
