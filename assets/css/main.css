@@ -39,9 +39,10 @@
 .jp-play {
   /* border-radius: 0 0 5px; */
   background-color: var(--background-color);
+  color: var(--text-color);
   padding: 0;
   margin: 0;
-  font-size: 1.5em;
+  font-size: 2.0em;
 }
 
 .release-audio {
@@ -402,7 +403,7 @@ p.newsdate {
   font-size: 0.75em;
   font-family: Helvetica, sans-serif;
   text-align: center;
-  margin: 0.25em 0 0.5em 0;
+  margin: 0.25em 0 0.25em 0;
   padding: 0;
 }
 
