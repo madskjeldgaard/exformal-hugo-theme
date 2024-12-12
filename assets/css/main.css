@@ -351,6 +351,9 @@ article h1 {
 }
 
 /* titles */
+.portfolio-title{
+  padding: 0;
+}
 .release-title,
 .portfolio-title,
 .artist-title {
@@ -889,8 +892,17 @@ article .portfolio-grid {
   border-radius: 3px;
 }
 
+/* span.single-portfolio-categories { */
+/* } */
+
+span.single-portfolio-categories p{
+  text-align: center;
+  font-size: 1.0em;
+  margin:0.25em;
+}
+
 .release-cat-text,
-.post-post-text,
+.single-portfolio-categories,
 .portfolio-grid-description {
   font-family: Helvetica, sans-serif;
   font-size: 0.9em;

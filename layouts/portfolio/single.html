@@ -1,57 +1,51 @@
 {{ define "main" }}
 <main>
   <article>
+
+<span class="single-portfolio-categories">
+        <p>
+        {{ delimit .Params.categories " | " }}
+        </p>
+      </span>
+
     <header>
       <h1 class="portfolio-title">{{ .Title }} ({{ .Params.year }})</h1>
     </header>
     <section>
+
+
+
       <p class="single-portfolio-desc">{{ .Params.description }}</p>
+
     </section>
 
 
     <section>
-    <figure>
-      {{ $image := resources.Get .Params.cover }}
-      {{ if $image }}
+      <figure>
+        {{ $image := resources.Get .Params.cover }}
+        {{ if $image }}
         {{ $resized := $image.Resize "1000x" }}
         <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
-      {{ else }}
+        {{ else }}
         <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
-      {{ end }}
-    </figure>
+        {{ end }}
+      </figure>
     </section>
 
     <section>
       {{ .Content }}
-
-      <p>
-
-        <section class="post-post-text">
-          {{/* <p>Related: {{ partial "relatedposts-list.html" . }} </p> */}}
-
-          <p>
-          Categories: {{ range .Params.categories }}
-          +<a href="/categories/{{ . | urlize }}">{{ . }}</a>
-          {{ end }}
-          </p>
-
-        </section>
-      </p>
-
     </section>
 
-  {{/* More */}}
-  <section>
-    {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
-    {{ if $pages }}
+    {{/* More */}}
+    <section>
+      {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
+      {{ if $pages }}
 
-    {{/* <hr> */}}
-
-    <h3>More projects:</h3>
-    <!-- Show releases as grid: -->
-    {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" $pages) }}
-    {{end}}
-  </section>
+      <h3>More projects:</h3>
+      <!-- Show releases as grid: -->
+      {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" $pages) }}
+      {{end}}
+    </section>
 
   </article>
 
