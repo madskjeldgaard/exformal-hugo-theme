@@ -12,14 +12,15 @@
   {{ end }}
 
   <!-- only show title if it is allowed in the front matter -->
-  {{ if .Params.showTitle }}
   <h1>{{ .Title }}</h1>
-  {{ end }}
 
 {{ if .Params.subTitle }}
   <p class="subtitle" >{{ .Params.subTitle }}</p>
   {{ end }}
   {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+  {{/* tags */}}
+  {{ range .Params.tags }} #{{ . }} {{ end }}
+
 </article>
 {{ end }}

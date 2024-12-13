@@ -41,9 +41,20 @@
       {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
       {{ if $pages }}
 
+      {{/* tags */}}
+      {{ range .Params.tags }} #{{ . }} {{ end }}
+
+      {{/* delimter */}}
       <h1 class="centered-text">~</h1>
+
+      {{/* more stuff */}}
       {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" $pages) }}
+
       {{end}}
+
+
+
+
     </section>
 
   </article>

@@ -171,6 +171,10 @@
 
   {{/* More releases */}}
   <section>
+
+    {{/* tags */}}
+    {{ range .Params.tags }} #{{ . }} {{ end }}
+
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
       <h1 class="centered-text">~</h1>
