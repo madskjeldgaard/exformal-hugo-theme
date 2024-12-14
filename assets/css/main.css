@@ -432,14 +432,46 @@ p {
   max-height: 600px;
 }
 
+
+
 p.release-cover-caption,
 p.photo-caption,
+p.supporter-caption,
+a.supporter-caption,
 p.newsdate {
   font-size: 0.75em;
   font-family: Helvetica, sans-serif;
   text-align: center;
   margin: 0.25em 0 0.25em 0;
   padding: 0;
+}
+
+p.supporter-caption,
+a.supporter-caption{
+  text-align: center;
+}
+
+.supporter-logo{
+  max-width: 100px;
+  /* background-color: var(--text-color); */
+  padding: 1em;
+  display: inline-block;
+}
+
+.supporter-item a{
+  text-decoration: none;
+  border: none;
+}
+
+.supporter-item a:hover{
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.supporter-item {
+  display: inline-block;
+  margin: 0.5em;
 }
 
 footer p {
