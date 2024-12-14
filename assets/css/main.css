@@ -210,7 +210,9 @@ a:focus {
 }
 
 
-.cover-button, .pdf-paginator button, .embed-pdf-container #overlayText a {
+.cover-button,
+.pdf-paginator button,
+.embed-pdf-container #overlayText a {
   background-color: var(--background-color);
   color: var(--grey);
   border: 1px solid var(--grey);
@@ -378,9 +380,10 @@ article h1 {
 }
 
 /* titles */
-.portfolio-title{
+.portfolio-title {
   padding: 0;
 }
+
 .release-title,
 .portfolio-title,
 .artist-title {
@@ -447,23 +450,23 @@ p.newsdate {
 }
 
 p.supporter-caption,
-a.supporter-caption{
+a.supporter-caption {
   text-align: center;
 }
 
-.supporter-logo{
+.supporter-logo {
   max-width: 100px;
   /* background-color: var(--text-color); */
   padding: 1em;
   display: inline-block;
 }
 
-.supporter-item a{
+.supporter-item a {
   text-decoration: none;
   border: none;
 }
 
-.supporter-item a:hover{
+.supporter-item a:hover {
   text-decoration: none;
   border: none;
   background-color: transparent;
@@ -958,10 +961,10 @@ p.single-portfolio-desc {
 /* span.single-portfolio-categories { */
 /* } */
 
-span.single-portfolio-categories p{
+span.single-portfolio-categories p {
   text-align: center;
   font-size: 1.0em;
-  margin:0.25em;
+  margin: 0.25em;
 }
 
 .release-cat-text,
@@ -1010,10 +1013,6 @@ span.single-portfolio-categories p{
 }
 
 @media (max-width: 768px) {
-  .hamburger-menu {
-    display: flex;
-    margin-top: 1em;
-  }
 
 
   .release-info .cover-item {
@@ -1034,8 +1033,14 @@ span.single-portfolio-categories p{
     margin: 1em 0;
   }
 
+  .hamburger-menu {
+    display: flex;
+    margin: 1em;
+  }
+
   nav {
     display: none;
+    font-size: 1.5em;
   }
 
   nav ul {
