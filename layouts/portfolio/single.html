@@ -13,8 +13,6 @@
     </header>
     <section>
 
-
-
       <p class="single-portfolio-desc">{{ .Params.description }}</p>
 
     </section>
@@ -29,6 +27,12 @@
         {{ else }}
         <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
         {{ end }}
+
+        {{/* If there is a caption for the photo in the caption-key of the page, use that: */}}
+        {{with $.Params.caption}}
+        <figcaption class="portfolio-single-cover-caption">{{ . }}</figcaption>
+        {{end}}
+
       </figure>
     </section>
 

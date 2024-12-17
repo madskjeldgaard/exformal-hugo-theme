@@ -164,22 +164,35 @@ function add_portfolio() {
   read -p "Enter Title: " title
   read -p "Enter Year: " year
   read -p "Enter Categories (comma-separated): " categories
+  read -p "Enter Tags (comma-separated): " tags
   read -p "Enter Date (YYYY-MM-DD): " date
   read -p "Enter Draft (true/false): " draft
   read -p "Enter TOC (true/false): " toc
   read -p "Enter Cover URL: " cover
+  read -p "Enter cover caption: " covercaption
   read -p "Enter Description: " description
 
   filename=$(echo "${title}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
+
+  # Remove spaces from categories and tags
+  categories=$(echo $categories | sed 's/ //g')
+  tags=$(echo $tags | sed 's/ //g')
+
+  # Wrap all categories and tags in quotes
+  categories=$(echo $categories | sed 's/,/\", \"/g' | sed 's/^/\"/' | sed 's/$/\"/')
+  tags=$(echo $tags | sed 's/,/\", \"/g' | sed 's/^/\"/' | sed 's/$/\"/')
+
 
   echo "---" > "content/portfolio/${filename}.md"
   echo "title: \"${title}\"" >> "content/portfolio/${filename}.md"
   echo "year: ${year}" >> "content/portfolio/${filename}.md"
   echo "categories: [$(echo ${categories} | sed 's/,/, /g')]" >> "content/portfolio/${filename}.md"
+  echo "tags: [$(echo ${tags} | sed 's/,/, /g')]" >> "content/portfolio/${filename}.md"
   echo "date: ${date}" >> "content/portfolio/${filename}.md"
   echo "draft: ${draft}" >> "content/portfolio/${filename}.md"
   echo "toc: ${toc}" >> "content/portfolio/${filename}.md"
   echo "cover: ${cover}" >> "content/portfolio/${filename}.md"
+  echo "caption: \"${covercaption}\"" >> "content/portfolio/${filename}.md""
   echo "description: \"${description}\"" >> "content/portfolio/${filename}.md"
   echo "---" >> "content/portfolio/${filename}.md"
 
