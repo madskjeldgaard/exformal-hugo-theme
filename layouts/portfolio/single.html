@@ -2,11 +2,11 @@
 <main>
   <article>
 
-<span class="single-portfolio-categories">
-        <p>
+    <span class="single-portfolio-categories">
+      <p>
         {{ delimit .Params.categories " | " }}
-        </p>
-      </span>
+      </p>
+    </span>
 
     <header>
       <h1 class="portfolio-title">{{ .Title }} ({{ .Params.year }})</h1>
@@ -14,6 +14,16 @@
     <section>
 
       <p class="single-portfolio-desc">{{ .Params.description }}</p>
+
+      <!-- Audio player JPLAYER -->
+      {{ if .Params.audiopath }}
+      <div class="release-audio center-audio">
+        {{ $audiopath := .Params.audiopath | relURL }}
+        {{ $audiotitle := .Params.audiotitle | default "" }}
+        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath) }}
+      </div>
+      {{ end }}
+      <!-- END: Audio player JPLAYER -->
 
     </section>
 
@@ -45,7 +55,7 @@
 
       {{/* tags */}}
       <p class="tags">
-      {{ range .Params.tags }} #{{ . }} {{ end }}
+        {{ range .Params.tags }} #{{ . }} {{ end }}
       </p>
 
       {{ $pages := where .Site.RegularPages "Type" "portfolio" }}

@@ -171,6 +171,8 @@ function add_portfolio() {
   read -p "Enter Cover URL: " cover
   read -p "Enter cover caption: " covercaption
   read -p "Enter Description: " description
+  read -p "Enter Audio Path: " audiopath
+  read -p "Enter Audio Title: " audiotitle
 
   filename=$(echo "${title}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
 
@@ -185,6 +187,9 @@ function add_portfolio() {
 
   echo "---" > "content/portfolio/${filename}.md"
   echo "title: \"${title}\"" >> "content/portfolio/${filename}.md"
+  echo "description: \"${description}\"" >> "content/portfolio/${filename}.md"
+  echo "audiopath: \"\"" >> "content/portfolio/${filename}.md"
+  echo "audiotitle: \"\"" >> "content/portfolio/${filename}.md"
   echo "year: ${year}" >> "content/portfolio/${filename}.md"
   echo "categories: [$(echo ${categories} | sed 's/,/, /g')]" >> "content/portfolio/${filename}.md"
   echo "tags: [$(echo ${tags} | sed 's/,/, /g')]" >> "content/portfolio/${filename}.md"
@@ -193,7 +198,6 @@ function add_portfolio() {
   echo "toc: ${toc}" >> "content/portfolio/${filename}.md"
   echo "cover: ${cover}" >> "content/portfolio/${filename}.md"
   echo "caption: \"${covercaption}\"" >> "content/portfolio/${filename}.md""
-  echo "description: \"${description}\"" >> "content/portfolio/${filename}.md"
   echo "---" >> "content/portfolio/${filename}.md"
 
   echo "Portfolio post created: content/portfolio/${filename}.md"
