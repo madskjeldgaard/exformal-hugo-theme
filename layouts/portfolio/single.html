@@ -42,11 +42,14 @@
 
     {{/* More */}}
     <section>
-      {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
-      {{ if $pages }}
 
       {{/* tags */}}
+      <p class="tags">
       {{ range .Params.tags }} #{{ . }} {{ end }}
+      </p>
+
+      {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
+      {{ if $pages }}
 
       {{/* delimter */}}
       <h1 class="centered-text">~</h1>
