@@ -17,7 +17,7 @@
 
       <!-- Audio player JPLAYER -->
       {{ if .Params.audiopath }}
-      <div class="release-audio">
+      <div class="release-audio center-audio">
         {{ $audiopath := .Params.audiopath | relURL }}
         {{ $audiotitle := .Params.audiotitle | default "" }}
         {{ $id := .Params.id | default (now.UnixNano) }}
