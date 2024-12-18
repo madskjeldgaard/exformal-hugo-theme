@@ -45,9 +45,7 @@
   font-size: 2.0em;
 }
 
-.release-audio {
-  margin: 1em 0;
-}
+
 
 .jp-title {
   padding: 0 1em;
@@ -772,6 +770,16 @@ img.website-logo {
   align-items: center;
 }
 
+.release-audio {
+  margin: 1em 0;
+}
+
+.left-audio{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
 /* Customizing the audio player controls */
 audio {
   width: 100%;
@@ -962,13 +970,16 @@ p.single-portfolio-desc {
 /* span.single-portfolio-categories { */
 /* } */
 
-span.single-portfolio-categories p {
+span.single-portfolio-categories {
   text-align: center;
   font-size: 1.0em;
   margin: 0.25em;
 }
 
+
+
 .release-cat-text,
+.list-portfolio-categories,
 .single-portfolio-categories,
 .portfolio-grid-description {
   font-family: Helvetica, sans-serif;
@@ -978,6 +989,11 @@ span.single-portfolio-categories p {
   color: var(--grey);
   background-color: var(--background-color);
   margin: 1em 0;
+}
+
+.list-portfolio-categories{
+  text-align: left;
+  font-size: 1.0em;
 }
 
 .metadata-block {

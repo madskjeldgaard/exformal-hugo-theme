@@ -2,25 +2,58 @@
   {{ $type := .type }}
   {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
+
+
+    {{/* Categories */}}
+    <span class="list-portfolio-categories single-portfolio-categories">
+        {{ delimit .Params.categories " | " }}
+    </span>
+
+    {{/* Cover image */}}
     <a href="{{ .Permalink }}">
       <div class="image-wrapper">
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
         {{ $resized := $image.Resize "800x" }}
-        <img src="{{ $resized.Permalink }}" class="base-image portfolio-cover-grid-item zoom-on-hover" alt="Cover image for {{ .Params.title }}">
+        <img src="{{ $resized.Permalink }}" class="base-image portfolio-cover-grid-item zoom-on-hover"
+          alt="Cover image for {{ .Params.title }}">
         {{ else }}
-        <img src="/covers/default.png" class="base-image portfolio-cover-grid-item zoom-on-hover" alt="Cover image for {{ .Params.title }}">
+        <img src="/covers/default.png" class="base-image portfolio-cover-grid-item zoom-on-hover"
+          alt="Cover image for {{ .Params.title }}">
         {{ end }}
       </div>
     </a>
+
+
+    {{/* Text under image */}}
     <div class="portfolio-description">
+
+    <!-- Audio player JPLAYER -->
+      {{ if .Params.audiopath }}
+      <div class="release-audio">
+        {{ $audiopath := .Params.audiopath | relURL }}
+        {{ $audiotitle := .Params.audiotitle | default "" }}
+        {{ $id := now.UnixNano }}
+        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+      </div>
+      {{ end }}
+      <!-- END: Audio player JPLAYER -->
+
+
+
+
+      {{/* Title */}}
       <a href="{{.Permalink }}">
         <h4 class="portfolio-grid-title">{{.Params.title}} ({{.Params.year}})</h4>
       </a>
 
+
+      {{/* Description */}}
       <p class="portfolio-grid-description">
-      {{ .Params.description }}
+        {{ .Params.description }}
       </p>
+
+
     </div>
   </div>
   {{ end }}

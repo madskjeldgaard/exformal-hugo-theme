@@ -17,12 +17,12 @@
 
       <!-- Audio player JPLAYER -->
       {{ if .Params.audiopath }}
-      <div class="release-audio center-audio">
+      <div class="release-audio">
         {{ $audiopath := .Params.audiopath | relURL }}
         {{ $audiotitle := .Params.audiotitle | default "" }}
-        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath) }}
-      </div>
-      {{ end }}
+        {{ $id := .Params.id | default (now.UnixNano) }}
+        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+      </div>      {{ end }}
       <!-- END: Audio player JPLAYER -->
 
     </section>
