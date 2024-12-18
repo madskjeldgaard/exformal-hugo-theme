@@ -30,6 +30,8 @@
 <script>
   $(document).ready(function () {
     var myPlayer = $("#{{ $css_id }}");
+    var allPlayers = $(".jp-jplayer");
+
     myPlayer.jPlayer({
       ready: function () {
         console.log("jPlayer is ready. Setting media:", {
@@ -59,6 +61,7 @@
     });
 
     myPlayer.bind($.jPlayer.event.play, function () {
+      allPlayers.not(myPlayer).jPlayer("pause");
       $('#{{ $container_id }} .jp-play').text('⏸');
     });
 
