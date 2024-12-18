@@ -751,6 +751,8 @@ img.website-logo {
   font-style: italic;
 }
 
+
+
 .tracklist {
   margin-top: 5px;
   font-size: 0.9em;
@@ -779,6 +781,8 @@ img.website-logo {
   justify-content: left;
   align-items: left;
 }
+
+
 
 /* Customizing the audio player controls */
 audio {
@@ -991,9 +995,8 @@ span.single-portfolio-categories {
   margin: 1em 0;
 }
 
-.list-portfolio-categories{
-  text-align: left;
-  font-size: 1.0em;
+span.list-portfolio-categories{
+  font-size: 0.8em;
 }
 
 .metadata-block {

@@ -6,7 +6,7 @@
 
     {{/* Categories */}}
     <span class="list-portfolio-categories single-portfolio-categories">
-        {{ delimit .Params.categories " | " }}
+      {{ delimit .Params.categories " | " }}
     </span>
 
     {{/* Cover image */}}
@@ -28,20 +28,6 @@
     {{/* Text under image */}}
     <div class="portfolio-description">
 
-    <!-- Audio player JPLAYER -->
-      {{ if .Params.audiopath }}
-      <div class="release-audio">
-        {{ $audiopath := .Params.audiopath | relURL }}
-        {{ $audiotitle := .Params.audiotitle | default "" }}
-        {{ $id := now.UnixNano }}
-        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
-      </div>
-      {{ end }}
-      <!-- END: Audio player JPLAYER -->
-
-
-
-
       {{/* Title */}}
       <a href="{{.Permalink }}">
         <h4 class="portfolio-grid-title">{{.Params.title}} ({{.Params.year}})</h4>
@@ -51,6 +37,18 @@
       {{/* Description */}}
       <p class="portfolio-grid-description">
         {{ .Params.description }}
+
+        <!-- Audio player JPLAYER -->
+        {{ if .Params.audiopath }}
+      <div class="release-audio list-view-audioplayer">
+        {{ $audiopath := .Params.audiopath | relURL }}
+        {{ $audiotitle := .Params.audiotitle | default "" }}
+        {{ $id := now.UnixNano }}
+        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+      </div>
+      {{ end }}
+      <!-- END: Audio player JPLAYER -->
+
       </p>
 
 
