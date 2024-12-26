@@ -60,7 +60,7 @@
 
       <!-- Audio player JPLAYER -->
       <div class="release-audio">
-        {{ partial "audioplayer.html" (dict "title" .Params.releaseaudiotitle "mp3" .Params.releaseaudio) }}
+        {{ partial "simple-audio-player.html" (dict "title" .Params.releaseaudiotitle "mp3" $audiopath "id" .Params.releaseaudio) }}
       </div>
       <!-- END: Audio player JPLAYER -->
 

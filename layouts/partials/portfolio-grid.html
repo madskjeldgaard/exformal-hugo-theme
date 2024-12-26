@@ -44,7 +44,7 @@
         {{ $audiopath := .Params.audiopath | relURL }}
         {{ $audiotitle := .Params.audiotitle | default "" }}
         {{ $id := now.UnixNano }}
-        {{ partial "audioplayer.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+        {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
       </div>
       {{ end }}
       <!-- END: Audio player JPLAYER -->

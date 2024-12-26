@@ -5,4 +5,5 @@ title = 'Exformal'
 [module]
   [module.hugoVersion]
     extended = true
-    min = "0.128.0"
+    min = "0.140.0"
+    theme = ['hugo-audio']
