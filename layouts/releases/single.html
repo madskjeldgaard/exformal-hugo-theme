@@ -184,11 +184,13 @@
   <section>
 
     {{/* tags */}}
-    {{ range .Params.tags }} #{{ . }} {{ end }}
+    <p class="tags">
+      {{ range .Params.tags }} #{{ . }} {{ end }}
+    </p>
 
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
-    <h1 class="centered-text">~</h1>
+    <hr>
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>

@@ -679,6 +679,14 @@ audio#audio-player {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--quote-color);
+  color: var(--quote-color);
+  margin: 1em 0;
+}
+
 .threejscanvas {
   width: 100%;
   height: 100%;
