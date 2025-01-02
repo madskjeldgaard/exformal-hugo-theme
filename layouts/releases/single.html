@@ -59,10 +59,9 @@
       {{/* {{ end }} */}}
       {{/* {{ end }} */}}
 
-      {{ if .Params.audiopath }}
       <!-- Audio player JPLAYER -->
       <div class="release-audio">
-
+      {{ if .Params.audiopath }}
         {{ $audiopath := .Params.audiopath | relURL }}
         {{ $audiotitle := .Params.audiotitle | default "" }}
         {{ $id := .Params.id | default (now.UnixNano) }}
