@@ -79,13 +79,13 @@ th {
 body {
   font-family: 'Merriweather', serif;
   /* Merriweather for a classic, readable look */
-  line-height: 1.45;
+  line-height: 1.5;
   /* Improved line spacing for readability */
   color: var(--text-color);
   /* Softer than black for reduced eye strain */
   background-color: var(--background-color);
   /* Light, neutral background */
-  letter-spacing: 0.8px;
+  letter-spacing: 0.9px;
   /* Slight increase in letter spacing for readability */
 
   margin: 0 auto;
@@ -170,9 +170,9 @@ a:focus {
 
 
 .cover-button-container {
-  padding: 0em 0;
+  padding: 1em 0 0 0;
   display: inline-block;
-  margin: 0 1em 0 0;
+  margin: 1em 1em 0 0;
 }
 
 .pdf-paginator {
