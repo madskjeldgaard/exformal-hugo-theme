@@ -4,13 +4,14 @@
 <article class="release-post">
   <time datetime="{{ .Date | time.Format " 2006-01-02T15:04:05-07:00" }}"></time>
 
+
   {{/* Artist name */}}
   <h4 class="centered-text release-artist-header">
     {{ partial "artistlink.html" .Params.releaseartist }}
   </h4>
 
-{{/* Release title */}}
-  <h1 class="release-title"> {{ .Params.releasetitle }}</h1>
+  {{/* Release title */}}
+  <h1 class="release-title"> {{ .Params.title }}</h1>
 
   <!-- Cover and Catalogue text -->
   <div class="release-info">
@@ -22,22 +23,22 @@
     <!-- Cover image -->
     <div class="cover-item child1">
       {{ with .Params.releasecover }}
-        {{ $cover := resources.Get . }}
-        {{ if $cover }}
-          {{ $resized := $cover.Resize "1280x" }}
-          {{ with $.Params.buylink }}
-          <a href="{{ . }}" aria="Purchase '{{ $.Params.releasetitle }}'" target="_blank" rel="noopener" class="image-link">
-            <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}"
-              alt="Cover image for {{ $.Params.releasetitle }}" />
-            {{ with $.Params.releasecoverartist }}
-            <figcaption class="release-cover-caption ">Cover art by {{ . }}</figcaption>
-            {{ end }}
-          </a>
-          {{ else }}
-          <img class="release-cover-image zoom-on-hover" src="/path/to/default/image.jpg"
-            alt="Cover image for {{ $.Params.releasetitle }}" />
-          {{ end }}
+      {{ $cover := resources.Get . }}
+      {{ if $cover }}
+      {{ $resized := $cover.Resize "1280x" }}
+      {{ with $.Params.buylink }}
+      <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener" class="image-link">
+        <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}"
+          alt="Cover image for {{ $.Params.title }}" />
+        {{ with $.Params.releasecoverartist }}
+        <figcaption class="release-cover-caption ">Cover art by {{ . }}</figcaption>
         {{ end }}
+      </a>
+      {{ else }}
+      <img class="release-cover-image zoom-on-hover" src="/path/to/default/image.jpg"
+        alt="Cover image for {{ $.Params.title }}" />
+      {{ end }}
+      {{ end }}
       {{ end }}
 
       <!-- Alt cover image -->
@@ -48,19 +49,26 @@
       {{/* {{ $resized := $cover.Fill "800x800 Center" }} */}}
       {{/* {{ with $.Params.buylink }} */}}
       {{/* <a href="{{ . }}" target="_blank" rel="noopener" class="image-link"> */}}
-      {{/*   <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}" */}}
-      {{/*     alt="Cover image for {{ $.Params.releasetitle }}" /> */}}
-      {{/*   {{ with $.Params.releasecoverartist }} */}}
-      {{/*   <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption> */}}
-      {{/*   {{ end }} */}}
-      {{/* </a> */}}
+        {{/* <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}" */}} {{/*
+          alt="Cover image for {{ $.Params.releasetitle }}" /> */}}
+        {{/* {{ with $.Params.releasecoverartist }} */}}
+        {{/* <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption> */}}
+        {{/* {{ end }} */}}
+        {{/* </a> */}}
       {{/* {{ end }} */}}
       {{/* {{ end }} */}}
       {{/* {{ end }} */}}
 
+      {{ if .Params.audiopath }}
       <!-- Audio player JPLAYER -->
       <div class="release-audio">
-        {{ partial "simple-audio-player.html" (dict "title" .Params.releaseaudiotitle "mp3" $audiopath "id" .Params.releaseaudio) }}
+
+        {{ $audiopath := .Params.audiopath | relURL }}
+        {{ $audiotitle := .Params.audiotitle | default "" }}
+        {{ $id := .Params.id | default (now.UnixNano) }}
+        {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+
+        {{ end }}
       </div>
       <!-- END: Audio player JPLAYER -->
 
@@ -73,7 +81,7 @@
       {{ end }}
 
       <!-- Release name -->
-      {{ with .Params.releasetitle }}
+      {{ with .Params.title }}
       <div class="release-title">
         {{ . }}
       </div>
@@ -90,7 +98,7 @@
       <!-- Buy link -->
       {{ with .Params.buylink }}
       <div class="cover-button-container">
-        <a href="{{ . }}" aria="Purchase '{{ $.Params.releasetitle }}'" target="_blank" rel="noopener">
+        <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
           <button class="buy-button">Buy/listen</button>
         </a>
       </div>
@@ -99,7 +107,7 @@
       <!-- Additional links -->
       {{ range .Params.additionalLinks }}
       <div class="cover-button-container">
-        <a href="{{ .url }}" aria="Purchase '{{ $.Params.releasetitle }}'" target="_blank" rel="noopener">
+        <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
           <button class="cover-button">{{ .name }}</button>
         </a>
       </div>
@@ -115,9 +123,9 @@
       {{ with .Params.releaseabout }}
       <div class="release-metadata">
 
-          <div class="release-about-header">
-            <p>In short ... </p>
-          </div>
+        <div class="release-about-header">
+          <p>In short ... </p>
+        </div>
 
         <div class="release-cat-text">
           <div class="release-about-text meta-data-text">
@@ -125,7 +133,7 @@
           </div>
 
         </div>
-        </div>
+      </div>
       {{ end }}
 
 
@@ -151,22 +159,25 @@
 
 
   {{/* About the artist */}}
-{{/* {{ with .Params.releaseartist }} */}}
-{{/* <hr> */}}
-{{/* <section class="release-artist"> */}}
-{{/*   <h2>About the artist: {{ . }}</h2> */}}
-{{/*   <p> */}}
-{{/*   {{ $flattend_artist_name := replace . " " "-" |lower }} */}}
-{{/*   {{ $url := printf "/artists/%s" $flattend_artist_name }} */}}
-{{/*   {{ $page := $.Site.GetPage $url }} */}}
-{{/*   {{ if $page }} */}}
-{{/*     {{ $page.Params.artistbio }} */}}
-{{/*   {{ else }} */}}
-{{/*     <p>No page found at {{ $url }}</p> */}}
-{{/*   {{ end }} */}}
-{{/*   </p> */}}
-{{/* </section> */}}
-{{/* {{ end }} */}}
+  {{/* {{ with .Params.releaseartist }} */}}
+  {{/*
+  <hr> */}}
+  {{/* <section class="release-artist"> */}}
+    {{/* <h2>About the artist: {{ . }}</h2> */}}
+    {{/* <p> */}}
+      {{/* {{ $flattend_artist_name := replace . " " "-" |lower }} */}}
+      {{/* {{ $url := printf "/artists/%s" $flattend_artist_name }} */}}
+      {{/* {{ $page := $.Site.GetPage $url }} */}}
+      {{/* {{ if $page }} */}}
+      {{/* {{ $page.Params.artistbio }} */}}
+      {{/* {{ else }} */}}
+      {{/*
+    <p>No page found at {{ $url }}</p> */}}
+    {{/* {{ end }} */}}
+    {{/* </p> */}}
+    {{/*
+  </section> */}}
+  {{/* {{ end }} */}}
 
 
   {{/* More releases */}}
@@ -177,7 +188,7 @@
 
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
-      <h1 class="centered-text">~</h1>
+    <h1 class="centered-text">~</h1>
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>

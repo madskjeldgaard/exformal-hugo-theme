@@ -109,7 +109,6 @@ releasecover = \"$releasecover\"
 altcover = \"$altcover\"
 
 # Release basics
-releasetitle = \"$album_name\"
 releaseartist = \"$artist_name\"
 releaseyear = \"$release_year\"
 releaseformat = \"$format\"
@@ -121,8 +120,8 @@ buylink=\"$buylink\"
 date = \"$date\"
 
 # Audio player
-releaseaudio=\"$releaseaudio\"
-releaseaudiotitle=\"$releaseaudiotitle\"
+audiopath=\"$releaseaudio\"
+audiotitle=\"$releaseaudiotitle\"
 
 # -------------- METADATA ----------------------
 

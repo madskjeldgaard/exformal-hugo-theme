@@ -2,33 +2,52 @@
   {{ $type := "releases" }}
   {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
-    <div class="portfolio-description portfolio-text-top">
-      <a href="{{.Permalink }}">
-        {{.Params.releasecatnum}} | {{.Params.releaseartist}}<br>
-        {{.Params.releasetitle}}
-      </a>
-    </div>
+    {{/* Categories */}}
+    <span class="list-portfolio-categories single-portfolio-categories">
+      {{ delimit .Params.categories " | " }}
+    </span>
+
     <a href="{{ .Permalink }}">
       <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
         {{ $image := resources.Get .Params.releasecover }}
         {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
         {{ $resized := $image.Resize "1600x q80" }}
-        <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.releasetitle }}">
+        <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
         {{ else }}
-        <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.releasetitle }}">
+        <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
         {{ end }}
         {{ if $altImage }}
         {{ $resizedAlt := $altImage.Resize "1600x q80" }}
-        <img class="alt-image" src="{{ $resizedAlt.Permalink }}"
-          alt="Alternate cover image for {{ .Params.releasetitle }}">
+        <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.title }}">
         {{ end }}
       </div>
     </a>
 
-    <!-- <div class="portfolio-description portfolio-text-bottom"> -->
-    <!--   <p> {{.Params.releasecattext}} </p> -->
-    <!-- </div> -->
+    <div class="portfolio-description portfolio-text-top">
+      <a href="{{.Permalink }}">
+        {{.Params.releasecatnum}} | {{.Params.releaseartist}}<br>
+        {{.Params.title}}
+      </a>
+    </div>
+
+    <div class="portfolio-description">
+      {{/* Description */}}
+      <p class="portfolio-grid-description">
+        {{ .Params.releasecattext }}
+
+        <!-- Audio player JPLAYER -->
+        {{ if .Params.audiopath }}
+        <div class="release-audio list-view-audioplayer">
+          {{ $audiopath := .Params.audiopath | relURL }}
+          {{ $audiotitle := .Params.audiotitle | default "" }}
+          {{ $id := now.UnixNano }}
+          {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+        </div>
+        {{ end }}
+        <!-- END: Audio player JPLAYER -->
+      </p>
+    </div>
   </div>
   {{ end }}
 </div>
