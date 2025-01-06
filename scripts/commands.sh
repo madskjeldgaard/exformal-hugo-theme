@@ -56,12 +56,12 @@ artistphotocredit = \"\"
 date = \"$date\"
 draft=true
 
-[[links]]
-title = \"External link 1\"
+[[additionalLinks]]
+name = \"External link 1\"
 url = \"https://example.com/link1\"
 
-[[links]]
-title = \"External link 2\"
+[[additionalLinks]]
+name = \"External link 2\"
 url = \"https://example.com/link2\"
 
 +++
@@ -196,7 +196,7 @@ function add_portfolio() {
   echo "draft: ${draft}" >> "content/portfolio/${filename}.md"
   echo "toc: ${toc}" >> "content/portfolio/${filename}.md"
   echo "cover: ${cover}" >> "content/portfolio/${filename}.md"
-  echo "caption: \"${covercaption}\"" >> "content/portfolio/${filename}.md""
+  echo "caption: \"${covercaption}\"" >> "content/portfolio/${filename}.md"
   echo "---" >> "content/portfolio/${filename}.md"
 
   echo "Portfolio post created: content/portfolio/${filename}.md"

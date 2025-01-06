@@ -877,17 +877,29 @@ article .portfolio-grid {
   width: 100%;
 }
 
-.portfolio-item .image-wrapper {
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   padding-top: 100%;
-  /* This makes the wrapper a square */
   position: relative;
 }
+
+/* .portfolio-item .image-wrapper { */
+/*   overflow: hidden; */
+/*   padding-top: 100%; */
+/*   /* This makes the wrapper a square */ */
+/*   position: relative; */
+/* } */
 
 .image-wrapper.has-alt-image .base-image,
 .image-wrapper.has-alt-image .alt-image {
   position: absolute;
   transition: opacity 0.25s linear;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 
@@ -912,8 +924,9 @@ article .portfolio-grid {
 .portfolio-item img {
   object-fit: cover;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  transition: opacity 0.25s linear;
+  height: 95%;
   top: 0;
   left: 0;
 }
@@ -937,7 +950,7 @@ article .portfolio-grid {
 }
 
 p.single-portfolio-desc {
-  margin-top: 0.5em;
+  margin-top: 1.0em;
 }
 
 .portfolio-text-bottom p {
