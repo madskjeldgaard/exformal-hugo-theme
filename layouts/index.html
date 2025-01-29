@@ -19,10 +19,19 @@
     {{ end }}
     {{ end }}
 
+
+
 <article>
 <section>
 {{.Content}}
 </section>
+
+
+<section>
+      <!-- Show releases as grid: -->
+      {{ partial "release-grid.html" (dict "type" "release" "pages" .Site.RegularPages) }}
+</section>
+
 </article>
 
   </main>
