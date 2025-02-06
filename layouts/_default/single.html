@@ -12,7 +12,9 @@
   {{ end }}
 
   <!-- only show title if it is allowed in the front matter -->
+  {{ if .Params.showTitle }}
   <h1>{{ .Title }}</h1>
+  {{ end }}
 
 {{ if .Params.subTitle }}
   <p class="subtitle" >{{ .Params.subTitle }}</p>

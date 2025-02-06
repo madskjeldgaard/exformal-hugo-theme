@@ -3,6 +3,13 @@
 {{ if not .IsHome }}
 
 <div class="site-footer">
+
+  {{/* if footerText is defined in the site, use that text */}}
+  {{ if .Site.Params.footerText }}
+  <p>{{ .Site.Params.footerText }}</p>
+  <br>
+  {{ end }}
+
   <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All Rights Reserved.</p>
   <br>
   <p><a href="https://github.com/madskjeldgaard/exformal-hugo-theme" target="_blank" rel="noopener">Open source web design by Mads Kjeldgaard</a>.
@@ -20,8 +27,6 @@
   {{ end -}}
 
   <ul class="footer-links">{{partial "socials.html"}}</ul>
-
-
 
 </div>
 {{ end }}
