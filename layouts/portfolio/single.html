@@ -33,10 +33,19 @@
       <figure>
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
-        {{ $resized := $image.Resize "1000x" }}
-        <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
-        {{ else }}
-        <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
+          {{ $resized := $image.Resize "1000x" }}
+
+          {{/* If there is a coverlink parameter in the page front matter, wrap it in a link */}}
+
+          {{ if .Params.coverlink }}
+            <a href="{{ .Params.coverlink }}">
+              <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+            </a>
+          {{ else }}
+            <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+          {{ end }}
+          {{ else }}
+          <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
         {{ end }}
 
         {{/* If there is a caption for the photo in the caption-key of the page, use that: */}}
