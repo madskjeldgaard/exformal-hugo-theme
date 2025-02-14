@@ -9,7 +9,7 @@
 
     <a href="{{ .Permalink }}">
       <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
-        {{ $image := resources.Get .Params.releasecover }}
+        {{ $image := resources.Get .Params.images }}
         {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
         {{ $resized := $image.Resize "1600x q80" }}

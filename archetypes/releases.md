@@ -3,7 +3,7 @@ title = "{{ replace .Name "-" " " | title }}"
 draft = true
 
 # Images
-releasecover = "/images/covers/default.png"
+images = "/images/covers/default.png"
 altcover = "/images/covers/default.png"
 
 # Release basics
@@ -25,7 +25,7 @@ releaseaudiotitle = "Audio Title"
 # -------------- METADATA ----------------------
 
 # About the release (short text, a few paragraphs)
-releaseabout = "Description of the release."
+description = "Description of the release."
 
 # Catalogue text (1-2 lines)
 releasecattext = "Catalogue text."

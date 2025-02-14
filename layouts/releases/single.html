@@ -4,6 +4,7 @@
 <article class="release-post">
   <time datetime="{{ .Date | time.Format " 2006-01-02T15:04:05-07:00" }}"></time>
 
+  {{ partial "head/opengraph.html" . }}
 
   {{/* Artist name */}}
   <h4 class="centered-text release-artist-header">
@@ -22,7 +23,7 @@
 
     <!-- Cover image -->
     <div class="cover-item child1">
-      {{ with .Params.releasecover }}
+      {{ with .Params.images }}
       {{ $cover := resources.Get . }}
       {{ if $cover }}
       {{ $resized := $cover.Resize "1280x" }}
@@ -30,7 +31,7 @@
       <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener" class="image-link">
         <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}"
           alt="Cover image for {{ $.Params.title }}" />
-        {{ with $.Params.releasecoverartist }}
+        {{ with $.Params.imagesartist }}
         <figcaption class="release-cover-caption ">Cover art by {{ . }}</figcaption>
         {{ end }}
       </a>
@@ -51,7 +52,7 @@
       {{/* <a href="{{ . }}" target="_blank" rel="noopener" class="image-link"> */}}
         {{/* <img class="release-cover-image zoom-on-hover" src="{{ $resized.Permalink }}" */}} {{/*
           alt="Cover image for {{ $.Params.releasetitle }}" /> */}}
-        {{/* {{ with $.Params.releasecoverartist }} */}}
+        {{/* {{ with $.Params.imagesartist }} */}}
         {{/* <figcaption class="release-cover-caption">Cover art by {{ . }}</figcaption> */}}
         {{/* {{ end }} */}}
         {{/* </a> */}}
@@ -119,7 +120,7 @@
     <div class="cover-item child2">
 
       <!-- "In short" text -->
-      {{ with .Params.releaseabout }}
+      {{ with .Params.description }}
       <div class="release-metadata">
 
         <div class="release-about-header">
@@ -168,7 +169,7 @@
       {{/* {{ $url := printf "/artists/%s" $flattend_artist_name }} */}}
       {{/* {{ $page := $.Site.GetPage $url }} */}}
       {{/* {{ if $page }} */}}
-      {{/* {{ $page.Params.artistbio }} */}}
+      {{/* {{ $page.Params.description }} */}}
       {{/* {{ else }} */}}
       {{/*
     <p>No page found at {{ $url }}</p> */}}

@@ -3,7 +3,7 @@ draft = true
 
 title = "{{ replace .Name "-" " " | title }}"
 artistname = "{{ replace .Name "-" " " | title }}"
-artistbio = "A music composer."
+description = "A music composer."
 artistphoto = "/images/artists/default.jpg"
 artistphotocredit = ""
 date = "{{ .Date }}"

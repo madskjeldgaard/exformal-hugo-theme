@@ -1,22 +1,21 @@
-{{/* If it's a release, use the release metadata */}}
-{{ if eq .Type "release" }}
-  {{ $release := .Params }}
-  <meta property="og:title" content="{{ $release.releasetitle }}">
-  <meta property="og:type" content="music.album">
-  <meta property="og:url" content="{{ .Permalink }}">
-  {{ with $release.releasecover }}
-    {{ $cover := resources.Get . }}
-    {{ if $cover }}
-      {{ $resized := $cover.Resize "1200x630" }}
-      <meta property="og:image" content="{{ $resized.Permalink }}">
-    {{ end }}
-  {{ end }}
-  <meta property="og:description" content="{{ $release.releasedescription }}">
-{{ else }}
-  {{/* Default Open Graph tags */}}
-  <meta property="og:title" content="{{ .Site.Title }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ .Site.Params.defaultImage | absURL }}">
-  <meta property="og:description" content="{{ .Site.Params.defaultDescription }}">
-{{ end }}
+{{ $baseURL := .Site.BaseURL }}
+{{ $baseURL := strings.TrimSuffix "/" $baseURL }}
+{{ $title := .Title | default .Site.Title }}
+{{ $description := .Params.description | default .Site.Params.description }}
+{{ $image := index .Params.images | default .Params.cover|default .Site.Params.defaultImage }}
+{{ $author := .Params.author | default .Params.releaseartist |default .Params.artistname| default .Site.Author.name }}
+
+<!-- Open Graph meta tags -->
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:image" content="{{ $baseURL }}{{ $image }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="article:author" content="{{ $author }}">
+
+<!-- Debugging output -->
+<p>Title: {{ $title }}</p>
+<p>Description: {{ $description }}</p>
+<p>Image: {{ $image }}</p>
+<p>Author: {{ $author }}</p>

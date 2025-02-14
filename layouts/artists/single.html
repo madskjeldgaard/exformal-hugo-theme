@@ -5,13 +5,14 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}"></time>
 
+  {{ partial "head/opengraph.html" . }}
   <!-- photo -->
   <!-- TODO -->
 
 
-  <!--artistbio -->
+  <!--description -->
   <section class="artist-bio">
-    <p>{{ .Params.artistbio }}</p>
+    <p>{{ .Params.description }}</p>
   </section>
 
   <!-- description of artist -->

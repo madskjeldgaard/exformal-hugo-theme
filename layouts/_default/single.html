@@ -5,6 +5,7 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}"></time>
 
+  {{ partial "head/opengraph.html" . }}
 
   <!-- Only show date if the content type is not "page" -->
   {{ if ne .Type "page" }}

@@ -37,7 +37,7 @@ some text
 
 function add_artist(){
   read -p "Enter Artist Name: " artistname
-  read -p "Enter Artist Bio: " artistbio
+  read -p "Enter Artist Bio: " description
 
   filename=$(echo "${artistname}" | tr '[:upper:]' '[:lower:]' | sed 's/[[:space:]]/-/g')
   date=$(date +%Y-%m-%d)
@@ -50,7 +50,7 @@ function add_artist(){
   echo "+++
 title = \"$artistname\"
 artistname = \"$artistname\"
-artistbio = \"$artistbio\"
+description = \"$description\"
 artistphoto = \"\"
 artistphotocredit = \"\"
 date = \"$date\"
@@ -76,14 +76,14 @@ function add_release(){
   read -p "Enter Release Year: " release_year
   read -p "Enter Format: " format
   read -p "Enter Short Description: " description
-  read -p "Enter Release Cover URL: " releasecover
+  read -p "Enter Release Cover URL: " images
   read -p "Enter Alt Cover URL: " altcover
   read -p "Enter Catalogue Number: " releasecatnum
   read -p "Enter Artist Website: " artistwebsite
   read -p "Enter Buy Link: " buylink
   read -p "Enter Audio File URL: " releaseaudio
   read -p "Enter Audio Title: " releaseaudiotitle
-  read -p "Enter About the Release: " releaseabout
+  read -p "Enter About the Release: " description
   read -p "Enter Catalogue Text: " releasecattext
   read -p "Enter Metadata (comma-separated): " metadata
   read -p "Enter Credits (comma-separated): " credits
@@ -105,7 +105,7 @@ title = \"$album_name\"
 draft=false
 
 # Images
-releasecover = \"$releasecover\"
+images = \"$images\"
 altcover = \"$altcover\"
 
 # Release basics
@@ -126,7 +126,7 @@ audiotitle=\"$releaseaudiotitle\"
 # -------------- METADATA ----------------------
 
 # About the release (short text, a few paragraphs)
-releaseabout = \"$releaseabout\"
+description = \"$description\"
 
 # Catalogue text (1-2 lines)
 releasecattext = \"$releasecattext\"
