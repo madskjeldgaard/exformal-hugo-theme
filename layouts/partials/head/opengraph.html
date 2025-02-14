@@ -1,7 +1,19 @@
 {{ $baseURL := .Site.BaseURL | strings.TrimSuffix "/" }}
 {{ $title := .Title | default .Site.Title }}
 {{ $description := .Params.description | default .Site.Params.description }}
-{{ $image := index .Params.images | default .Params.cover | default .Site.Params.defaultImage }}
+{{ $images := .Params.images }}
+{{ $image := "" }}
+
+{{ if $images }}
+  {{ if reflect.IsSlice $images }}
+    {{ $image = index $images 0 }}
+  {{ else }}
+    {{ $image = $images }}
+  {{ end }}
+{{ else }}
+  {{ $image = .Params.cover | default .Site.Params.defaultImage }}
+{{ end }}
+
 {{ $author := .Params.author | default .Params.releaseartist | default .Params.artistname | default .Site.Author.name }}
 
 <!-- Initialize the image URL variable -->
@@ -25,17 +37,9 @@
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="article:author" content="{{ $author }}">
 
-{{/* Twitter meta tags */}}
+<!-- Twitter meta tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $imageURL }}">
 <meta name="twitter:site" content="{{ $baseURL }}">
-{{/* <meta name="twitter:creator" content="{{ .Site.Params.twitter }}"> */}}
-
-
-<!-- Debugging output -->
-{{/* <p>Title: {{ $title }}</p> */}}
-{{/* <p>Description: {{ $description }}</p> */}}
-{{/* <p>Image: {{ $imageURL }}</p> */}}
-{{/* <p>Author: {{ $author }}</p> */}}
