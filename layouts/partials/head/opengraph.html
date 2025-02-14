@@ -1,14 +1,25 @@
-{{ $baseURL := .Site.BaseURL }}
-{{ $baseURL := strings.TrimSuffix "/" $baseURL }}
+{{ $baseURL := .Site.BaseURL | strings.TrimSuffix "/" }}
 {{ $title := .Title | default .Site.Title }}
 {{ $description := .Params.description | default .Site.Params.description }}
-{{ $image := index .Params.images | default .Params.cover|default .Site.Params.defaultImage }}
-{{ $author := .Params.author | default .Params.releaseartist |default .Params.artistname| default .Site.Author.name }}
+{{ $image := index .Params.images | default .Params.cover | default .Site.Params.defaultImage }}
+{{ $author := .Params.author | default .Params.releaseartist | default .Params.artistname | default .Site.Author.name }}
+
+<!-- Initialize the image URL variable -->
+{{ $imageURL := "" }}
+
+<!-- Logic to get and resize the image -->
+{{ $imageResource := resources.Get $image }}
+{{ if $imageResource }}
+  {{ $resizedImage := $imageResource.Resize "1280x" }}
+  {{ $imageURL = $resizedImage.Permalink }}
+{{ else }}
+  {{ $imageURL = printf "%s%s" $baseURL $image }}
+{{ end }}
 
 <!-- Open Graph meta tags -->
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">
-<meta property="og:image" content="{{ $baseURL }}{{ $image }}">
+<meta property="og:image" content="{{ $imageURL }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="{{ .Site.Title }}">
@@ -17,5 +28,5 @@
 <!-- Debugging output -->
 {{/* <p>Title: {{ $title }}</p> */}}
 {{/* <p>Description: {{ $description }}</p> */}}
-{{/* <p>Image: {{ $image }}</p> */}}
+{{/* <p>Image: {{ $imageURL }}</p> */}}
 {{/* <p>Author: {{ $author }}</p> */}}
