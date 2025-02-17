@@ -1,3 +1,9 @@
+<!-- include jquery-->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Include jPlayer -->
+<script src="/js/jquery.jplayer.min.js"></script>
+
 {{- with resources.Get "js/main.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}
@@ -10,9 +16,3 @@
     {{- end }}
   {{- end }}
 {{- end }}
-
-<!-- include jquery-->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Include jPlayer -->
-<script src="/js/jquery.jplayer.min.js"></script>
