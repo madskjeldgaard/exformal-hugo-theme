@@ -39,7 +39,7 @@
   color: var(--text-color) !important;
 }
 
-.jp-controls.hugo-jp-controls {
+.jp-controls.hugo-jp-controls {
   font-family: Helvetica, sans-serif !important;
   color: var(--text-color) !important;
 }
@@ -336,7 +336,7 @@ article {
   /* Increased margin for a centered look */
   padding: 2em;
   /* Spacious padding for readability */
-  max-width: 740px;
+  max-width: 768px;
   /* Optimal line length for reading */
   background-color: var(--background-color);
   font-weight: 400;
@@ -368,7 +368,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.866em;
+  font-size: 2em;
   /* 16px * 1.866 ≈ 30px */
 }
 
@@ -406,7 +406,9 @@ p {
   max-height: 600px;
 }
 
-
+figcaption {
+  margin: 0;
+}
 
 p.release-cover-caption,
 figcaption.portfolio-single-cover-caption,
@@ -701,6 +703,17 @@ img {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+article img,
+article img.release-cover-image {
+  position: relative;
+  /* max-width: 130%; */
+  /* max-height: 130%; */
+  /* left: -15%; */
+  margin: 0;
+}
+
+
+
 img.website-logo {
   max-width: 100px;
   max-height: 75px;
@@ -757,7 +770,7 @@ img.website-logo {
   margin: 1em 0;
 }
 
-.left-audio{
+.left-audio {
   display: flex;
   justify-content: left;
   align-items: left;
@@ -889,7 +902,8 @@ article .portfolio-grid {
 /* .portfolio-item .image-wrapper { */
 /*   overflow: hidden; */
 /*   padding-top: 100%; */
-/*   /* This makes the wrapper a square */ */
+/*   /* This makes the wrapper a square */
+*/
 /*   position: relative; */
 /* } */
 
@@ -989,7 +1003,7 @@ span.single-portfolio-categories {
   margin: 1em 0;
 }
 
-span.list-portfolio-categories{
+span.list-portfolio-categories {
   font-size: 0.8em;
 }
 
@@ -1085,7 +1099,31 @@ span.list-portfolio-categories{
 
   article {
     margin: 1em 5%;
-    padding: 1em;
+    padding: 0.25em;
+  }
+
+  /* center image and make it full screen width */
+  article img,
+  article img.release-cover-image {
+    max-width: 120%;
+    max-height: 120%;
+    width: calc(100% + 4em);
+    /* Adjust width to account for article's margin */
+    height: auto;
+    margin: 0 -2em;
+    /* Negative margin to offset the article's margin */
+    left: 0;
+    right: 0;
+  }
+
+  img.portfolio-cover-grid-item {
+    padding: 0em;
+    margin: 0;
+    max-width: 95%;
+    width: 100%;
+    left: 0;
+    right: 0;
+
   }
 
   header {
