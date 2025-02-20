@@ -709,10 +709,8 @@ article img.release-cover-image {
   /* max-width: 130%; */
   /* max-height: 130%; */
   /* left: -15%; */
-  margin: 0;
+  margin: 0 auto;
 }
-
-
 
 img.website-logo {
   max-width: 100px;
@@ -1101,9 +1099,10 @@ span.list-portfolio-categories {
     margin: 1em 5%;
     padding: 0.25em;
   }
-img.portfolio-cover-grid-item,
-img.base-image, img.alt-image
-{
+
+  img.portfolio-cover-grid-item,
+  img.base-image,
+  img.alt-image {
     padding: 0em;
     margin: 0;
     max-width: 95%;
@@ -1112,6 +1111,7 @@ img.base-image, img.alt-image
     /* padding-left: 0%; */
     right: 0;
   }
+
   /* center image and make it full screen width */
   article img,
   video,
