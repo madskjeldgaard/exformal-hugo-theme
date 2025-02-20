@@ -1101,7 +1101,17 @@ span.list-portfolio-categories {
     margin: 1em 5%;
     padding: 0.25em;
   }
-
+img.portfolio-cover-grid-item,
+img.base-image, img.alt-image
+{
+    padding: 0em;
+    margin: 0;
+    max-width: 95%;
+    width: 100%;
+    max-height: 95%;
+    /* padding-left: 0%; */
+    right: 0;
+  }
   /* center image and make it full screen width */
   article img,
   video,
@@ -1117,15 +1127,7 @@ span.list-portfolio-categories {
     right: 0;
   }
 
-  img.portfolio-cover-grid-item {
-    padding: 0em;
-    margin: 0;
-    max-width: 95%;
-    width: 100%;
-    left: 0;
-    right: 0;
 
-  }
 
   header {
     flex-direction: column;
