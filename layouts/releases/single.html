@@ -120,24 +120,24 @@
     <div class="cover-item child2">
 
       <!-- "In short" text -->
-      {{ with .Params.description }}
-      <div class="release-metadata">
+      {{/* {{ with .Params.description }} */}}
+      {{/* <div class="release-metadata small-text"> */}}
 
-        <div class="release-about-header">
-          <p>In short ... </p>
-        </div>
+      {{/*   <div class="release-about-header"> */}}
+      {{/*     <p>In short ... </p> */}}
+      {{/*   </div> */}}
 
-        <div class="release-cat-text">
-          <div class="release-about-text meta-data-text">
-            <p>{{ . }}</p>
-          </div>
+      {{/*   <div class="release-cat-text small-text"> */}}
+      {{/*     <div class="release-about-text meta-data-text small-text"> */}}
+      {{/*       <p>{{ . }}</p> */}}
+      {{/*     </div> */}}
 
-        </div>
-      </div>
-      {{ end }}
+      {{/*   </div> */}}
+      {{/* </div> */}}
+      {{/* {{ end }} */}}
 
 
-      <div class="release-metadata">
+      <div class="release-metadata small-text">
         {{ partial "release-metadata.html" . }}
       </div>
 
@@ -184,7 +184,7 @@
   <section>
 
     {{/* tags */}}
-    <p class="tags">
+    <p class="tags small-text">
       {{ range .Params.tags }} #{{ . }} {{ end }}
     </p>
 
