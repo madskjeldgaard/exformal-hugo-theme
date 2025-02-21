@@ -562,12 +562,12 @@ blockquote {
 
 /* metadata */
 .release-metadata {
-  font-size: 0.9em;
+  font-size: 1.0em;
   text-align: left;
 }
 
 .release-cat-text {
-  font-size: 0.66em;
+  font-size: 1em;
   background: var(--secondary-bg-color);
   color: var(--secondary-text-color);
   text-align: justify;
@@ -659,7 +659,7 @@ blockquote {
 /* section release-desc */
 .release-desc,
 .subtitle {
-  font-size: 1.125em;
+  font-size: 1.25em;
   margin: 1em;
   text-align: center;
   font-style: italic;
@@ -734,12 +734,12 @@ img.website-logo {
 }
 
 .audio-title {
-  font-size: 0.9em;
+  font-size: 1.0em;
   font-weight: bold;
 }
 
 .audio-author {
-  font-size: 0.9em;
+  font-size: 1.0em;
   font-style: italic;
 }
 
@@ -747,7 +747,7 @@ img.website-logo {
 
 .tracklist {
   margin-top: 5px;
-  font-size: 0.9em;
+  font-size: 1.0em;
 }
 
 .audio-player {
@@ -951,11 +951,11 @@ article .portfolio-grid {
 }
 
 .meta-data-text p {
-  font-size: 0.9em;
+  font-size: 1.0em;
 }
 
 .single-portfolio-desc {
-  font-size: 1.125em;
+  font-size: 1.0em;
   font-family: Helvetica, sans-serif;
   text-align: center;
   color: var(--text-color);
@@ -966,7 +966,7 @@ p.single-portfolio-desc {
 }
 
 .portfolio-text-bottom p {
-  font-size: 0.75em !important;
+  font-size: 1.0em !important;
 }
 
 /* Metadata etc in releases */
@@ -993,7 +993,7 @@ span.single-portfolio-categories {
 .single-portfolio-categories,
 .portfolio-grid-description {
   font-family: Helvetica, sans-serif;
-  font-size: 0.9em;
+  font-size: 1.0em;
   text-justify: inter-word;
   text-align: left;
   color: var(--grey);
@@ -1002,7 +1002,7 @@ span.single-portfolio-categories {
 }
 
 span.list-portfolio-categories {
-  font-size: 0.8em;
+  font-size: 1.0em;
 }
 
 .metadata-block {
@@ -1015,7 +1015,7 @@ span.list-portfolio-categories {
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
-  font-size: 0.75em;
+  /* font-size: 1.0em; */
   width: 100%;
 }
 
@@ -1033,7 +1033,7 @@ span.list-portfolio-categories {
 .meta-cat-header {
 
   text-align: left;
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
   line-height: 1.5em;
   padding: 1em 0;
 }
@@ -1132,7 +1132,7 @@ span.list-portfolio-categories {
     width: 100%;
   }
 
-  .supporter-logo{
+  .supporter-logo {
     max-width: 50px;
     margin: 0;
   }
