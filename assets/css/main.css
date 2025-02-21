@@ -1114,8 +1114,7 @@ span.list-portfolio-categories {
 
   /* center image and make it full screen width */
   article img,
-  video,
-  article img.release-cover-image {
+  video {
     max-width: 120%;
     max-height: 120%;
     width: calc(100% + 4em);
@@ -1127,6 +1126,16 @@ span.list-portfolio-categories {
     right: 0;
   }
 
+  article img.release-cover-image {
+    max-width: 100%;
+    margin: 0;
+    width: 100%;
+  }
+
+  .supporter-logo{
+    max-width: 50px;
+    margin: 0;
+  }
 
 
   header {
