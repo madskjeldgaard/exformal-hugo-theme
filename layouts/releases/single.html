@@ -95,23 +95,6 @@
       {{ end }}
 
 
-      <!-- Buy link -->
-      {{ with .Params.buylink }}
-      <div class="cover-button-container">
-        <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
-          <button class="buy-button">buy</button>
-        </a>
-      </div>
-      {{ end }}
-
-      <!-- Additional links -->
-      {{ range .Params.additionalLinks }}
-      <div class="cover-button-container">
-        <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
-          <button class="cover-button">{{ .name }}</button>
-        </a>
-      </div>
-      {{ end }}
 
     </div>
 
@@ -146,6 +129,23 @@
 
   </div>
 
+      <!-- Buy link -->
+      {{ with .Params.buylink }}
+      <div class="cover-button-container">
+        <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+          <button class="buy-button">buy</button>
+        </a>
+      </div>
+      {{ end }}
+
+      <!-- Additional links -->
+      {{ range .Params.additionalLinks }}
+      <div class="cover-button-container">
+        <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+          <button class="cover-button">{{ .name }}</button>
+        </a>
+      </div>
+      {{ end }}
 
   <!------------------------------>
   <!-- COVER SECTION END -->
