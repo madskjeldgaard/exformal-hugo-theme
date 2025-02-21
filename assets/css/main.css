@@ -33,8 +33,8 @@
 }
 
 .jp-controls.hugo-jp-controls {
-  font-family: Helvetica, sans-serif !important;
-  font-weight: 100;
+  font-family: Helvetica Neue, Helvetica, sans-serif !important;
+  font-weight: 400;
   color: var(--text-color) !important;
 }
 
@@ -155,7 +155,7 @@ a:focus {
   border: 1px solid var(--link-hover-color);
   padding: 15px 32px;
   text-align: center;
-  font-weight: 100;
+  font-weight: 400;
   text-decoration: none;
   display: inline-block;
   font-size: 0.9em;
@@ -189,7 +189,7 @@ a:focus {
   font-size: 0.9em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .pdf-paginator button {
@@ -202,8 +202,8 @@ a:focus {
   margin: 1em 1em 1em 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
   font-size: 0.9em;
   border: 1px solid var(--text-color);
   border-radius: 3px;
@@ -414,8 +414,8 @@ p.supporter-caption,
 a.supporter-caption,
 p.newsdate {
   font-size: 0.75em;
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
   text-align: center;
   margin: 0.25em 0 0.25em 0;
   padding: 0;
@@ -954,8 +954,8 @@ article .portfolio-grid {
 
 .single-portfolio-desc {
   font-size: 1.0em;
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
   text-align: center;
   color: var(--text-color);
 }
@@ -993,8 +993,8 @@ span.single-portfolio-categories {
 .list-portfolio-categories,
 .single-portfolio-categories,
 .portfolio-grid-description {
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
   text-justify: inter-word;
   text-align: left;
   color: var(--grey);
@@ -1006,8 +1006,8 @@ span.single-portfolio-categories {
 
 .metadata-block {
   color: var(--grey);
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 .table {
