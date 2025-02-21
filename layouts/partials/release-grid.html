@@ -3,7 +3,7 @@
   {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
     {{/* Categories */}}
-    <span class="list-portfolio-categories single-portfolio-categories">
+    <span class="single-portfolio-categories small-text">
       {{ delimit .Params.categories " | " }}
     </span>
 
@@ -33,7 +33,7 @@
 
     <div class="portfolio-description">
       {{/* Description */}}
-      <p class="portfolio-grid-description">
+      <p class="portfolio-grid-description small-text">
         {{ .Params.releasecattext }}
 
         <!-- Audio player JPLAYER -->
