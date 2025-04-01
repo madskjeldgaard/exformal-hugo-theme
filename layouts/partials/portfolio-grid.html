@@ -11,7 +11,7 @@
 
     {{/* Cover image */}}
     <a href="{{ .Permalink }}">
-      <div class="image-wrapper">
+      <div class="image-wrapper zoom-on-hover">
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
         {{ $resized := $image.Resize "800x" }}
