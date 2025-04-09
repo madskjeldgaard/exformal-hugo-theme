@@ -11,14 +11,14 @@
 
     {{/* Cover image */}}
     <a href="{{ .Permalink }}">
-      <div class="image-wrapper zoom-on-hover">
+      <div class="image-wrapper">
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
         {{ $resized := $image.Resize "800x" }}
-        <img src="{{ $resized.Permalink }}" class="base-image portfolio-cover-grid-item zoom-on-hover"
+        <img src="{{ $resized.Permalink }}" class="base-image zoom-on-hover"
           alt="Cover image for {{ .Params.title }}">
         {{ else }}
-        <img src="/covers/default.png" class="base-image portfolio-cover-grid-item zoom-on-hover"
+        <img src="/covers/default.png" class="base-image "
           alt="Cover image for {{ .Params.title }}">
         {{ end }}
       </div>

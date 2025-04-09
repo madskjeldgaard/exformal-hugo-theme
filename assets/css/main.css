@@ -1,3 +1,10 @@
+/* :root { */
+/*   --data-font: {{ }} */
+/* } */
+
+
+/* Set up fonts */
+
 /* fonts/Merriweather/Merriweather-Regular.ttf */
 @font-face {
   font-family: 'Merriweather';
@@ -33,9 +40,9 @@
 }
 
 .jp-controls.hugo-jp-controls {
-  font-family: Helvetica Neue, Helvetica, sans-serif !important;
-  font-weight: 400;
-  color: var(--text-color) !important;
+  font-family: Helvetica, sans-serif !important;
+  /* color: var(--text-color) !important; */
+  color: var(--grey) !important;
 }
 
 .jp-title.hugo-jp-title {
@@ -155,7 +162,6 @@ a:focus {
   border: 1px solid var(--link-hover-color);
   padding: 15px 32px;
   text-align: center;
-  font-weight: 400;
   text-decoration: none;
   display: inline-block;
   font-size: 0.9em;
@@ -189,7 +195,6 @@ a:focus {
   font-size: 0.9em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-weight: 400;
 }
 
 .pdf-paginator button {
@@ -202,8 +207,8 @@ a:focus {
   margin: 1em 1em 1em 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-weight: 400;
+  font-family: Helvetica, sans-serif;
+  font-weight: normal;
   font-size: 0.9em;
   border: 1px solid var(--text-color);
   border-radius: 3px;
@@ -394,10 +399,9 @@ p {
   /* Space between paragraphs */
 }
 
-.release-cover-image,
-.portfolio-item img {
+.release-cover-image {
   /* Shadow */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .45);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25);
   margin-bottom: 1em;
   margin-top: 0;
   max-height: 600px;
@@ -414,8 +418,7 @@ p.supporter-caption,
 a.supporter-caption,
 p.newsdate {
   font-size: 0.75em;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-weight: 400;
+  font-family: Helvetica, sans-serif;
   text-align: center;
   margin: 0.25em 0 0.25em 0;
   padding: 0;
@@ -560,12 +563,12 @@ blockquote {
 
 /* metadata */
 .release-metadata {
-  font-size: 1.0em;
+  font-size: 0.9em;
   text-align: left;
 }
 
 .release-cat-text {
-  font-size: 1em;
+  font-size: 0.66em;
   background: var(--secondary-bg-color);
   color: var(--secondary-text-color);
   text-align: justify;
@@ -657,7 +660,7 @@ blockquote {
 /* section release-desc */
 .release-desc,
 .subtitle {
-  font-size: 1.25em;
+  font-size: 1.125em;
   margin: 1em;
   text-align: center;
   font-style: italic;
@@ -732,12 +735,12 @@ img.website-logo {
 }
 
 .audio-title {
-  font-size: 1.0em;
+  font-size: 0.9em;
   font-weight: bold;
 }
 
 .audio-author {
-  font-size: 1.0em;
+  font-size: 0.9em;
   font-style: italic;
 }
 
@@ -745,7 +748,7 @@ img.website-logo {
 
 .tracklist {
   margin-top: 5px;
-  font-size: 1.0em;
+  font-size: 0.9em;
 }
 
 .audio-player {
@@ -949,13 +952,12 @@ article .portfolio-grid {
 }
 
 .meta-data-text p {
-  font-size: 1.0em;
+  font-size: 0.9em;
 }
 
 .single-portfolio-desc {
-  font-size: 1.0em;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-weight: 400;
+  font-size: 1.125em;
+  font-family: Helvetica, sans-serif;
   text-align: center;
   color: var(--text-color);
 }
@@ -965,7 +967,7 @@ p.single-portfolio-desc {
 }
 
 .portfolio-text-bottom p {
-  font-size: 1.0em !important;
+  font-size: 0.75em !important;
 }
 
 /* Metadata etc in releases */
@@ -981,33 +983,32 @@ p.single-portfolio-desc {
 
 span.single-portfolio-categories {
   text-align: center;
-  margin:0;
+  font-size: 1.0em;
+  margin: 0.25em;
 }
 
-.small-text {
-  font-size: 0.85em;
-  letter-spacing: 0;
-}
+
 
 .release-cat-text,
 .list-portfolio-categories,
 .single-portfolio-categories,
 .portfolio-grid-description {
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-weight: 400;
+  font-family: Helvetica, sans-serif;
+  font-size: 0.9em;
   text-justify: inter-word;
   text-align: left;
   color: var(--grey);
   background-color: var(--background-color);
-  margin: 0;
+  margin: 1em 0;
 }
 
-
+span.list-portfolio-categories {
+  font-size: 0.8em;
+}
 
 .metadata-block {
   color: var(--grey);
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-weight: 400;
+  font-family: Helvetica, sans-serif;
 }
 
 .table {
@@ -1015,7 +1016,7 @@ span.single-portfolio-categories {
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
-  /* font-size: 1.0em; */
+  font-size: 0.75em;
   width: 100%;
 }
 
@@ -1033,7 +1034,7 @@ span.single-portfolio-categories {
 .meta-cat-header {
 
   text-align: left;
-  /* font-size: 1.25em; */
+  font-size: 1.25em;
   line-height: 1.5em;
   padding: 1em 0;
 }
@@ -1114,7 +1115,8 @@ span.single-portfolio-categories {
 
   /* center image and make it full screen width */
   article img,
-  video {
+  video,
+  article img.release-cover-image {
     max-width: 120%;
     max-height: 120%;
     width: calc(100% + 4em);
@@ -1126,16 +1128,6 @@ span.single-portfolio-categories {
     right: 0;
   }
 
-  article img.release-cover-image {
-    max-width: 100%;
-    margin: 0;
-    width: 100%;
-  }
-
-  .supporter-logo {
-    max-width: 50px;
-    margin: 0;
-  }
 
 
   header {
