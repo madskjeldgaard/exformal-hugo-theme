@@ -683,11 +683,12 @@ audio#audio-player {
 }
 
 hr {
-  border: 0;
-  height: 1px;
+  border: 1px dashed var(--quote-color);
+  height: 0px;
   background: var(--quote-color);
-  color: var(--quote-color);
+  color: var(--grey);
   margin: 1em 0;
+
 }
 
 .threejscanvas {
