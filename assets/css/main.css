@@ -683,7 +683,7 @@ audio#audio-player {
 }
 
 hr {
-  border: 1px dashed var(--quote-color);
+  border: 1px solid var(--grey);
   height: 0px;
   background: var(--quote-color);
   color: var(--grey);
