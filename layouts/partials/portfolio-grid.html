@@ -1,6 +1,8 @@
 <div class="portfolio-grid">
   {{ $type := .type }}
-  {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
+{{ range sort (where (where .pages "Type" $type) "Permalink" "!=" .Permalink) "Params.year" "desc" }}
+
+   {{ warnf "Processing page: %s" .Permalink }}
   <div class="portfolio-item">
 
 
