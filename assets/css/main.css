@@ -707,6 +707,16 @@ img {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+.featured-image img{
+  max-height: 500px;
+  height: auto;
+  /* margin: 1em auto 0.5em auto; */
+  margin: 0em;
+  padding: 0em;
+  display: block;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
+
 article img,
 article img.release-cover-image {
   position: relative;
@@ -1119,6 +1129,7 @@ span.list-portfolio-categories {
   /* center image and make it full screen width */
   article img,
   video,
+  .featured-image img,
   article img.release-cover-image {
     max-width: 120%;
     max-height: 120%;
