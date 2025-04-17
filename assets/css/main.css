@@ -182,6 +182,7 @@ a:focus {
 }
 
 
+.button,
 .cover-button,
 .pdf-paginator button,
 .embed-pdf-container #overlayText a {
@@ -189,6 +190,7 @@ a:focus {
   color: var(--grey);
   border: 1px solid var(--grey);
   padding: 15px 32px;
+  border-radius: 3px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -939,7 +941,7 @@ article .portfolio-grid {
   object-fit: cover;
   position: absolute;
   width: 95%;
-  transition: opacity 0.25s linear;
+  /* transition: opacity 0.25s linear; */
   height: 95%;
   top: 0;
   left: 0;

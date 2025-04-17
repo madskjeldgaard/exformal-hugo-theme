@@ -1,10 +1,14 @@
 <div class="portfolio-grid">
   {{ $type := .type }}
+  {{ $ignorePageWithTitle := .ignorePageWithTitle }}
+
 {{ range sort (where (where .pages "Type" $type) "Permalink" "!=" .Permalink) "Params.year" "desc" }}
 
-   {{ warnf "Processing page: %s" .Permalink }}
-  <div class="portfolio-item">
+  {{/* Ignore the page with the same title */}}
+  {{ if eq .Title $ignorePageWithTitle }}
+  {{ else }}
 
+  <div class="portfolio-item">
 
     {{/* Categories */}}
     <span class="list-portfolio-categories single-portfolio-categories small-text">
@@ -17,7 +21,7 @@
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
         {{ $resized := $image.Resize "800x" }}
-        <img src="{{ $resized.Permalink }}" class="base-image zoom-on-hover"
+        <img src="{{ $resized.Permalink }}" class="zoom-on-hover"
           alt="Cover image for {{ .Params.title }}">
         {{ else }}
         <img src="/covers/default.png" class="base-image "
@@ -56,5 +60,7 @@
 
     </div>
   </div>
+  {{ end }}
+
   {{ end }}
 </div>

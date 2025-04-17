@@ -1,15 +1,66 @@
 {{ define "main" }}
 <main>
 
-  {{/* If there is content, make a <article>, if not leave it */}}
-    {{ if gt (len .Plain ) 0 }}
-    <article>
-      {{ .Content }}
-    </article>
+  <article>
+    {{if .Params.showTitle}}
+    {{/* If the page has a title, show it */}}
+    <h1 class="portfolio-title">{{ .Title }}</h1>
     {{ end }}
 
+    {{/* If the page has a "featured" key, and if that key is correctly a page name, put that project at the top of the
+    page before the grid, with a wide image, description and headline. */}}
+    {{ if .Params.featured }}
+    {{ $featured := .Params.featured }}
+
+    {{/* Get the pages in the portfolio section */}}
+    {{ $pages := .Site.RegularPages }}
+    {{ $portfolioPages := where $pages "Section" "portfolio" }}
+
+    {{/* Find the portfolio page with the same title as in the featured key */}}
+    {{ $featured := where $portfolioPages "Title" $featured|first 1}}
+    {{ with index $featured 0 }}
+    <section class="featured">
+      {{/* Cover image */}}
+      <a href="{{ .Permalink }}">
+        <div class="featured-image">
+          {{ $image := resources.Get .Params.cover }}
+          {{ if $image }}
+          {{ $resized := $image.Resize "1200x" }}
+          <img src="{{ $resized.Permalink }}" class="zoom-on-hover" alt="Cover image for {{ .Params.title }}">
+          {{ else }}
+          <img src="/covers/default.png" class="base-image " alt="Cover image for {{ .Params.title }}">
+          {{ end }}
+        </div>
+      </a>
+
+      <a href="{{ .Permalink }}">
+        {{/* Title */}}
+      <h3>{{ .Title }} ({{ .Params.year }})</h3>
+      </a>
+
+      <p class="portfolio-grid-description">{{ .Params.description }}</p>
+
+{{ if .Params.audiopath }}
+      <div class="release-audio list-view-audioplayer">
+        {{ $audiopath := .Params.audiopath | relURL }}
+        {{ $audiotitle := .Params.audiotitle | default "" }}
+        {{ $id := now.UnixNano }}
+        {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+      </div>
+      {{ end }}
+
+      <a href="{{ .Permalink }}" class="button">Read more</a>
+
+    </section>
+    {{ end }}
+    {{ end }}
+
+    {{/* If there is content, make a <article>, if not leave it */}}
+      {{ .Content }}
+    </article>
+
     <section>
-      {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" .Data.Pages) }}
+      {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" .Data.Pages "ignorePageWithTitle" .Params.featured) }}
     </section>
 
 </main>
