@@ -1,8 +1,8 @@
 <!-- footer content -->
 <!-- Only show footer if not homepage -->
-{{ if not .IsHome }}
+{{/* {{ if not .IsHome }} */}}
 
-<div class="site-footer small-text">
+<div class="small-text site-footer">
 
   {{/* if footerText is defined in the site, use that text */}}
   {{ if .Site.Params.footerText }}
@@ -29,4 +29,4 @@
   <ul class="footer-links">{{partial "socials.html"}}</ul>
 
 </div>
-{{ end }}
+{{/* {{ end }} */}}

@@ -37,6 +37,7 @@
 .jp-play.hugo-jp-play {
   background-color: var(--background-color) !important;
   color: var(--text-color) !important;
+  font-size: 2em;
 }
 
 .jp-controls.hugo-jp-controls {
@@ -101,8 +102,8 @@ html {
   font-size: min(max(12px, 3vw), 16px);
 }
 
-header,
-footer {
+header
+{
   text-align: center;
   padding: 1em;
   /* background-color: #f2f2f2; */
@@ -416,6 +417,7 @@ figcaption {
 p.release-cover-caption,
 figcaption.portfolio-single-cover-caption,
 p.photo-caption,
+.photo-caption,
 p.supporter-caption,
 a.supporter-caption,
 p.newsdate {
@@ -454,9 +456,13 @@ a.supporter-caption {
   margin: 0.5em;
 }
 
+footer {
+  font-size: 0.86em;
+  text-align: center;
+}
+
 footer p {
   margin: 0;
-  font-size: 0.9em;
 }
 
 blockquote {
@@ -522,12 +528,13 @@ blockquote {
   font-weight: bold;
 }
 
-.site-footer {
+footer .site-footer {
   padding: 20px 0;
   text-align: center;
-  width: 80%;
+  /* width: 80%; */
+  max-width: 50%;
   margin: 0 auto;
-  max-width: 1200px;
+  /* max-width: 1200px; */
 }
 
 .footer-links {
@@ -685,7 +692,6 @@ audio#audio-player {
 }
 
 hr {
-  border: 1px solid var(--grey);
   height: 0px;
   background: var(--quote-color);
   color: var(--grey);
@@ -707,7 +713,7 @@ img {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
-.featured-image img{
+.featured-image img {
   max-height: 500px;
   height: auto;
   /* margin: 1em auto 0.5em auto; */
@@ -730,6 +736,7 @@ article img.release-artist-image-single {
   /* margin: 0; */
   margin-top: 1em;
   margin-bottom: 1em;
+  max-width: 50%;
   /* padding: 0; */
 }
 
@@ -926,12 +933,37 @@ article .portfolio-grid {
 /*   position: relative; */
 /* } */
 
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper .base-image,
+.image-wrapper .alt-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out; /* Add smooth transition */
+}
+
+.image-wrapper .alt-image {
+  opacity: 0; /* Initially hidden */
+}
+
+.image-wrapper:hover .alt-image {
+  opacity: 1; /* Show alt-image on hover */
+}
+
+.image-wrapper:hover .base-image {
+  opacity: 0; /* Hide base-image on hover */
+}
 .image-wrapper.has-alt-image .base-image,
 .image-wrapper.has-alt-image .alt-image {
   position: absolute;
   transition: opacity 0.25s linear;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   object-fit: cover;
 }
 
@@ -964,6 +996,9 @@ article .portfolio-grid {
   left: 0;
 }
 
+.portfolio-text-top{
+  margin: 1em 0;
+}
 /* Remove text decoration from links in .portfolio-text-top */
 .portfolio-text-top a,
 .portfolio-description a {
@@ -1010,6 +1045,7 @@ span.single-portfolio-categories {
 
 
 .release-cat-text,
+.small-text,
 .list-portfolio-categories,
 .single-portfolio-categories,
 .portfolio-grid-description {
@@ -1169,5 +1205,10 @@ span.list-portfolio-categories {
 
   img.website-logo {
     display: none;
+  }
+
+  article img.release-artist-image-single {
+    max-width: 90%;
+    margin: 0 auto;
   }
 }

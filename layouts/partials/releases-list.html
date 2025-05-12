@@ -1,0 +1,117 @@
+<table class="releases-table small-text">
+  <thead>
+    <tr>
+      <th>cover</th>
+      <th>artist</th>
+      <th>title</th>
+      <th>format</th>
+      <th>cat.num</th>
+      <th>snippet</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ $type := "releases" }}
+    {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
+    <tr>
+      <!-- Cover Image Column -->
+      <td class="release-cover">
+        <a href="{{ .Permalink }}">
+          <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
+            {{ $image := resources.Get .Params.images }}
+            {{ $altImage := resources.Get .Params.altcover }}
+            {{ if $image }}
+              {{ $resized := $image.Resize "400x q80" }}
+              <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
+            {{ else }}
+              <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
+            {{ end }}
+            {{ if $altImage }}
+              {{ $resizedAlt := $altImage.Resize "400x q80" }}
+              <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.title }}">
+            {{ end }}
+          </div>
+        </a>
+      </td>
+
+      <!-- Artist Column -->
+      <td class="">
+        <a href="{{ .Permalink }}">{{ .Params.releaseartist }}</a>
+      </td>
+
+      <!-- Title Column -->
+      <td class="">
+        <a href="{{ .Permalink }}">{{ .Params.title }}</a>
+      </td>
+
+      <!-- Categories Column -->
+      <td class="release-categories small-text">
+        {{ delimit .Params.categories " | " }}
+      </td>
+
+      <!-- Catalog Info Column -->
+      {{/* <td class="release-catalog small-text"> */}}
+
+      {{/*   {{ .Params.releasecattext }} */}}
+      {{/* </td> */}}
+
+
+      <td class="small-text">
+        {{ .Params.releasecatnum }}
+      </td>
+      <!-- Audio Player Column -->
+      <td class="release-audio">
+        {{ if .Params.audiopath }}
+          {{ $audiopath := .Params.audiopath | relURL }}
+          {{ $audiotitle := .Params.audiotitle | default "" }}
+          {{ $id := now.UnixNano }}
+          {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id "showTitle" false) }}
+        {{ end }}
+      </td>
+
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+
+<style>
+  .releases-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+  }
+
+  .releases-table th {
+    text-align: left;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    color: var(--text-color);
+  }
+
+  .releases-table td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+  }
+
+  {{/* .release-cover .image-wrapper { */}}
+  {{/*   width: 80px; */}}
+  {{/*   height: 80px; */}}
+  {{/*   position: relative; */}}
+  {{/* } */}}
+
+  .release-cover img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .release-cover {
+    min-width: 75px;
+    min-height: 75px;
+  }
+
+  .release-audio {
+    min-width: 150px;
+  }
+
+</style>

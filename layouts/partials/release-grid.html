@@ -5,7 +5,8 @@
     {{/* Categories */}}
     <span class="list-portfolio-categories single-portfolio-categories small-text">
       {{ delimit .Params.categories " | " }}
-    </span>
+      | {{.Params.releasecatnum}}
+   </span>
 
     <a href="{{ .Permalink }}">
       <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
@@ -26,7 +27,7 @@
 
     <div class="portfolio-description portfolio-text-top">
       <a href="{{.Permalink }}">
-        {{.Params.releasecatnum}} | {{.Params.releaseartist}}<br>
+        {{.Params.releaseartist}}<br>
         {{.Params.title}}
       </a>
     </div>

@@ -94,6 +94,23 @@
       </div>
       {{ end }}
 
+  <!-- Buy link -->
+  {{ with .Params.buylink }}
+  <div class="cover-button-container">
+    <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+      <button class="buy-button">buy</button>
+    </a>
+  </div>
+  {{ end }}
+
+  <!-- Additional links -->
+  {{ range .Params.additionalLinks }}
+  <div class="cover-button-container">
+    <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+      <button class="cover-button">{{ .name }}</button>
+    </a>
+  </div>
+  {{ end }}
 
 
     </div>
@@ -130,29 +147,12 @@
   </div>
 
 
-  <!-- Buy link -->
-  {{ with .Params.buylink }}
-  <div class="cover-button-container">
-    <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
-      <button class="buy-button">buy</button>
-    </a>
-  </div>
-  {{ end }}
-
-  <!-- Additional links -->
-  {{ range .Params.additionalLinks }}
-  <div class="cover-button-container">
-    <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
-      <button class="cover-button">{{ .name }}</button>
-    </a>
-  </div>
-  {{ end }}
 
   <!------------------------------>
   <!-- COVER SECTION END -->
   <!------------------------------>
 
-  <h1>*</h1>
+  <hr>
 
   {{/* Content section */}}
   <section class="release-content">
@@ -198,10 +198,9 @@
       {{/* If there is a description, show it */}}
       {{ if $description }}
       <h2>{{ $header }}</h2>
-      <p>{{ $description }}</p>
-      <a href="{{ $url }}" aria="Artist page for '{{ . }}'">
-        <button class="cover-button">read more</button>
-      </a>
+      <p class="small-text">{{ $description }}</p>
+      <p><a href="{{ $url }}" aria="Artist page for '{{ . }}'"> Read more. {{/* <button class="cover-button">read more</button> */}}
+      </a></p>
 
       {{end}}
 
@@ -215,7 +214,7 @@
                                                                         alt="Cover image for {{ $.Params.title }}" />
         </a>
         {{ with $page.Params.artistphotocredit }}
-        <figcaption class="photo-caption">Photo by {{ . }}</figcaption>
+        <figcaption class="photo-caption caption">Photo by {{ . }}</figcaption>
         {{ end }}
         {{ end }}
         {{ end }}

@@ -3,3 +3,6 @@ public
 resources/_gen
 static/sound/wang.mp3
 static/sound/hej.mp3
+.hugo_build.lock
+
+*-E
