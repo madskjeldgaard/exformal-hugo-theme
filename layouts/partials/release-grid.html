@@ -3,7 +3,7 @@
   {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
     {{/* Categories */}}
-    <span class="single-portfolio-categories small-text">
+    <span class="list-portfolio-categories single-portfolio-categories small-text">
       {{ delimit .Params.categories " | " }}
     </span>
 

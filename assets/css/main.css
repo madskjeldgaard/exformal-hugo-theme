@@ -98,7 +98,7 @@ body {
 
 /* Fluid type */
 html {
-  font-size: min(max(12px, 3vw), 14px);
+  font-size: min(max(12px, 3vw), 16px);
 }
 
 header,
