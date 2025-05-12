@@ -50,7 +50,7 @@ function add_artist(){
   echo "+++
 title = \"$artistname\"
 artistname = \"$artistname\"
-description = \"$description\"
+description = \"\"\"$description\"\"\"
 artistphoto = \"\"
 artistphotocredit = \"\"
 date = \"$date\"
@@ -103,6 +103,8 @@ function add_release(){
   echo "+++
 title = \"$album_name\"
 draft=false
+
+categories = ["Digital"]
 
 # Images
 images = \"$images\"

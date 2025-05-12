@@ -20,6 +20,26 @@
     {{ .Content }}
   </section>
 
+  {{/* Cover image */}}
+
+  {{ $title := .Params.title }}
+  {{ $artist := .Params.artistname }}
+  {{$photo:= .Params.artistphoto }}
+  {{ if $photo }}
+  {{$cover:=resources.Get $photo}}
+  {{$caption:= .Params.artistphotocredit }}
+  {{ if $cover }}
+  {{ $resized := $cover.Resize "1280x" }}
+  <img class="artist-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ $artist }}" />
+  {{ if $caption }}
+    <p>
+  <figcaption class="photo-caption">Photo by {{ $caption }}</figcaption>
+  </p>
+  {{ end }}
+
+  {{ end }}
+  {{ end }}
+
   <!-- Additional links -->
   {{ range .Params.additionalLinks }}
   <div class="cover-button-container">
@@ -31,7 +51,7 @@
 
 
   {{/* TODO: Turn this into a list of releases by this artist only */}}
-{{/* More releases */}}
+  {{/* More releases */}}
   <section>
 
     {{/* tags */}}
@@ -42,6 +62,7 @@
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
     <hr>
+    <h2>Releases</h2>
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>
