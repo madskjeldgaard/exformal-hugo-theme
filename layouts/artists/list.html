@@ -1,13 +1,8 @@
 {{ define "main" }}
 <article>
 
-  {{/* If there is content, make a <article>, if not leave it */}}
-    {{ if gt (len .Plain ) 0 }}
-    <article>
-      {{ .Content }}
-    </article>
-    {{ end }}
+  {{ .Content }}
 
-    {{ partial "artist-grid.html" .Pages }}
-  </article>
-  {{ end }}
+  {{ partial "artist-grid.html" .Pages }}
+</article>
+{{ end }}
