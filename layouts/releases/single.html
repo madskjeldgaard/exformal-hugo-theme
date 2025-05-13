@@ -138,15 +138,26 @@
 
 
       <div class="release-metadata small-text">
+
+
         {{ partial "release-metadata.html" . }}
 
         {{ if .Params.releasedate }}
-          <p>Release date</p>
+          <p>Release</p>
           <div class="table">
           <div class="row">
-          <div class="cell small-text">Release date:</div>
-          <div class="cell small-text">{{ .Params.releasedate }}</div>
+            <div class="cell small-text">Release date:</div>
+            <div class="cell small-text">{{ .Params.releasedate }}</div>
           </div>
+          {{ if .Params.series }}
+            <div class="row">
+              <div class="cell small-text">Series:</div>
+              <div class="cell small-text">
+                <a class="" href="/series">{{.Params.series|lower}}</a>
+                </div>
+          </div>
+        {{ end }}
+
           </div>
           {{/* <p class="cell small-text">Release date: {{ .Params.releasedate }}</p> */}}
       {{ end}}

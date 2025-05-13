@@ -2,12 +2,22 @@
   {{ $type := "releases" }}
   {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
   <div class="portfolio-item">
+
+    <div class="above-portfolio-item">
+
+
+   {{/* Series */}}
+    {{if .Params.series}}
+      <span class="list-portfolio-categories small-text contrast-text series-container mono-font"><a class="thin-font" href="/series">{{.Params.series|lower}}</a></span>
+    {{end}}
+
     {{/* Categories */}}
-    <span class="list-portfolio-categories single-portfolio-categories small-text">
-      {{ delimit .Params.categories " | " }}
-      | {{.Params.releasecatnum}}
+    <span class="list-portfolio-categories single-portfolio-categories small-text mono-font thin-font">
+      {{ delimit .Params.categories " / " | lower}}
+      ({{.Params.releasecatnum|lower}})
    </span>
 
+    </div>
     <a href="{{ .Permalink }}">
       <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }} ">
         {{ $image := resources.Get .Params.images }}

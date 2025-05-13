@@ -1,4 +1,4 @@
-<table class="releases-table small-text">
+<table class="releases-table small-text mono-font">
   <thead>
     <tr>
       <th>cover</th>
@@ -36,7 +36,11 @@
 
       <!-- Artist Column -->
       <td class="">
-        <a href="{{ .Permalink }}">{{ .Params.releaseartist }}</a>
+{{ with .Params.releaseartist }}
+    {{ $flattend_artist_name := replace . " " "-" | lower }}
+    {{ $url := printf "/artists/%s" $flattend_artist_name }}
+        <a href="{{ $url}}"> {{. }}</a>
+      {{end}}
       </td>
 
       <!-- Title Column -->

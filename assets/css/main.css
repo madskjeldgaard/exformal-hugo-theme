@@ -41,7 +41,7 @@
 }
 
 .jp-controls.hugo-jp-controls {
-  font-family: Helvetica, sans-serif !important;
+  font-family: Helvetica Neue, Helvetica, sans-serif !important;
   /* color: var(--text-color) !important; */
   color: var(--grey) !important;
 }
@@ -209,7 +209,7 @@ a:focus {
   margin: 1em 1em 1em 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
   font-weight: normal;
   font-size: 0.9em;
   border: 1px solid var(--text-color);
@@ -426,7 +426,7 @@ p.supporter-caption,
 a.supporter-caption,
 p.newsdate {
   font-size: 0.75em;
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
   text-align: center;
   margin: 0.25em 0 0.25em 0;
   padding: 0;
@@ -1026,7 +1026,7 @@ article .portfolio-grid {
 
 .single-portfolio-desc {
   font-size: 1.125em;
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
   text-align: center;
   color: var(--text-color);
 }
@@ -1063,13 +1063,46 @@ span.single-portfolio-categories {
 .list-portfolio-categories,
 .single-portfolio-categories,
 .portfolio-grid-description {
-  font-family: Helvetica, sans-serif;
-  font-size: 0.9em;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-size: 0.86em;
   text-justify: inter-word;
   text-align: left;
   color: var(--grey);
   background-color: var(--background-color);
   margin: 1em 0;
+}
+
+.mono-font{
+  /* font-family: Courier New, Courier, monospace; */
+  font-family: Helvetica Neue, Helvetica, monospace;
+  letter-spacing: 1.0px;
+}
+
+.thin-font{
+  font-weight: 200;
+}
+
+.contrast-text{
+  /* color: var(--link-hover-color); */
+  color: var(--link-hover-color);
+  /* font-weight: bold; */
+  /* background-color: var(--link-hover-bg-color); */
+
+}
+
+.series-container{
+  border: 1px dotted var(--link-hover-color);
+  padding: 0.125em 0.33em;
+
+  a{
+    text-decoration: none;
+    border-bottom: 0;
+    color: var(--link-hover-color);
+  }
+}
+
+.above-portfolio-item{
+  padding: 0 0 1em 0;
 }
 
 span.list-portfolio-categories {
@@ -1078,7 +1111,7 @@ span.list-portfolio-categories {
 
 .metadata-block {
   color: var(--grey);
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
 }
 
 .table {
