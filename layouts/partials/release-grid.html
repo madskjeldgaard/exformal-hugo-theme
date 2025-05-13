@@ -23,12 +23,12 @@
 
     </div>
     <a href="{{ .Permalink }}">
-      <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }} ">
+      <div class="with-shadow image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }} ">
         {{ $image := resources.Get .Params.images }}
         {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
         {{ $resized := $image.Resize "1600x q80" }}
-        <img class="with-shadow base-image " src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
+        <img class="base-image " src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
         {{ else }}
         <img class="base-image " src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
         {{ end }}

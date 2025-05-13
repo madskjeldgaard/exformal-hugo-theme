@@ -406,7 +406,7 @@ p {
 
 .with-shadow,
 .release-cover-image {
-  box-shadow: 5px 3px 5px 5px rgba(0, 0, 0, .13);
+  box-shadow: 2px 5px 5px 5px rgba(0, 0, 0, .13);
 }
 
 .release-cover-image {
@@ -970,7 +970,6 @@ article .portfolio-grid {
   position: absolute;
   top: 0;
   left: 0;
-  width: 90%;
   height: auto;
   transition: opacity 0.3s ease-in-out;
   /* Add smooth transition */
@@ -995,8 +994,8 @@ article .portfolio-grid {
 .image-wrapper.has-alt-image .alt-image {
   position: absolute;
   transition: opacity 0.25s linear;
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -1022,9 +1021,9 @@ article .portfolio-grid {
 .portfolio-item img {
   object-fit: cover;
   position: absolute;
-  width: 95%;
+  /* width: 95%; */
   /* transition: opacity 0.25s linear; */
-  height: 95%;
+  /* height: 95%; */
   top: 0;
   left: 0;
 }
