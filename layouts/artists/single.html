@@ -62,7 +62,15 @@
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
     <hr>
-    <h2>Releases</h2>
+    <h3>Releases by {{.Params.artistname}}</h3>
+
+    {{/* Filter pages where artist name is equal to this */}}
+    {{ $pages = where $pages "Params.releaseartist" .Params.artistname }}
+
+    {{/* Sort by date */}}
+    {{ $pages = sort $pages "Date" "desc" }}
+    {{/* Sort by date */}}
+
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>

@@ -54,7 +54,7 @@ description = \"\"\"$description\"\"\"
 artistphoto = \"\"
 artistphotocredit = \"\"
 date = \"$date\"
-draft=true
+draft=false
 
 [[additionalLinks]]
 name = \"External link 1\"
@@ -70,7 +70,7 @@ url = \"https://example.com/link2\"
 
 function add_release(){
   # Prompt for release details
-  read -p "Enter release date(YYYY-MM-DD): " releasedate
+  read -p "Enter release date(DD-MM-YYYY): " releasedate
   read -p "Enter Album Name: " album_name
   read -p "Enter Artist Name: " artist_name
   read -p "Enter Release Year: " release_year
@@ -79,8 +79,6 @@ function add_release(){
   read -p "Enter Release Cover URL: " images
   read -p "Enter Alt Cover URL: " altcover
   read -p "Enter Catalogue Number: " releasecatnum
-  read -p "Enter Artist Website: " artistwebsite
-  read -p "Enter Buy Link: " buylink
   read -p "Enter Audio File URL: " releaseaudio
   read -p "Enter Audio Title: " releaseaudiotitle
   read -p "Enter About the Release: " description
@@ -102,7 +100,8 @@ function add_release(){
   # Create a new file with front matter
   echo "+++
 title = \"$album_name\"
-draft=false
+date = \"$date\"
+draft=true
 
 categories = ["Digital"]
 
@@ -113,13 +112,13 @@ altcover = \"$altcover\"
 # Release basics
 releaseartist = \"$artist_name\"
 releaseyear = \"$release_year\"
+releasedate = \"$releasedate\"
 releaseformat = \"$format\"
-
 releasecatnum = \"$releasecatnum\"
-artistwebsite = \"$artistwebsite\"
 
-buylink=\"$buylink\"
-date = \"$date\"
+series=\"\" # Optional series name
+
+buylink="https://exformalrecords.bandcamp.com/"
 
 # Audio player
 audiopath=\"$releaseaudio\"

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main>
+  <section>
+    {{/* If there is content, make a <article>, if not leave it */}}
+      <article>
+      {{ if gt (len .Plain ) 0 }}
+        {{ .Content }}
+      {{ end }}
+
+      <hr>
+      <h2>Zones</h2>
+      {{/* Filter for pages where the series key is "Exformal Zone" */}}
+      {{ $pages := where .Site.RegularPages "Type" "releases" }}
+      {{ $pages := where .Site.RegularPages "Params.series" "Exformal Zones" }}
+
+      {{ partial "release-grid.html" (dict "type" "release" "pages" $pages) }}
+      </article>
+
+      <!-- Show releases as grid: -->
+      {{/* {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }} */}}
+
+
+  </section>
+
+</main>
+{{ end }}
