@@ -177,7 +177,7 @@
   <!-- COVER SECTION END -->
   <!------------------------------>
 
-  <hr>
+  {{/* <hr> */}}
 
   {{/* Content section */}}
   <section class="release-content">
@@ -188,7 +188,6 @@
   {{/* About the artist */}}
   {{/* {{ with .Params.releaseartist }} */}}
   {{/*
-  <hr> */}}
   {{/* <section class="release-artist"> */}}
     {{/* <h2>About the artist: {{ . }}</h2> */}}
     {{/* <p> */}}
@@ -218,7 +217,7 @@
     {{ $description := $description | safeHTML }}
 
     {{ if $page }}
-    <hr>
+    {{/* <hr> */}}
     <div class="release-artist">
       {{/* If there is a description, show it */}}
       {{ if $description }}
