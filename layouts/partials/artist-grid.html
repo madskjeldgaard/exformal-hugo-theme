@@ -1,0 +1,137 @@
+<div class="artists-grid">
+  {{ $artists := where site.RegularPages "Type" "artists" }}
+  {{ range sort $artists "Params.artistname" "asc" }}
+  <div class="artist-item">
+
+    <div class="above-artist-item">
+      {{/* Artist Categories */}}
+      {{ if .Params.categories }}
+      <span class="list-artist-categories small-text mono-font thin-font">
+        {{ delimit .Params.categories " / " | lower }}
+      </span>
+      {{ end }}
+    </div>
+
+    <a class="no-underline with-shadow artist-grid-photo zoom-on-hover" href="{{ .Permalink }}">
+      <div class="with-shadow artist-grid-photo-inner">
+        {{ $image := resources.Get .Params.artistphoto }}
+        {{ if $image }}
+          {{ $resized := $image.Fill "600x600 Center q80" }}
+          <img class="with-shadow " src="{{ $resized.Permalink }}" alt="Image of {{ .Params.name }}">
+        {{ else }}
+          <img class="base-image" src="/artists/default.png" alt="Image of {{ .Params.name }}">
+        {{ end }}
+      </div>
+    </a>
+
+    <div class="artist-description artist-text-top">
+      <a href="{{ .Permalink }}">
+        <span class="artist-name">{{ .Params.artistname }}</span>
+      </a>
+    </div>
+
+    <div class="artist-description">
+      {{/* Bio Excerpt */}}
+      <p class="artist-grid-description small-text">
+        {{ .Params.description | truncate 250 }}
+      </p>
+
+      {{/* Releases Count */}}
+      {{/* {{ $artistReleases := where site.RegularPages "Params.releaseartist" "eq" .Params.artistname }} */}}
+      {{/* {{ if $artistReleases }} */}}
+      {{/* <div class="artist-releases-count small-text"> */}}
+      {{/*   {{ len $artistReleases }} release{{ if ne (len $artistReleases) 1 }}s{{ end }} */}}
+      {{/* </div> */}}
+      {{/* {{ end }} */}}
+    </div>
+  </div>
+  {{ end }}
+</div>
+
+<style>
+  .artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+
+  .artist-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .above-artist-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-wrapper.has-alt-image .alt-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .image-wrapper.has-alt-image:hover .base-image {
+    opacity: 0;
+  }
+
+  .image-wrapper.has-alt-image:hover .alt-image {
+    opacity: 1;
+  }
+
+  .artist-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .artist-grid-description {
+    margin: 0.5rem 0;
+    color: #666;
+  }
+
+  .artist-releases-count {
+    color: #999;
+    font-style: italic;
+  }
+
+  .artist-grid-photo{
+    {{/* padding: 1em; */}}
+margin: 1em 0;
+  }
+
+  .artist-grid-photo-inner{
+    padding: 1em;
+  }
+
+  @media (max-width: 768px) {
+    .artist-grid-photo-inner {
+      padding: 0.0em;
+    }
+  }
+
+  .list-artist-categories {
+    display: block;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+
+  .with-shadow {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+</style>
