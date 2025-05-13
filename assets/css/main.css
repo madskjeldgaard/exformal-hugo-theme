@@ -1072,17 +1072,21 @@ span.single-portfolio-categories {
   margin: 1em 0;
 }
 
-.mono-font{
+.mono-font {
   /* font-family: Courier New, Courier, monospace; */
   font-family: Helvetica Neue, Helvetica, monospace;
   letter-spacing: 1.0px;
 }
 
-.thin-font{
+.thin-font {
   font-weight: 200;
 }
 
-.contrast-text{
+.align-right {
+  text-align: right;
+}
+
+.contrast-text {
   /* color: var(--link-hover-color); */
   color: var(--link-hover-color);
   /* font-weight: bold; */
@@ -1090,18 +1094,18 @@ span.single-portfolio-categories {
 
 }
 
-.series-container{
+.series-container {
   border: 1px dotted var(--link-hover-color);
   padding: 0.125em 0.33em;
 
-  a{
+  a {
     text-decoration: none;
     border-bottom: 0;
     color: var(--link-hover-color);
   }
 }
 
-.above-portfolio-item{
+.above-portfolio-item {
   padding: 0 0 1em 0;
 }
 
@@ -1116,11 +1120,12 @@ span.list-portfolio-categories {
 
 .table {
   display: table;
+  /* max-width: 100%; */
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
   font-size: 0.75em;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .row {
@@ -1257,5 +1262,9 @@ span.list-portfolio-categories {
   article img.release-artist-image-single {
     max-width: 90%;
     margin: 0 auto;
+  }
+
+  html {
+    font-size: min(max(14px, 5vw), 18px);
   }
 }

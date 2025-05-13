@@ -14,8 +14,12 @@
     {{/* Categories */}}
     <span class="list-portfolio-categories single-portfolio-categories small-text mono-font thin-font">
       {{ delimit .Params.categories " / " | lower}}
-      ({{.Params.releasecatnum|lower}})
+
+      <span class="catnum">
+        ({{.Params.releasecatnum|lower}})
+      </span>
    </span>
+
 
     </div>
     <a href="{{ .Permalink }}">

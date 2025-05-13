@@ -35,7 +35,7 @@
       </td>
 
       <!-- Artist Column -->
-      <td class="">
+      <td class="small-text">
 {{ with .Params.releaseartist }}
     {{ $flattend_artist_name := replace . " " "-" | lower }}
     {{ $url := printf "/artists/%s" $flattend_artist_name }}
@@ -44,7 +44,7 @@
       </td>
 
       <!-- Title Column -->
-      <td class="">
+      <td class="small-text">
         <a href="{{ .Permalink }}">{{ .Params.title }}</a>
       </td>
 
