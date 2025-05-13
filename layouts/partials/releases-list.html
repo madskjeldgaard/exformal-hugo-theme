@@ -6,6 +6,7 @@
       <th>title</th>
       <th>format</th>
       <th>cat.num</th>
+      <th>release</th>
       <th>snippet</th>
     </tr>
   </thead>
@@ -45,7 +46,7 @@
 
       <!-- Categories Column -->
       <td class="release-categories small-text">
-        {{ delimit .Params.categories " | " }}
+        {{ delimit .Params.categories ", " }}
       </td>
 
       <!-- Catalog Info Column -->
@@ -58,6 +59,11 @@
       <td class="small-text">
         {{ .Params.releasecatnum }}
       </td>
+
+      <td class="small-text">
+        {{ .Params.releasedate }}
+      </td>
+
       <!-- Audio Player Column -->
       <td class="release-audio">
         {{ if .Params.audiopath }}
@@ -85,6 +91,7 @@
     padding: 0.5rem;
     border: 1px solid #ddd;
     color: var(--text-color);
+    font-weight: normal;
   }
 
   .releases-table td {

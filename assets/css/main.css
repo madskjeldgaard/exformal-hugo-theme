@@ -102,8 +102,7 @@ html {
   font-size: min(max(12px, 3vw), 16px);
 }
 
-header
-{
+header {
   text-align: center;
   padding: 1em;
   /* background-color: #f2f2f2; */
@@ -402,13 +401,18 @@ p {
   /* Space between paragraphs */
 }
 
+.with-shadow,
+.release-cover-image {
+  box-shadow: 5px 3px 5px 5px rgba(0, 0, 0, .13);
+}
+
 .release-cover-image {
   /* Shadow */
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25);
   margin-bottom: 1em;
   margin-top: 0;
   max-height: 600px;
 }
+
 
 figcaption {
   margin: 0;
@@ -699,6 +703,10 @@ hr {
 
 }
 
+/* .releases-table > * { */
+/*   font-family: "Courier New", Courier, monospace; */
+/* } */
+
 .threejscanvas {
   width: 100%;
   height: 100%;
@@ -944,20 +952,25 @@ article .portfolio-grid {
   left: 0;
   width: 90%;
   height: auto;
-  transition: opacity 0.3s ease-in-out; /* Add smooth transition */
+  transition: opacity 0.3s ease-in-out;
+  /* Add smooth transition */
 }
 
 .image-wrapper .alt-image {
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
+  /* Initially hidden */
 }
 
 .image-wrapper:hover .alt-image {
-  opacity: 1; /* Show alt-image on hover */
+  opacity: 1;
+  /* Show alt-image on hover */
 }
 
 .image-wrapper:hover .base-image {
-  opacity: 0; /* Hide base-image on hover */
+  opacity: 0;
+  /* Hide base-image on hover */
 }
+
 .image-wrapper.has-alt-image .base-image,
 .image-wrapper.has-alt-image .alt-image {
   position: absolute;
@@ -996,9 +1009,10 @@ article .portfolio-grid {
   left: 0;
 }
 
-.portfolio-text-top{
+.portfolio-text-top {
   margin: 1em 0;
 }
+
 /* Remove text decoration from links in .portfolio-text-top */
 .portfolio-text-top a,
 .portfolio-description a {

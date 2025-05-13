@@ -139,6 +139,20 @@
 
       <div class="release-metadata small-text">
         {{ partial "release-metadata.html" . }}
+
+        {{ if .Params.releasedate }}
+          <p>Release date</p>
+          <div class="table">
+          <div class="row">
+          <div class="cell small-text">Release date:</div>
+          <div class="cell small-text">{{ .Params.releasedate }}</div>
+          </div>
+          </div>
+          {{/* <p class="cell small-text">Release date: {{ .Params.releasedate }}</p> */}}
+      {{ end}}
+
+
+
       </div>
 
 

@@ -9,26 +9,28 @@
    </span>
 
     <a href="{{ .Permalink }}">
-      <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
+      <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }} ">
         {{ $image := resources.Get .Params.images }}
         {{ $altImage := resources.Get .Params.altcover }}
         {{ if $image }}
         {{ $resized := $image.Resize "1600x q80" }}
-        <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
+        <img class="with-shadow base-image " src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
         {{ else }}
-        <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
+        <img class="base-image " src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
         {{ end }}
         {{ if $altImage }}
         {{ $resizedAlt := $altImage.Resize "1600x q80" }}
-        <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.title }}">
+        <img class="alt-image " src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.title }}">
         {{ end }}
       </div>
     </a>
 
     <div class="portfolio-description portfolio-text-top">
       <a href="{{.Permalink }}">
-        {{.Params.releaseartist}}<br>
+        {{.Params.releaseartist}} —
+        <span class="release-title">
         {{.Params.title}}
+        </span>
       </a>
     </div>
 
