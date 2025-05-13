@@ -1,128 +1,183 @@
-<table class="releases-table small-text mono-font">
-  <thead>
-    <tr>
-      <th>cover</th>
-      <th>artist</th>
-      <th>title</th>
-      <th>format</th>
-      <th>cat.num</th>
-      <th>release</th>
-      <th>snippet</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{ $type := "releases" }}
-    {{ range sort (where .pages "Type" $type) "Params.year" "desc" }}
-    <tr>
-      <!-- Cover Image Column -->
-      <td class="release-cover">
-        <a href="{{ .Permalink }}">
-          <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
-            {{ $image := resources.Get .Params.images }}
-            {{ $altImage := resources.Get .Params.altcover }}
-            {{ if $image }}
-              {{ $resized := $image.Resize "400x q80" }}
-              <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
-            {{ else }}
-              <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
-            {{ end }}
-            {{ if $altImage }}
-              {{ $resizedAlt := $altImage.Resize "400x q80" }}
-              <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.title }}">
-            {{ end }}
-          </div>
-        </a>
-      </td>
+<div class="responsive-table">
+  <table class="releases-table small-text mono-font">
+    <thead>
+      <tr>
+        <th class="cover-col">cover</th>
+        <th class="artist-col">artist</th>
+        <th class="title-col">title</th>
+        <th class="format-col">format</th>
+        <th class="catnum-col">cat.num</th>
+        <th class="release-col">release</th>
+        <th class="snippet-col">snippet</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ $type := "releases" }}
+      {{ range sort (where site.RegularPages "Type" $type) "Params.year" "desc" }}
+      <tr>
+        <!-- Cover Image Column -->
+        <td class="release-cover">
+          <a href="{{ .Permalink }}">
+            <div class="image-wrapper {{ if resources.Get .Params.altcover }}has-alt-image{{ end }}">
+              {{ $image := resources.Get .Params.images }}
+              {{ $altImage := resources.Get .Params.altcover }}
+              {{ if $image }}
+                {{ $resized := $image.Resize "400x q80" }}
+                <img class="base-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Params.title }}">
+              {{ else }}
+                <img class="base-image" src="/covers/default.png" alt="Cover image for {{ .Params.title }}">
+              {{ end }}
+              {{ if $altImage }}
+                {{ $resizedAlt := $altImage.Resize "400x q80" }}
+                <img class="alt-image" src="{{ $resizedAlt.Permalink }}" alt="Alternate cover image for {{ .Params.title }}">
+              {{ end }}
+            </div>
+          </a>
+        </td>
 
-      <!-- Artist Column -->
-      <td class="small-text">
-{{ with .Params.releaseartist }}
-    {{ $flattend_artist_name := replace . " " "-" | lower }}
-    {{ $url := printf "/artists/%s" $flattend_artist_name }}
-        <a href="{{ $url}}"> {{. }}</a>
-      {{end}}
-      </td>
+        <!-- Artist Column -->
+        <td class="artist-col">
+          {{ with .Params.releaseartist }}
+            {{ $flattened_artist_name := replace . " " "-" | lower }}
+            {{ $url := printf "/artists/%s" $flattened_artist_name }}
+            <a href="{{ $url}}">{{ . }}</a>
+          {{ end }}
+        </td>
 
-      <!-- Title Column -->
-      <td class="small-text">
-        <a href="{{ .Permalink }}">{{ .Params.title }}</a>
-      </td>
+        <!-- Title Column -->
+        <td class="title-col">
+          <a href="{{ .Permalink }}">{{ .Params.title }}</a>
+        </td>
 
-      <!-- Categories Column -->
-      <td class="release-categories small-text">
-        {{ delimit .Params.categories ", " }}
-      </td>
+        <!-- Categories Column -->
+        <td class="format-col">
+          {{ delimit .Params.categories ", " }}
+        </td>
 
-      <!-- Catalog Info Column -->
-      {{/* <td class="release-catalog small-text"> */}}
+        <!-- Catalog Number Column -->
+        <td class="catnum-col">
+          {{ .Params.releasecatnum }}
+        </td>
 
-      {{/*   {{ .Params.releasecattext }} */}}
-      {{/* </td> */}}
+        <!-- Release Date Column -->
+        <td class="release-col">
+          {{ .Params.releasedate }}
+        </td>
 
-
-      <td class="small-text">
-        {{ .Params.releasecatnum }}
-      </td>
-
-      <td class="small-text">
-        {{ .Params.releasedate }}
-      </td>
-
-      <!-- Audio Player Column -->
-      <td class="release-audio">
-        {{ if .Params.audiopath }}
-          {{ $audiopath := .Params.audiopath | relURL }}
-          {{ $audiotitle := .Params.audiotitle | default "" }}
-          {{ $id := now.UnixNano }}
-          {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id "showTitle" false) }}
-        {{ end }}
-      </td>
-
-    </tr>
-    {{ end }}
-  </tbody>
-</table>
+        <!-- Audio Player Column -->
+        <td class="snippet-col">
+          {{ if .Params.audiopath }}
+            {{ $audiopath := .Params.audiopath | relURL }}
+            {{ $audiotitle := .Params.audiotitle | default "" }}
+            {{ $id := now.UnixNano }}
+            {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id "showTitle" false) }}
+          {{ end }}
+        </td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>
 
 <style>
+  /* Base table styles */
+  .responsive-table {
+    width: 100%;
+    overflow: hidden;
+  }
+
   .releases-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 2rem 0;
+    table-layout: fixed;
   }
 
   .releases-table th {
     text-align: left;
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem;
     border: 1px solid #ddd;
     color: var(--text-color);
     font-weight: normal;
+    background: var(--background-color);
   }
 
   .releases-table td {
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem;
     border: 1px solid #ddd;
     vertical-align: middle;
+    {{/* text-overflow: wrap; */}}
+    {{/* white-space: nowrap; */}}
   }
-
-  {{/* .release-cover .image-wrapper { */}}
-  {{/*   width: 80px; */}}
-  {{/*   height: 80px; */}}
-  {{/*   position: relative; */}}
-  {{/* } */}}
 
   .release-cover img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
   }
 
-  .release-cover {
-    min-width: 75px;
-    min-height: 75px;
+  /* Column width adjustments */
+  .cover-col { width: 60px; }
+  .artist-col { width: 15%; min-width: 220px; }
+  .title-col { width: 20%; min-width: 150px; }
+  .format-col { width: 12%; min-width: 100px; }
+  .catnum-col { width: 10%; min-width: 80px; }
+  .release-col { width: 10%; min-width: 80px; }
+  .snippet-col { width: 23%; min-width: 150px; }
+
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .artist-col { width: 14%; }
+    .title-col { width: 18%; }
+    .format-col, .catnum-col, .release-col { width: 9%; }
+    .snippet-col { width: 22%; }
   }
 
+  @media (max-width: 992px) {
+    .releases-table th,
+    .releases-table td {
+      padding: 0.5rem 0.3rem;
+      font-size: 0.9em;
+    }
+    .release-cover img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .releases-table {
+      display: table;
+    }
+
+    .releases-table th,
+    .releases-table td {
+      white-space: normal;
+      padding: 0.4rem 0.2rem;
+      font-size: 0.85em;
+    }
+
+    .cover-col { width: 50px; }
+    .artist-col { width: 14%; min-width: 100px; }
+    .title-col { width: 18%; min-width: 120px; }
+    .format-col { width: 10%; min-width: 70px; }
+    .catnum-col { width: 8%; min-width: 60px; }
+    .release-col { width: 8%; min-width: 60px; }
+    .snippet-col { width: 20%; min-width: 120px; }
+
+    .release-cover img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  /* Audio player adjustments */
   .release-audio {
-    min-width: 150px;
+    min-width: 120px;
   }
 
+  @media (max-width: 768px) {
+    .release-audio {
+      min-width: 100px;
+    }
+  }
 </style>

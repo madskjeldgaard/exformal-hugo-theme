@@ -3,16 +3,16 @@
   <section>
 
     {{/* If there is content, make a <article>, if not leave it */}}
-      <article>
+      <article class="wide">
       {{ if gt (len .Plain ) 0 }}
         {{ .Content }}
       {{ end }}
-      {{ partial "releases-list.html" (dict "type" "release" "pages" .Site.RegularPages) }}
-      </article>
+      {{/* {{ partial "releases-list.html" (dict "type" "release" "pages" .Site.RegularPages) }} */}}
 
       <!-- Show releases as grid: -->
-      {{/* {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }} */}}
+      {{ partial "release-grid.html" (dict "type" "release" "pages" .Data.Pages) }}
 
+      </article>
 
   </section>
 

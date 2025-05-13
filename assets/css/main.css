@@ -346,7 +346,10 @@ article {
   letter-spacing: 0.20px;
   /* Slight increase in letter spacing for readability */
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+}
 
+article.wide {
+  max-width: 100%;
 }
 
 article h1 {
@@ -703,9 +706,26 @@ hr {
 
 }
 
-/* .releases-table > * { */
-/*   font-family: "Courier New", Courier, monospace; */
-/* } */
+.releases-table {
+
+  thead{
+    tr{
+      th{
+        font-family: "Verdana", Courier, monospace;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        font-family: "Verdana", Courier, monospace;
+      }
+    }
+
+  }
+
+}
 
 .threejscanvas {
   width: 100%;
@@ -915,7 +935,7 @@ button:hover {
 }
 
 article .portfolio-grid {
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   padding: 0;
 }
 
