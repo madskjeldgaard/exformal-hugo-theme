@@ -15,7 +15,6 @@
 
       <p class="single-portfolio-desc">{{ .Params.description }}</p>
 
-
     <section>
       <figure>
         {{ $image := resources.Get .Params.cover }}
@@ -42,6 +41,15 @@
 
       </figure>
 
+      <!-- Additional links -->
+      {{ range .Params.additionalLinks }}
+        <div class="cover-button-container portfolio-single-button">
+          <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+            <button class="buy-button">{{ .name }}</button>
+          </a>
+        </div>
+      {{ end }}
+
       <!-- Audio player JPLAYER -->
       {{ if .Params.audiopath }}
         <hr>
@@ -53,6 +61,10 @@
       </div>
       {{ end }}
       <!-- END: Audio player JPLAYER -->
+
+
+
+
     </section>
 
     <section>
