@@ -503,14 +503,16 @@ blockquote {
   color: var(--quote-color);
 }
 
-.book-quote {
+blockquote.book-quote {
   font-style: italic;
-  margin: 20px 0;
-  padding: 15px;
-  border-left: 0px solid --var(grey);
+  /* margin: 20px 0; */
+  padding: 50px;
+  /* border-left: 0px solid var(--grey); */
+  font-size: 1.0em;
   text-align: justify;
   text-justify: inter-word;
-  color: var(--quote-color);
+  color: var(--grey);
+  /* background-color: var(--secondary-bg-color); */
 }
 
 .book-quote cite {
@@ -518,7 +520,8 @@ blockquote {
   text-align: right;
   margin-top: 10px;
   font-style: normal;
-  font-weight: bold;
+
+  /* font-weight: bold; */
 }
 
 .responsive-figure {
@@ -728,9 +731,9 @@ hr {
 
 .releases-table {
 
-  thead{
-    tr{
-      th{
+  thead {
+    tr {
+      th {
         font-family: "Verdana", Courier, monospace;
       }
     }
@@ -780,12 +783,16 @@ article img.release-cover-image {
   margin: 0 auto;
 }
 
-article img.release-artist-image-single {
-  /* margin: 0; */
-  margin-top: 1em;
-  margin-bottom: 1em;
+
+article img.release-artist-image-single,
+.release-artist-image-single-caption {
+  margin: 1em 1em 1em 0;
   max-width: 50%;
   /* padding: 0; */
+}
+.release-artist-image-single-caption{
+  text-align: left;
+  color: var(--grey);
 }
 
 img.website-logo {
@@ -1146,7 +1153,7 @@ span.single-portfolio-categories {
 
 .series-container {
   border: 1px dotted var(--link-hover-color);
-  padding: 0.125em 0.33em;
+  padding: 0.33em 0.33em;
 
   a {
     text-decoration: none;
@@ -1307,7 +1314,12 @@ span.list-portfolio-categories {
   }
 
   article img.release-artist-image-single {
-    max-width: 90%;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  .release-artist-image-single-caption{
+    text-align: center;
     margin: 0 auto;
   }
 

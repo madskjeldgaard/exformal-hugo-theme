@@ -74,15 +74,12 @@ function add_release(){
   read -p "Enter Album Name: " album_name
   read -p "Enter Artist Name: " artist_name
   read -p "Enter Release Year: " release_year
-  read -p "Enter Format: " format
-  read -p "Enter Short Description: " description
   read -p "Enter Release Cover URL: " images
   read -p "Enter Alt Cover URL: " altcover
   read -p "Enter Catalogue Number: " releasecatnum
   read -p "Enter Audio File URL: " releaseaudio
   read -p "Enter Audio Title: " releaseaudiotitle
   read -p "Enter About the Release: " description
-  read -p "Enter Catalogue Text: " releasecattext
   read -p "Enter Metadata (comma-separated): " metadata
   read -p "Enter Credits (comma-separated): " credits
   read -p "Enter Tracklist (comma-separated): " tracklist
@@ -103,7 +100,7 @@ title = \"$album_name\"
 date = \"$date\"
 draft=true
 
-categories = ["Digital"]
+categories = [\"Digital\"]
 
 # Images
 images = \"$images\"
@@ -118,7 +115,7 @@ releasecatnum = \"$releasecatnum\"
 
 series=\"\" # Optional series name
 
-buylink="https://exformalrecords.bandcamp.com/"
+buylink=\"https://exformalrecords.bandcamp.com/\"
 
 # Audio player
 audiopath=\"$releaseaudio\"
@@ -126,11 +123,8 @@ audiotitle=\"$releaseaudiotitle\"
 
 # -------------- METADATA ----------------------
 
-# About the release (short text, a few paragraphs)
-description = \"$description\"
-
 # Catalogue text (1-2 lines)
-releasecattext = \"$releasecattext\"
+releasecattext = \"$description\"
 
 # Metadata
 metadata = [
