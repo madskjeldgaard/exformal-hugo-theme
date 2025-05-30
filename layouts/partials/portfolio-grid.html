@@ -11,17 +11,19 @@
   <div class="portfolio-item">
 
     {{/* Categories */}}
+    {{ if ne (.Params.categories ) nil }}
     <span class="list-portfolio-categories single-portfolio-categories small-text">
       {{ delimit .Params.categories " | " }}
     </span>
+  {{ end }}
 
     {{/* Cover image */}}
     <a href="{{ .Permalink }}">
-      <div class="image-wrapper">
+      <div class="image-wrapper zoom-on-hover">
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
         {{ $resized := $image.Resize "800x" }}
-        <img src="{{ $resized.Permalink }}" class="zoom-on-hover"
+        <img src="{{ $resized.Permalink }}" class=""
           alt="Cover image for {{ .Params.title }}">
         {{ else }}
         <img src="/covers/default.png" class="base-image "
@@ -36,7 +38,11 @@
 
       {{/* Title */}}
       <a href="{{.Permalink }}">
+        {{ if .Params.year }}
         <h4 class="portfolio-grid-title">{{.Params.title}} ({{.Params.year}})</h4>
+        {{ else }}
+        <h4 class="portfolio-grid-title">{{.Params.title}}</h4>
+        {{ end }}
       </a>
 
 
@@ -46,7 +52,7 @@
 
         <!-- Audio player JPLAYER -->
         {{ if .Params.audiopath }}
-      <div class="release-audio list-view-audioplayer">
+      <div class="release-audio list-view-audioplayer small-text">
         {{ $audiopath := .Params.audiopath | relURL }}
         {{ $audiotitle := .Params.audiotitle | default "" }}
         {{ $id := now.UnixNano }}

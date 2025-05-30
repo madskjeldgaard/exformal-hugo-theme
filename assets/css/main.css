@@ -112,6 +112,12 @@ header {
   align-items: center;
 }
 
+.site-title{
+  /* color: var(--primary-color); */
+  /* font-family: Helvetica Neue, Helvetica, sans-serif; */
+  font-weight: 700;
+}
+
 
 /* Link Styles */
 a {
@@ -167,6 +173,8 @@ a:focus {
   font-size: 0.9em;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -174,7 +182,6 @@ a:focus {
   padding: 1em 0 0 0;
   display: inline-block;
   margin: 1em 1em 0 0;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .pdf-paginator {
@@ -249,6 +256,7 @@ a:focus {
 .buy-button:hover {
   color: var(--primary-color);
   background-color: var(--secondary-color);
+
 }
 
 .centered-text {
@@ -422,6 +430,12 @@ p {
   margin-top: 20px;
   margin-bottom: 20px;
   /* Space between paragraphs */
+}
+
+p.no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+  /* Removes margin for specific paragraphs */
 }
 
 .with-shadow,
@@ -971,15 +985,24 @@ article .portfolio-grid {
   width: 100%;
 }
 
+.portfolio-item img {
+  /* box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); */
+}
+
+.portfolio-item{
+  /* border: 1px solid var(--grey); */
+}
+
 .image-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   padding-top: 100%;
+  padding-bottom: 0;
+
   position: relative;
 
-  /* Fill wrapper */
   img {
     position: absolute;
     top: 0;
@@ -999,9 +1022,6 @@ article .portfolio-grid {
 /*   position: relative; */
 /* } */
 
-.image-wrapper {
-  position: relative;
-}
 
 .image-wrapper .base-image,
 .image-wrapper .alt-image {
@@ -1009,6 +1029,7 @@ article .portfolio-grid {
   top: 0;
   left: 0;
   height: auto;
+  width: 100%;
   transition: opacity 0.3s ease-in-out;
   /* Add smooth transition */
 }
@@ -1059,9 +1080,9 @@ article .portfolio-grid {
 .portfolio-item img {
   object-fit: cover;
   position: absolute;
-  /* width: 95%; */
+  width: 95%;
   /* transition: opacity 0.25s linear; */
-  /* height: 95%; */
+  height: 95%;
   top: 0;
   left: 0;
 }
@@ -1232,7 +1253,7 @@ span.list-portfolio-categories {
 
   nav {
     display: none;
-    font-size: 1.5em;
+    font-size: 1.0em;
   }
 
   nav ul {
@@ -1275,17 +1296,20 @@ span.list-portfolio-categories {
     right: 0;
   }
 
+  article img.release-cover-image{
+    /* margin: 0 -2em; */
+  }
+
   /* center image and make it full screen width */
   article img,
   video,
-  .featured-image img,
-  article img.release-cover-image {
-    max-width: 120%;
-    max-height: 120%;
-    width: calc(100% + 4em);
+  .featured-image img {
+    /* max-width: calc(100% + 4em); */
+    max-height: 100%;
+    /* width: calc(100% + 4em); */
     /* Adjust width to account for article's margin */
     height: auto;
-    margin: 0 -2em;
+    /* margin: 0 ; */
     /* Negative margin to offset the article's margin */
     left: 0;
     right: 0;

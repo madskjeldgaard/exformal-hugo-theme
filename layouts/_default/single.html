@@ -9,7 +9,7 @@
 
   <!-- Only show date if the content type is not "page" -->
   {{ if ne .Type "page" }}
-  <p class="newsdate">{{ $dateHuman }}</p>
+  <p class="newsdate no-margin">{{ $dateHuman }}</p>
   {{ end }}
 
   <!-- only show title if it is allowed in the front matter -->
@@ -17,9 +17,59 @@
   <h1>{{ .Title }}</h1>
   {{ end }}
 
-{{ if .Params.subTitle }}
-  <p class="subtitle" >{{ .Params.subTitle }}</p>
+  {{ if .Params.subTitle }}
+  <p class="subtitle">{{ .Params.subTitle }}</p>
   {{ end }}
+
+  <p class="single-portfolio-desc">{{ .Params.description }}</p>
+
+  <section>
+    <figure>
+      {{ $image := resources.Get .Params.cover }}
+      {{ if $image }}
+      {{ $resized := $image.Resize "1000x" }}
+
+      {{/* If there is a coverlink parameter in the page front matter, wrap it in a link */}}
+
+      {{ if .Params.coverlink }}
+      <a href="{{ .Params.coverlink }}">
+        <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+      </a>
+      {{ else }}
+      <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+      {{ end }}
+      {{ end }}
+
+      {{/* If there is a caption for the photo in the caption-key of the page, use that: */}}
+      {{with $.Params.caption}}
+      <figcaption class="portfolio-single-cover-caption">{{ . }}</figcaption>
+      {{end}}
+
+    </figure>
+
+    <!-- Additional links -->
+    {{ range .Params.additionalLinks }}
+    <div class="cover-button-container portfolio-single-button">
+      <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+        <button class="buy-button">{{ .name }}</button>
+      </a>
+    </div>
+    {{ end }}
+
+    <!-- Audio player JPLAYER -->
+    {{ if .Params.audiopath }}
+    <hr>
+    <div class="release-audio center-audio">
+      {{ $audiopath := .Params.audiopath | relURL }}
+      {{ $audiotitle := .Params.audiotitle | default "" }}
+      {{ $id := .Params.id | default (now.UnixNano) }}
+      {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id "showTitle" true) }}
+    </div>
+    {{ end }}
+    <!-- END: Audio player JPLAYER -->
+  </section>
+
+
   {{ .Content }}
 
   {{/* tags */}}

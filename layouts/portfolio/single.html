@@ -2,36 +2,46 @@
 <main>
   <article>
 
-  {{ partial "head/opengraph.html" . }}
+    {{ partial "head/opengraph.html" . }}
     <span class="single-portfolio-categories">
-      <p>
+      <p class="no-margin">
         {{ delimit .Params.categories " | " }}
       </p>
+
+      {{/* {{if .Params.longterm }} */}}
+      {{/* <span class="single-portfolio-longterm small-text"> */}}
+        {{/* (Part of the longterm project '<a href="/longterm/{{ .Params.longterm|urlize}}">{{.Params.longterm }}</a>')
+        */}}
+        {{/* </span> */}}
+      {{/* {{end}} */}}
+
     </span>
 
     <header>
       <h1 class="portfolio-title">{{ .Title }} ({{ .Params.year }})</h1>
+
+
     </header>
 
-      <p class="single-portfolio-desc">{{ .Params.description }}</p>
+    <p class="single-portfolio-desc">{{ .Params.description }}</p>
 
     <section>
       <figure>
         {{ $image := resources.Get .Params.cover }}
         {{ if $image }}
-          {{ $resized := $image.Resize "1000x" }}
+        {{ $resized := $image.Resize "1000x" }}
 
-          {{/* If there is a coverlink parameter in the page front matter, wrap it in a link */}}
+        {{/* If there is a coverlink parameter in the page front matter, wrap it in a link */}}
 
-          {{ if .Params.coverlink }}
-            <a href="{{ .Params.coverlink }}">
-              <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
-            </a>
-          {{ else }}
-            <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
-          {{ end }}
-          {{ else }}
-          <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
+        {{ if .Params.coverlink }}
+        <a href="{{ .Params.coverlink }}">
+          <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+        </a>
+        {{ else }}
+        <img class="release-cover-image" src="{{ $resized.Permalink }}" alt="Cover image for {{ .Title }}">
+        {{ end }}
+        {{ else }}
+        <img class="release-cover-image" src="/path/to/default/image.jpg" alt="Cover image for {{ .Title }}">
         {{ end }}
 
         {{/* If there is a caption for the photo in the caption-key of the page, use that: */}}
@@ -43,16 +53,17 @@
 
       <!-- Additional links -->
       {{ range .Params.additionalLinks }}
-        <div class="cover-button-container portfolio-single-button">
-          <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
-            <button class="buy-button">{{ .name }}</button>
-          </a>
-        </div>
+      <div class="cover-button-container portfolio-single-button">
+        <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+          <button class="buy-button">{{ .name }}</button>
+        </a>
+      </div>
       {{ end }}
 
       <!-- Audio player JPLAYER -->
       {{ if .Params.audiopath }}
-        <hr>
+      {{/*
+      <hr> */}}
       <div class="release-audio center-audio">
         {{ $audiopath := .Params.audiopath | relURL }}
         {{ $audiotitle := .Params.audiotitle | default "" }}
@@ -81,6 +92,18 @@
 
       {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
       {{ if $pages }}
+
+      {{/* TODO: */}}
+      {{/* Longterm project */}}
+      {{/* {{if .Params.longterm }} */}}
+      {{/* delimter */}}
+      {{/* <hr> */}}
+      {{/* <section> */}}
+      {{/*   <span class="single-portfolio-longterm small-text"> */}}
+      {{/*     (Part of the longterm project '<a href="/longterm/{{ .Params.longterm|urlize}}">{{.Params.longterm }}</a>') */}}
+      {{/*   </span> */}}
+      {{/* </section> */}}
+      {{/* {{end}} */}}
 
       {{/* delimter */}}
       <hr>
