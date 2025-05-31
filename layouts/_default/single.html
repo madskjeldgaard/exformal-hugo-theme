@@ -8,7 +8,8 @@
   {{ partial "head/opengraph.html" . }}
 
   <!-- Only show date if the content type is not "page" -->
-  {{ if ne .Type "page" }}
+  {{ $showDate := .Params.showDate | default true }}
+  {{ if and $showDate (ne .Type "page") }}
   <p class="newsdate no-margin">{{ $dateHuman }}</p>
   {{ end }}
 

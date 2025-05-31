@@ -1,0 +1,63 @@
+{{/*
+Shortcode: portfolio-item
+Usage:
+  {{< portfolio-item page=. >}}
+Expects a .Page object as "page" param.
+*/}}
+
+{{ $pageParam := .Get "page" | default .Page }}
+{{ $page := cond (reflect.IsMap $pageParam) $pageParam (site.GetPage $pageParam) }}
+
+<div class="">
+
+  {{/* Categories */}}
+  {{/* {{ if gt (len $page.Params.categories) 0 }} */}}
+  {{/* <span class="list-portfolio-categories single-portfolio-categories small-text"> */}}
+  {{/*   {{ delimit $page.Params.categories " | " }} */}}
+  {{/* </span> */}}
+  {{/* {{ end }} */}}
+
+{{/* Title */}}
+    <a href="{{ $page.Permalink }}">
+      {{ if $page.Params.year }}
+      <h4 class="portfolio-grid-title">{{ $page.Params.title }} ({{ $page.Params.year }})</h4>
+      {{ else }}
+      <h4 class="portfolio-grid-title">{{ $page.Params.title }}</h4>
+      {{ end }}
+    </a>
+
+  {{/* Cover image */}}
+  <div>
+  <a href="{{ $page.Permalink }}">
+      {{ $image := resources.Get $page.Params.cover }}
+      {{ if $image }}
+      {{ $resized := $image.Resize "1000x" }}
+      <img src="{{ $resized.Permalink }}" class="portfolio-item-embed" alt="Cover image for {{ $page.Params.title }}">
+      {{ end }}
+  </a>
+  </div>
+
+  {{/* Text under image */}}
+  <div class="portfolio-description">
+
+
+
+    {{/* Description */}}
+    <p class="portfolio-grid-description small-text">
+      {{ $page.Params.description }}
+
+      <!-- Audio player JPLAYER -->
+      {{ if $page.Params.audiopath }}
+      <div class="release-audio list-view-audioplayer small-text">
+        {{ $audiopath := $page.Params.audiopath | relURL }}
+        {{ $audiotitle := $page.Params.audiotitle | default "" }}
+        {{ $id := now.UnixNano }}
+        {{ partial "simple-audio-player.html" (dict "title" $audiotitle "mp3" $audiopath "id" $id) }}
+      </div>
+      {{ end }}
+      <!-- END: Audio player JPLAYER -->
+
+    </p>
+
+  </div>
+</div>
