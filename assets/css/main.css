@@ -313,6 +313,7 @@ header h1 {
   margin: 0;
   padding: 0.25em;
   flex-grow: 1;
+  /* font-family:  serif; */
   /* Allows the title to grow and push the menu to the center */
   text-align: left;
   /* Aligns the title to the left */

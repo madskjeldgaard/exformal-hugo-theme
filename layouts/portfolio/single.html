@@ -19,8 +19,6 @@
 
     <header>
       <h1 class="portfolio-title">{{ .Title }} ({{ .Params.year }})</h1>
-
-
     </header>
 
     <p class="single-portfolio-desc">{{ .Params.description }}</p>
@@ -60,6 +58,7 @@
       </div>
       {{ end }}
 
+
       <!-- Audio player JPLAYER -->
       {{ if .Params.audiopath }}
       {{/*
@@ -72,7 +71,6 @@
       </div>
       {{ end }}
       <!-- END: Audio player JPLAYER -->
-
 
 
 
@@ -93,17 +91,34 @@
       {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
       {{ if $pages }}
 
-      {{/* TODO: */}}
       {{/* Longterm project */}}
-      {{/* {{if .Params.longterm }} */}}
+      {{if .Params.longterm }}
+      <hr>
+
+      {{ $longtermURL := .Site.GetPage "longterm" .Params.longterm | default (dict)}}
+      {{$longtermCover:= resources.Get $longtermURL.Params.cover}}
+      {{ $longtermCoverResized := $longtermCover.Resize "1000x"}}
       {{/* delimter */}}
-      {{/* <hr> */}}
-      {{/* <section> */}}
-      {{/*   <span class="single-portfolio-longterm small-text"> */}}
-      {{/*     (Part of the longterm project '<a href="/longterm/{{ .Params.longterm|urlize}}">{{.Params.longterm }}</a>') */}}
-      {{/*   </span> */}}
-      {{/* </section> */}}
-      {{/* {{end}} */}}
+      <section>
+        <h3>Part of longterm project <a href="{{$longtermURL}}">{{$longtermURL.Title}}</a></h3>
+        {{ if $longtermCover }}
+        <figure>
+          <a href="/longterm/{{ .Params.longterm|urlize}}">
+            <img class="longterm-cover-image" src="{{ $longtermCoverResized.Permalink }}" alt="Cover image for {{ .Params.longterm }}">
+          </a>
+        </figure>
+      {{ end}}
+        {{ $longtermPage := .Site.GetPage "longterm" .Params.longterm | default (dict) }}
+        {{ if $longtermPage }}
+        <p class="longterm-desc small-text">{{ $longtermPage.Params.description }}</p>
+        {{ end }}
+
+        <div class="cover-button-container portfolio-single-button">
+          <a href="/longterm/{{ .Params.longterm|urlize}}"><button class="cover-button">Read more</button></a>
+        </div>
+      </section>
+      {{end}}
+
 
       {{/* delimter */}}
       <hr>
