@@ -112,7 +112,7 @@ header {
   align-items: center;
 }
 
-.site-title{
+.site-title {
   /* color: var(--primary-color); */
   /* font-family: Helvetica Neue, Helvetica, sans-serif; */
   /* font-weight: 700; */
@@ -163,21 +163,41 @@ a:focus {
   font-weight: 700;
 }
 
-.buy-button {
-  background-color: var(--background-color);
-  color: var(--link-hover-color);
-  border: 1px solid var(--link-hover-color);
+.button,
+.cover-button,
+.pdf-paginator button,
+.embed-pdf-container #overlayText a {
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--secondary-color);
   padding: 15px 32px;
+  border-radius: 3px;
   text-align: center;
   text-decoration: none;
+  text-transform: lowercase;
   display: inline-block;
   font-size: 0.9em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 500;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
 }
 
+.button:hover,
+.cover-button:hover {
+  color: var(--primary-color);
+  background-color: var(--link-hover-bg-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.buy-button:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
 
 .cover-button-container {
   padding: 1em 0 0 0;
@@ -191,39 +211,9 @@ a:focus {
 }
 
 
-.button,
-.cover-button,
-.pdf-paginator button,
-.embed-pdf-container #overlayText a {
-  background-color: var(--background-color);
-  color: var(--grey);
-  border: 1px solid var(--grey);
-  padding: 15px 32px;
-  border-radius: 3px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-
-.portfolio-single-button{
-  /* Center */
+.portfolio-single-button {
   display: flex;
-  /* margin: 1em auto; */
   justify-content: center;
-
-    text-decoration: none;
-    a{
-      border-bottom: 0px ;
-      text-decoration: none;
-      button{
-        text-decoration: none;
-      }
-    }
-
 }
 
 
@@ -249,19 +239,23 @@ a:focus {
   margin: 1em 0 1em 0;
 }
 
-.cover-button:hover {
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
-}
 
-.buy-button:hover {
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
-
-}
 
 .centered-text {
   text-align: center;
+}
+
+/* alignments */
+.align-center {
+  margin: 0 auto;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
 }
 
 @keyframes gradient {
@@ -456,6 +450,7 @@ p.no-margin {
 figcaption {
   margin: 1em 0;
 }
+
 p.release-cover-caption,
 figcaption.portfolio-single-cover-caption,
 p.photo-caption,
@@ -470,7 +465,7 @@ p.newsdate {
   padding: 0;
 }
 
-figcaption.portfolio-single-cover-caption{
+figcaption.portfolio-single-cover-caption {
   margin: 1em;
 }
 
@@ -809,7 +804,8 @@ article img.release-artist-image-single,
   max-width: 50%;
   /* padding: 0; */
 }
-.release-artist-image-single-caption{
+
+.release-artist-image-single-caption {
   text-align: left;
   color: var(--grey);
 }
@@ -971,6 +967,7 @@ button:hover {
   height: 0.33rem;
   background-color: var(--text-color);
 }
+
 div .portfolio-item-embed,
 .portfolio-item-embed {
   max-width: 350px;
@@ -1000,7 +997,7 @@ article .portfolio-grid {
   /* box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); */
 }
 
-.portfolio-item{
+.portfolio-item {
   /* border: 1px solid var(--grey); */
 }
 
@@ -1307,7 +1304,7 @@ span.list-portfolio-categories {
     right: 0;
   }
 
-  article img.release-cover-image{
+  article img.release-cover-image {
     /* margin: 0 -2em; */
   }
 
@@ -1353,7 +1350,7 @@ span.list-portfolio-categories {
     margin: 0 auto;
   }
 
-  .release-artist-image-single-caption{
+  .release-artist-image-single-caption {
     text-align: center;
     margin: 0 auto;
   }

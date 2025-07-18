@@ -51,8 +51,8 @@
     <!-- Additional links -->
     {{ range .Params.additionalLinks }}
     <div class="cover-button-container portfolio-single-button">
-      <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
-        <button class="buy-button">{{ .name }}</button>
+      <a class="no-underline" href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+        <button class="button">{{ .name }}</button>
       </a>
     </div>
     {{ end }}
