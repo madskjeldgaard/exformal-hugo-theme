@@ -22,19 +22,21 @@
 
 
 
-<article>
-<section>
-{{.Content}}
-</section>
+    <article>
+      <section>
+        {{.Content}}
+      </section>
 
-<br>
+      <br>
 
-<section>
       <!-- Show releases as grid: -->
-      {{ partial "release-grid.html" (dict "type" "release" "pages" .Site.RegularPages) }}
-</section>
+      {{if.Site.Params.showReleasesGridOnFrontPage}}
+      <section>
+        {{ partial "release-grid.html" (dict "type" "release" "pages" .Site.RegularPages) }}
+      </section>
+      {{end }}
 
-</article>
+    </article>
 
   </main>
 </body>
