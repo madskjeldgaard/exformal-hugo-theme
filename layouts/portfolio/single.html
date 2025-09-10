@@ -92,32 +92,36 @@
       {{ if $pages }}
 
       {{/* Longterm project */}}
-      {{if .Params.longterm }}
-      <hr>
+      {{ $longterms := .Params.longterm }}
+{{ $page := . }}
+{{ if $longterms }}
+  {{ if eq (printf "%T" $longterms) "string" }}
+    {{ $longterms = slice $longterms }}
+  {{ end }}
+  {{ range $longterm := $longterms }}
+    {{ $longtermURL := $page.Site.GetPage (printf "longterm/%s" $longterm | urlize) }}
+    <section>
+      <h3>Part of <a href="{{ $longtermURL.Permalink }}">{{ $longtermURL.Title }}</a></h3>
 
-      {{ $longtermURL := .Site.GetPage "longterm" .Params.longterm | default (dict)}}
-      {{$longtermCover:= resources.Get $longtermURL.Params.cover}}
-      {{ $longtermCoverResized := $longtermCover.Resize "1000x"}}
-      {{/* delimter */}}
-      <section>
-        <h3>Part of longterm project <a href="{{$longtermURL}}">{{$longtermURL.Title}}</a></h3>
-        {{ if $longtermCover }}
-        <figure>
-          <a href="/longterm/{{ .Params.longterm|urlize}}">
-            <img class="longterm-cover-image" src="{{ $longtermCoverResized.Permalink }}" alt="Cover image for {{ .Params.longterm }}">
-          </a>
-        </figure>
-      {{ end}}
-        {{ $longtermPage := .Site.GetPage "longterm" .Params.longterm | default (dict) }}
-        {{ if $longtermPage }}
-        <p class="longterm-desc small-text">{{ $longtermPage.Params.description }}</p>
-        {{ end }}
+      {{ $longtermCover := $longtermURL.Params.cover }}
+      {{ $longtermCoverRes := resources.Get $longtermCover }}
+{{ if $longtermCoverRes }}
+  {{ $longtermCoverResized := $longtermCoverRes.Resize "1200x" }}
+  <figure>
+    <a href="/longterm/{{ $longterm | urlize }}">
+      <img class="longterm-cover-image" src="{{ $longtermCoverResized.Permalink }}" alt="Cover image for {{ $longterm }}">
+    </a>
+  </figure>
+{{ end }}      {{ if $longtermURL }}
+        <p class="longterm-desc small-text">{{ $longtermURL.Params.description }}</p>
+      {{ end }}
+      <div class="cover-button-container portfolio-single-button">
+        <a href="/longterm/{{ $longterm | urlize }}"><button class="cover-button button">Read more</button></a>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
 
-        <div class="cover-button-container portfolio-single-button">
-          <a href="/longterm/{{ .Params.longterm|urlize}}"><button class="cover-button button">Read more</button></a>
-        </div>
-      </section>
-      {{end}}
 
 
       {{/* delimter */}}

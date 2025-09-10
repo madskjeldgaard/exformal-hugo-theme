@@ -1132,7 +1132,7 @@ p.single-portfolio-desc {
 }
 
 /* Metadata etc in releases */
-.cover-item .release-metadata {
+.cover-item .release-metadata, .bordered-box {
   margin: 0 1em 1em 1em;
   padding: 0 1em 1em 1em;
   border: 1px dashed var(--text-color);
