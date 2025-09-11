@@ -100,8 +100,8 @@
   {{ end }}
   {{ range $longterm := $longterms }}
     {{ $longtermURL := $page.Site.GetPage (printf "longterm/%s" $longterm | urlize) }}
-    <section>
-      <h3>Part of <a href="{{ $longtermURL.Permalink }}">{{ $longtermURL.Title }}</a></h3>
+    <section class="bordered-box-shadowed">
+      <h3>Part of longterm project <i><a href="{{ $longtermURL.Permalink }}">{{ $longtermURL.Title }}</a></i></h3>
 
       {{ $longtermCover := $longtermURL.Params.cover }}
       {{ $longtermCoverRes := resources.Get $longtermCover }}
@@ -112,8 +112,9 @@
       <img class="longterm-cover-image" src="{{ $longtermCoverResized.Permalink }}" alt="Cover image for {{ $longterm }}">
     </a>
   </figure>
-{{ end }}      {{ if $longtermURL }}
-        <p class="longterm-desc small-text">{{ $longtermURL.Params.description }}</p>
+{{ end }}
+{{ if $longtermURL }}
+        <p class="longterm-desc ">{{ $longtermURL.Params.description }}</p>
       {{ end }}
       <div class="cover-button-container portfolio-single-button">
         <a href="/longterm/{{ $longterm | urlize }}"><button class="cover-button button">Read more</button></a>

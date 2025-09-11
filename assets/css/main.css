@@ -176,7 +176,7 @@ a:focus {
   text-decoration: none;
   text-transform: lowercase;
   display: inline-block;
-  font-size: 0.75em;
+  font-size: 0.9em;
   cursor: pointer;
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s, .15s;
@@ -1139,6 +1139,16 @@ p.single-portfolio-desc {
   border-radius: 3px;
 }
 
+.bordered-box-shadowed{
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .13);
+  margin: 0 1em 1em 1em;
+  padding: 0 1em 1em 1em;
+  border: 1px dashed var(--text-color);
+  border-radius: 3px;
+
+
+}
+
 /* span.single-portfolio-categories { */
 /* } */
 
@@ -1210,14 +1220,32 @@ span.list-portfolio-categories {
   font-family: Helvetica Neue, Helvetica, sans-serif;
 }
 
-.table {
+.table, table {
   display: table;
   /* max-width: 100%; */
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
   font-size: 0.75em;
+  border: 1px dashed var(--text-color);
+  border-collapse: collapse;
   /* width: 100%; */
+}
+
+/* Table cells */
+td {
+  padding: 0.5em;
+  border: 1px dashed var(--text-color);
+  vertical-align: top;
+}
+
+th {
+  padding: 0.5em;
+  border: 1px dashed var(--text-color);
+  background: var(--secondary-bg-color);
+  color: var(--secondary-text-color);
+  text-align: left;
+  font-size: 0.9em;
 }
 
 .row {
