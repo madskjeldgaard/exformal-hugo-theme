@@ -100,7 +100,7 @@
   {{ end }}
   {{ range $longterm := $longterms }}
     {{ $longtermURL := $page.Site.GetPage (printf "longterm/%s" $longterm | urlize) }}
-    <section class="bordered-box-shadowed">
+    <section class="bordered-box">
       <h3>Part of longterm project <i><a href="{{ $longtermURL.Permalink }}">{{ $longtermURL.Title }}</a></i></h3>
 
       {{ $longtermCover := $longtermURL.Params.cover }}
