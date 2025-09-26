@@ -88,6 +88,7 @@
         {{ range .Params.tags }} #{{ . }} {{ end }}
       </p>
 
+{{/* long term project */}}
       {{ $pages := where .Site.RegularPages "Type" "portfolio" }}
       {{ if $pages }}
 
@@ -121,12 +122,13 @@
       </div>
     </section>
   {{ end }}
+{{ else }}
+{{/* delimiter */}}
+      <hr>
+
 {{ end }}
 
 
-
-      {{/* delimter */}}
-      <hr>
 
       {{/* more stuff */}}
       {{ partial "portfolio-grid.html" (dict "type" "portfolio" "pages" $pages) }}
