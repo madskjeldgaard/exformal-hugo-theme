@@ -1,5 +1,5 @@
 {{ $alignment := .Get "alignment" | default "center" }}
 
-<a href="{{ .Get "url" }}" class="button align-{{$alignment}}"{{ with .Get "target" }} target="{{ . }}" rel="noopener"{{ end }}>
+<a href="{{ .Get "url" }}" class="no-underline button align-{{$alignment}}"{{ with .Get "target" }} target="{{ . }}" rel="noopener"{{ end }}>
   {{ .Get "text" }}
 </a>
