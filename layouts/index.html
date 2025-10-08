@@ -30,7 +30,7 @@
       <br>
 
       <!-- Show releases as grid: -->
-      {{if.Site.Params.showReleasesGridOnFrontPage}}
+      {{if .Site.Params.showReleasesGridOnFrontPage}}
       <section>
         {{ partial "release-grid.html" (dict "type" "release" "pages" .Site.RegularPages) }}
       </section>

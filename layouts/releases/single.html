@@ -97,7 +97,7 @@
   <!-- Buy link -->
   {{ with .Params.buylink }}
   <div class="cover-button-container">
-    <a href="{{ . }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+    <a href="{{ . }}" class="no-underline" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
       <button class="button buy-button">buy</button>
     </a>
   </div>
@@ -106,7 +106,7 @@
   <!-- Additional links -->
   {{ range .Params.additionalLinks }}
   <div class="cover-button-container">
-    <a href="{{ .url }}" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
+    <a href="{{ .url }}" class="no-underline" aria="Purchase '{{ $.Params.title }}'" target="_blank" rel="noopener">
       <button class="button cover-button">{{ .name }}</button>
     </a>
   </div>
