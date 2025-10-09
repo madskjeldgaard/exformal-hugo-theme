@@ -181,10 +181,10 @@ a:focus {
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s, .15s;
   transition-timing-function: ease;
-  /* font-family: Helvetica Neue, Helvetica, sans-serif; */
-font-family: 'Merriweather', serif;
-/* font-style: italic; */
-/* font-weight: 700; */
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  /* font-family: 'Merriweather', serif; */
+  /* font-style: italic; */
+  /* font-weight: 700; */
 
   /* font-weight: 500; */
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
