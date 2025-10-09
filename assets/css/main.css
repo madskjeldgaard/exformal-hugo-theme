@@ -99,7 +99,7 @@ body {
 
 /* Fluid type */
 html {
-  font-size: min(max(12px, 3vw), 16px);
+  font-size: min(max(12px, 3vw), 14px);
 }
 
 header {
@@ -1399,6 +1399,6 @@ th {
   }
 
   html {
-    font-size: min(max(14px, 5vw), 18px);
+    font-size: min(max(14px, 3vw), 16px);
   }
 }
