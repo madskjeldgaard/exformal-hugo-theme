@@ -218,7 +218,7 @@
 
     {{ if $page }}
     {{/* <hr> */}}
-    <div class="release-artist">
+    <div class="release-artist bordered-box">
       {{/* If there is a description, show it */}}
       {{ if $description }}
       <h3>{{ $header }}</h3>
@@ -261,7 +261,7 @@
 
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
-    <hr>
+    <h2 class="centered-text">Explore more releases:</h2>
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>
