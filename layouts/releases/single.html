@@ -230,20 +230,20 @@
 
         {{ with $page.Params.artistphoto }}
         {{ $cover := resources.Get . }}
-        {{ if $cover }}
-        {{ $resized := $cover.Resize "1280x" }}
+          {{ if $cover }}
+          <div class="">
+            {{ $resized := $cover.Resize "1280x" }}
 
-        <a href="{{ $url }}" aria="Artist page for '{{ . }}'">
-          <img class="release-artist-image release-artist-image-single" src="{{ $resized.Permalink }}"
-                                                                        alt="Cover image for {{ $.Params.title }}" />
-        </a>
-        {{ with $page.Params.artistphotocredit }}
-        <figcaption class="photo-caption caption release-artist-image-single-caption">Photo by {{ . }}</figcaption>
+            <a href="{{ $url }}" aria="Artist page for '{{ . }}'">
+              <img class="align-center release-artist-image release-artist-image-single" src="{{ $resized.Permalink }}"
+                                                                            alt="Cover image for {{ $.Params.title }}" />
+            </a>
+            {{ with $page.Params.artistphotocredit }}
+            <figcaption class="align-center photo-caption caption release-artist-image-single-caption ">Photo by {{ . }}</figcaption>
+            {{ end }}
+          </div>
+          {{ end }}
         {{ end }}
-        {{ end }}
-        {{ end }}
-
-
     </div>
     {{ end }}
     {{ end }}
@@ -261,7 +261,7 @@
 
     {{ $pages := where .Site.RegularPages "Type" "releases" }}
     {{ if $pages }}
-    <h2 class="centered-text">Explore more releases:</h2>
+    <h2 class="centered-text">Explore more releases</h2>
     {{ partial "release-grid.html" (dict "type" "releases" "pages" $pages) }}
     {{end}}
   </section>

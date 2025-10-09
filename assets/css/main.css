@@ -253,15 +253,15 @@ a:focus {
 
 /* alignments */
 .align-center {
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 .align-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .align-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 @keyframes gradient {
