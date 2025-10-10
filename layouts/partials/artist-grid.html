@@ -25,7 +25,7 @@
     </a>
 
     <div class="artist-description artist-text-top">
-      <a href="{{ .Permalink }}">
+      <a class="no-underline" href="{{ .Permalink }}">
         <span class="artist-name">{{ .Params.artistname }}</span>
       </a>
     </div>
@@ -33,7 +33,10 @@
     <div class="artist-description">
       {{/* Bio Excerpt */}}
       <p class="artist-grid-description small-text">
-        {{ .Params.description | truncate 250 }}
+        {{ .Params.description | truncate 500 }}
+      </p>
+      <p class="small-text">
+        <a href="{{ .Permalink }}"> read more</a>
       </p>
 
       {{/* Releases Count */}}
