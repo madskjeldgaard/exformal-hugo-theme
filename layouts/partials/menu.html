@@ -27,7 +27,8 @@ $(document).ready(function() {
   <nav>
     <ul>
          {{- range . }}
-           <li class="no-underline {{ if or (eq .URL $page.Permalink) (eq .URL $page.RelPermalink) }}active{{ end }}">
+           {{/* <li class="no-underline {{ if or (eq .URL $page.Permalink) (eq .URL $page.RelPermalink) }}active{{ end }}"> */}}
+           <li class="no-underline">
              <a href="{{ .URL }}">{{ .Name }}</a>
            </li>
          {{- end }}

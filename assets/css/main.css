@@ -182,11 +182,6 @@ a:focus {
   transition-duration: 0.2s, .15s;
   transition-timing-function: ease;
   font-family: Helvetica Neue, Helvetica, sans-serif;
-  /* font-family: 'Merriweather', serif; */
-  /* font-style: italic; */
-  /* font-weight: 700; */
-
-  /* font-weight: 500; */
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
 }
@@ -482,7 +477,6 @@ a.supporter-caption {
 
 .supporter-logo {
   max-width: 100px;
-  /* background-color: var(--text-color); */
   padding: 1em;
   display: inline-block;
 }
@@ -818,10 +812,9 @@ article img.release-artist-image-single,
 
 img.website-logo {
   max-width: 100px;
-  max-height: 75px;
+  max-height: 50px;
   margin: 0 auto;
   display: block;
-  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 .artist-bio {
