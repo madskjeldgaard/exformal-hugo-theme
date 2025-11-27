@@ -1,8 +1,9 @@
 <div class="portfolio-grid">
   {{ $type := .type }}
   {{ $ignorePageWithTitle := .ignorePageWithTitle }}
+  {{ $order := .order | default "desc"}}
 
-{{ range sort (where (where .pages "Type" $type) "Permalink" "!=" .Permalink) "Params.year" "desc" }}
+{{ range sort (where (where .pages "Type" $type) "Permalink" "!=" .Permalink) "Params.year" $order }}
 
   {{/* Ignore the page with the same title */}}
   {{ if eq .Title $ignorePageWithTitle }}
