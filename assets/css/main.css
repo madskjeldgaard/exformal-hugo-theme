@@ -1129,9 +1129,11 @@ p.single-portfolio-desc {
 .cover-item .release-metadata, .bordered-box {
   margin: 1em 0;
   padding: 1em ;
-  border: 1px dashed var(--text-color);
+  border: 1px solid var(--grey);
   border-radius: 3px;
-  background-color: var(--bg-color);
+
+    /* Grey gradient */
+  /* background: linear-gradient(90deg, var(--secondary-bg-color) 0%, var(--grey) 95%); */
 
   .table {
     border: 0px;
@@ -1340,7 +1342,7 @@ th {
 
 .concert-content {
   /* margin-left: 0.25rem; */
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .concert-title {
@@ -1461,16 +1463,15 @@ th {
 
 /* Bordered box version */
 .concert-item.bordered-box {
-  border: 1px dashed var(--text-color);
-  border-left: 4px solid;
+  /* border: 1px dashed var(--text-color); */
+  /* border-left: 4px solid; */
   margin: 1em 0;
   padding: 1em;
-  border-radius: 3px;
   background-color: var(--background-color);
 }
 
 .concert-item.bordered-box.upcoming {
-  border-left-color: var(--link-hover-color);
+  /* border-left-color: var(--link-hover-color); */
 }
 
 .concert-item.bordered-box.passed {
@@ -1485,7 +1486,7 @@ th {
 /* Minimal version */
 .concert-item.minimal {
   padding: 0.5rem;
-  border-left: 2px solid;
+  /* border-left: 2px solid; */
   background: transparent;
 }
 
