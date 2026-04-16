@@ -778,6 +778,10 @@ img {
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 
+.concert-image {
+  margin: 1em auto;
+}
+
 .featured-image img {
   max-height: 500px;
   height: auto;
@@ -1313,6 +1317,8 @@ th {
 .concert-date.passed .date-value {
   color: var(--grey);
 }
+
+
 
 .badge {
   display: inline-block;
