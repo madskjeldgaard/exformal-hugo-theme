@@ -1150,8 +1150,8 @@ p.single-portfolio-desc {
 
 .bordered-box-shadowed{
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .13);
-  margin: 0 1em 1em 1em;
-  padding: 0 1em 1em 1em;
+  margin: 1em;
+  padding: 1em;
   border: 1px dashed var(--text-color);
   border-radius: 3px;
 
