@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-
 <article class="release-post">
   <time datetime="{{ .Date | time.Format " 2006-01-02T15:04:05-07:00" }}"></time>
 
@@ -121,14 +120,14 @@
 
       <!-- "In short" text -->
       {{/* {{ with .Params.description }} */}}
-      {{/* <div class="release-metadata small-text"> */}}
+      {{/* <div class="release-metadata "> */}}
 
         {{/* <div class="release-about-header"> */}}
           {{/* <p>In short ... </p> */}}
           {{/* </div> */}}
 
-        {{/* <div class="release-cat-text small-text"> */}}
-          {{/* <div class="release-about-text meta-data-text small-text"> */}}
+        {{/* <div class="release-cat-text "> */}}
+          {{/* <div class="release-about-text meta-data-text "> */}}
             {{/* <p>{{ . }}</p> */}}
             {{/* </div> */}}
 
@@ -137,29 +136,26 @@
       {{/* {{ end }} */}}
 
 
-      <div class="release-metadata small-text">
-
+      <div class="release-metadata ">
 
         {{ partial "release-metadata.html" . }}
 
         {{ if .Params.releasedate }}
-          <p>Release</p>
-          <div class="table">
+          <div class="table metadata-block">
           <div class="row">
-            <div class="cell small-text">Release date:</div>
-            <div class="cell small-text">{{ .Params.releasedate }}</div>
+            <div class="cell ">Release date: </div>
+            <div class="cell "> {{ .Params.releasedate }}</div>
           </div>
           {{ if .Params.series }}
             <div class="row">
-              <div class="cell small-text">Series:</div>
-              <div class="cell small-text">
+              <div class="cell ">Series: </div>
+              <div class="cell ">
                 <a class="" href="/series">{{.Params.series|lower}}</a>
                 </div>
           </div>
         {{ end }}
 
           </div>
-          {{/* <p class="cell small-text">Release date: {{ .Params.releasedate }}</p> */}}
       {{ end}}
 
 
@@ -222,7 +218,7 @@
       {{/* If there is a description, show it */}}
       {{ if $description }}
       <h3>{{ $header }}</h3>
-      <p class="small-text">{{ $description }}</p>
+      <p class="">{{ $description }}</p>
       <p><a href="{{ $url }}" aria="Artist page for '{{ . }}'"> Read more. {{/* <button class="cover-button">read more</button> */}}
       </a></p>
 

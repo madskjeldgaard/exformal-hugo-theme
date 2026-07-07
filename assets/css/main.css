@@ -4,6 +4,10 @@
 
 
 /* Set up fonts */
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
+}
 
 /* fonts/Merriweather/Merriweather-Regular.ttf */
 @font-face {
@@ -167,6 +171,7 @@ a:focus {
 .cover-button,
 .pdf-paginator button,
 .embed-pdf-container #overlayText a {
+  font-family: "SpaceMono", monospace;
   background-color: var(--bg-color);
   color: var(--text-color);
   border: 2px solid var(--grey);
@@ -181,9 +186,8 @@ a:focus {
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s, .15s;
   transition-timing-function: ease;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
 }
 
 .button:hover,
@@ -616,12 +620,12 @@ footer .site-footer {
 
 /* metadata */
 .release-metadata {
-  font-size: 0.9em;
+  /* font-size: 0.9em; */
   text-align: left;
 }
 
 .release-cat-text {
-  font-size: 0.66em;
+  /* font-size: 0.66em; */
   background: var(--secondary-bg-color);
   color: var(--secondary-text-color);
   text-align: justify;
@@ -748,7 +752,7 @@ hr {
   thead {
     tr {
       th {
-        font-family: "Verdana", Courier, monospace;
+        font-family: "SpaceMono", monospace;
       }
     }
   }
@@ -756,7 +760,7 @@ hr {
   tbody {
     tr {
       td {
-        font-family: "Verdana", Courier, monospace;
+        font-family: "SpaceMono", monospace;
       }
     }
 
@@ -994,7 +998,7 @@ article .portfolio-grid {
 .portfolio-item {
   position: relative;
   width: 100%;
-  margin: 2em;
+  margin: 1em 0;
 }
 
 .portfolio-item img {
@@ -1111,12 +1115,12 @@ article .portfolio-grid {
 }
 
 .meta-data-text p {
-  font-size: 0.9em;
+  /* font-size: 0.9em; */
 }
 
 .single-portfolio-desc {
   font-size: 1.125em;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-family: "SpaceMono", serif;
   text-align: center;
   color: var(--text-color);
 }
@@ -1131,7 +1135,7 @@ p.single-portfolio-desc {
 
 /* Metadata etc in releases */
 .cover-item .release-metadata, .bordered-box {
-  margin: 1em 0;
+  margin: 0em 0;
   padding: 1em ;
   border: 1px solid var(--grey);
   border-radius: 3px;
@@ -1176,7 +1180,7 @@ span.single-portfolio-categories {
 .single-portfolio-categories,
 .portfolio-grid-description {
   font-family: Helvetica Neue, Helvetica, sans-serif;
-  font-size: 0.86em;
+  /* font-size: 0.86em; */
   text-justify: inter-word;
   text-align: left;
   color: var(--grey);
@@ -1186,8 +1190,8 @@ span.single-portfolio-categories {
 
 .mono-font {
   /* font-family: Courier New, Courier, monospace; */
-  font-family: Helvetica Neue, Helvetica, monospace;
-  letter-spacing: 1.0px;
+  font-family: "SpaceMono", monospace;
+  /* letter-spacing: 1.0px; */
 }
 
 .thin-font {
@@ -1227,7 +1231,8 @@ span.list-portfolio-categories {
 
 .metadata-block {
   color: var(--grey);
-  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-family: "SpaceMono", monospace;
+  font-weight: normal;
 }
 
 .table, table {
@@ -1236,7 +1241,8 @@ span.list-portfolio-categories {
 
   /* Make all text uppercase */
   /* text-transform: uppercase; */
-  font-size: 0.75em;
+  font-size: 0.86em;
+  font-family: "SpaceMono", monospace;
   border: 1px dashed var(--text-color);
   border-collapse: collapse;
   /* width: 100%; */
@@ -1272,7 +1278,7 @@ th {
 .meta-cat-header {
 
   text-align: left;
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
   line-height: 1.5em;
   padding: 1em 0;
 }
@@ -1328,7 +1334,7 @@ th {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-family: "SpaceMono", monospace;
 }
 
 .badge.upcoming {
@@ -1552,7 +1558,7 @@ th {
 
   .cover-item .release-metadata {
     padding: 1em;
-    margin: 1em 0;
+    margin: 1em;
   }
 
   /* Disable flex for mobile */
