@@ -7,7 +7,18 @@
     {{- end }}
   {{- end }}
 {{- end }}
-{{- with resources.Get "css/github-dark-dimmed.css" }}
+
+{{- with resources.Get "css/gruvbox-dark-pale.css" }}
+  {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with resources.Get "css/highlightjs-copy.min.css" }}
   {{- if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- else }}
