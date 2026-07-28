@@ -1,0 +1,4 @@
+{{ $code := .Inner | strings.TrimSpace }}
+{{ $lang := "sclang" }}
+{{ $opts := dict "hl_inline" false "noClasses" false }}
+{{ transform.Highlight $code $lang $opts }}

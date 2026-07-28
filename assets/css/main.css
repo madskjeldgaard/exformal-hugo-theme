@@ -300,6 +300,7 @@ a.image-link:focus {
 
 /* Format code blocks */
 pre code {
+  font-family: "Space Mono", monospace;
   white-space: pre;
   overflow-x: auto;
   text-size-adjust: 100%;
@@ -329,7 +330,7 @@ h6 {
 }
 
 code {
-  font-family: Consolas, monospace;
+  font-family: "Space Mono", monospace;
 }
 
 nav {

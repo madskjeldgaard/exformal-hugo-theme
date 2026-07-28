@@ -16,3 +16,23 @@
     {{- end }}
   {{- end }}
 {{- end }}
+
+<!-- Include highlight.js core library -->
+{{- with resources.Get "js/highlight.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16-decaf.css"> */}}
+
+<!-- Include and register the sclang plugin -->
+<script src="//cdn.jsdelivr.net/npm/highlightjs-sclang@0.2.0/dist/sclang.min.js"></script>
+<script>hljs.highlightAll();</script>
