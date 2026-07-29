@@ -325,8 +325,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0.25em 0;
-  font-weight: normal;
+  margin: 0.5em 0;
+  font-weight: bold;
 }
 
 code {
@@ -397,6 +397,13 @@ article h1 {
   font-style: italic;
 }
 
+ul {
+  margin: 0.5em 0 0.5em 1.5em;
+  /* Adjusted margins for better spacing */
+  padding: 0;
+  /* Removed default padding */
+}
+
 /* Header sizes using the "Perfect Fourth" scale */
 h1 {
   font-size: 2.0em;
@@ -429,8 +436,8 @@ h6 {
 }
 
 p {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   /* Space between paragraphs */
 }
 
@@ -1150,6 +1157,32 @@ p.single-portfolio-desc {
 
   p::first{
     margin-top: 0;
+  }
+}
+
+.notebox {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px dashed var(--text-color);
+  border-radius: 3px;
+  background-color: var(--secondary-bg-color);
+  ul {
+    /* margin-top: 1em; */
+    margin-bottom: 0.75em;
+
+    li {
+      margin-bottom: 0.75em;
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    /* Add wobbly underline */
+
+      text-decoration: underline wavy var(--link-hover-bg-color) 2px;
+
+
+    /* background-color: var(--secondary-color); */
+    /* text-align: center; */
+    /* color: var(--secondary-color); */
   }
 }
 

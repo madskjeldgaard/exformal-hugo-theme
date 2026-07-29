@@ -1,0 +1,5 @@
+{{ $noteinner := .Inner }}
+{{ $noteinner := $noteinner | markdownify }}
+<div class="notebox">
+{{ $noteinner }}
+</div>
