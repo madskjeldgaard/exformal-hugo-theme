@@ -6,7 +6,7 @@
 /* Set up fonts */
 @font-face {
   font-family: "Space Mono";
-  src: url("/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
+  src: url("/fonts/Space_Mono/Space Mono-Regular.ttf") format("truetype");
 }
 
 /* fonts/Merriweather/Merriweather-Regular.ttf */
@@ -172,7 +172,7 @@ a:focus {
 .cover-button,
 .pdf-paginator button,
 .embed-pdf-container #overlayText a {
-  font-family: "SpaceMono", monospace;
+  font-family: "Space Mono", monospace;
   background-color: var(--bg-color);
   color: var(--text-color);
   border: 2px solid var(--grey);
@@ -761,7 +761,7 @@ hr {
   thead {
     tr {
       th {
-        font-family: "SpaceMono", monospace;
+        font-family: "Space Mono", monospace;
       }
     }
   }
@@ -769,7 +769,7 @@ hr {
   tbody {
     tr {
       td {
-        font-family: "SpaceMono", monospace;
+        font-family: "Space Mono", monospace;
       }
     }
 
@@ -1129,7 +1129,7 @@ article .portfolio-grid {
 
 .single-portfolio-desc {
   font-size: 1.125em;
-  font-family: "SpaceMono", serif;
+  font-family: "Merriweather", serif;
   text-align: center;
   color: var(--text-color);
 }
@@ -1225,7 +1225,7 @@ span.single-portfolio-categories {
 
 .mono-font {
   /* font-family: Courier New, Courier, monospace; */
-  font-family: "SpaceMono", monospace;
+  font-family: "Space Mono", monospace;
   /* letter-spacing: 1.0px; */
 }
 
@@ -1266,7 +1266,7 @@ span.list-portfolio-categories {
 
 .metadata-block {
   color: var(--grey);
-  font-family: "SpaceMono", monospace;
+  font-family: "Space Mono", monospace;
   font-weight: normal;
 }
 
@@ -1277,7 +1277,7 @@ span.list-portfolio-categories {
   /* Make all text uppercase */
   /* text-transform: uppercase; */
   font-size: 0.86em;
-  font-family: "SpaceMono", monospace;
+  font-family: "Space Mono", monospace;
   border: 1px dashed var(--text-color);
   border-collapse: collapse;
   /* width: 100%; */
@@ -1369,7 +1369,7 @@ th {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-family: "SpaceMono", monospace;
+  font-family: "Space Mono", monospace;
 }
 
 .badge.upcoming {
