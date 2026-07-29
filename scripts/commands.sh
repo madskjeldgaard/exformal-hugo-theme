@@ -25,11 +25,13 @@ title = \"$title\"
 subTitle = \"$subtitle\"
 showTitle = true
 date = \"$date\"
+cover = "images/meadow.jpg"
+caption = "Meadow."
 draft = $draft
 +++
 
 some text
-" > "content/texts/${filename}.md"
+" > "content/text/${filename}.md"
 
 }
 
