@@ -45,7 +45,8 @@
 }
 
 .jp-controls.hugo-jp-controls {
-  font-family: Helvetica Neue, Helvetica, sans-serif !important;
+  /* font-family: Helvetica Neue, Helvetica, sans-serif !important; */
+  font-family: "Space Mono", monospace !important;
   /* color: var(--text-color) !important; */
   color: var(--grey) !important;
 }
