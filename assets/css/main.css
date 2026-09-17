@@ -860,8 +860,8 @@ img.website-logo {
 
 
 .tracklist {
-  margin-top: 5px;
-  font-size: 0.9em;
+  /* margin-top: 5px; */
+  /* font-size: 0.9em; */
 }
 
 .audio-player {
@@ -1307,6 +1307,11 @@ th {
   display: table-cell;
   width: 50%;
   text-align: left;
+  padding: 0.5em 0;
+}
+
+.metadata-header{
+  font-weight: bold;
 }
 
 .header .cell,
@@ -1588,7 +1593,7 @@ th {
   }
 
   .release-info .cover-item {
-    padding: 1em 0;
+    padding: 0em 0;
   }
 
   .cover-item .release-metadata {
