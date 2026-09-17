@@ -109,7 +109,7 @@ html {
 
 header {
   text-align: center;
-  padding: 1em;
+  padding: 0;
   /* background-color: #f2f2f2; */
 
   display: flex;
@@ -1161,7 +1161,7 @@ p.single-portfolio-desc {
   }
 }
 
-.notebox {
+.notebox, .supportmebox {
   margin: 1em 0;
   padding: 1em;
   border: 1px dashed var(--text-color);
@@ -1178,12 +1178,58 @@ p.single-portfolio-desc {
   h1, h2, h3, h4, h5, h6 {
     /* Add wobbly underline */
 
-      text-decoration: underline wavy var(--link-hover-bg-color) 2px;
+      text-decoration: underline wavy var(--link-hover-color) 2px;
 
 
     /* background-color: var(--secondary-color); */
     /* text-align: center; */
     /* color: var(--secondary-color); */
+  }
+}
+
+.supportmebox{
+  text-align: center;
+  font-family: "Space Mono", monospace;
+  max-width: 400px;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--text-color);
+  margin: 1em auto;
+  h1, h2, h3, h4, h5, h6 {
+    /* Add wobbly underline */
+
+      /* text-decoration: underline wavy var(--primary-color) 2px; */
+      text-decoration: none;
+
+
+    /* background-color: var(--secondary-color); */
+    /* text-align: center; */
+    /* color: var(--secondary-color); */
+  }
+}
+
+.patreon-button {
+  color: var(--text-color) !important;
+  font-weight: bold !important;
+  background: linear-gradient(135deg, #FF513D, #FF6F61, #FF9A8B) !important;
+  background-size: 200% 200% !important;
+  animation: radiantPulse 1s ease-in-out infinite alternate !important;
+  border-radius: 5px !important;
+  /* border: ; */
+  transition: transform 0.2s ease !important;
+}
+
+.patreon-button:hover {
+  transform: scale(1.05) !important;
+}
+
+@keyframes radiantPulse {
+  0% {
+    background-position: 0% 0%;
+    box-shadow: 0 0 20px rgba(255, 81, 61, 0.2);
+  }
+  100% {
+    background-position: 100% 100%;
+    box-shadow: 0 0 40px rgba(255, 81, 61, 0.6);
   }
 }
 
@@ -1474,7 +1520,11 @@ th {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.concert-item.passed .concert-link {
+div.concert-item.passed{
+  border: 1px dashed;
+}
+
+.concert-item .passed .concert-link {
   background-color: var(--secondary-bg-color);
   color: var(--grey);
   /* border-color: var(--grey); */
@@ -1488,6 +1538,10 @@ th {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
+}
+
+.event-description{
+  margin: 1em;
 }
 
 .concerts-grid .concert-item {
