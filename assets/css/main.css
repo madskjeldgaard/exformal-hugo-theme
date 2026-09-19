@@ -830,7 +830,7 @@ article img.release-artist-image-single,
 img.website-logo {
   max-width: 100px;
   max-height: 50px;
-  margin: 0 auto;
+  margin: 1em;
   display: block;
 }
 
