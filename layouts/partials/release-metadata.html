@@ -28,6 +28,22 @@
       {{/* <div class="cell">{{ index $data 1 }}</div> */}}
     </div>
     {{ end }}
+
+        {{ if .Params.releasedate }}
+          <div class="row">
+            <div class="cell ">Release date: {{ .Params.releasedate }}</div>
+          </div>
+          {{ if .Params.series }}
+            <div class="row">
+              <div class="cell ">
+                <a class="" href="/series">Series: {{.Params.series|lower}}</a>
+                </div>
+          </div>
+        {{ end }}
+
+      {{ end}}
+
+
   </div>
 
   <div class="table">

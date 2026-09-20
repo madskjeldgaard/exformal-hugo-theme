@@ -140,23 +140,6 @@
 
         {{ partial "release-metadata.html" . }}
 
-        {{ if .Params.releasedate }}
-          <div class="table metadata-block">
-          <div class="row">
-            <div class="cell ">Release date: </div>
-            <div class="cell "> {{ .Params.releasedate }}</div>
-          </div>
-          {{ if .Params.series }}
-            <div class="row">
-              <div class="cell ">Series: </div>
-              <div class="cell ">
-                <a class="" href="/series">{{.Params.series|lower}}</a>
-                </div>
-          </div>
-        {{ end }}
-
-          </div>
-      {{ end}}
 
 
 
