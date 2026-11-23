@@ -1353,7 +1353,7 @@ th {
   display: table-cell;
   width: 50%;
   text-align: left;
-  padding: 0.5em 0;
+  padding: 0.25em 0;
 }
 
 .metadata-header{
@@ -1652,7 +1652,7 @@ div.concert-item.passed{
 
   .cover-item .release-metadata {
     padding: 1em;
-    margin: 1em;
+    margin: 1em 0;
   }
 
   /* Disable flex for mobile */
