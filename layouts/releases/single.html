@@ -202,7 +202,7 @@
       {{ if $description }}
       <h3>{{ $header }}</h3>
       <p class="">{{ $description }}</p>
-      <p><a href="{{ $url }}" aria="Artist page for '{{ . }}'"> Read more. {{/* <button class="cover-button">read more</button> */}}
+      <p><a class="button" href="{{ $url }}" aria="Artist page for '{{ . }}'">Read more{{/* <button class="cover-button">read more</button> */}}
       </a></p>
 
       {{end}}
@@ -213,10 +213,8 @@
           <div class="">
             {{ $resized := $cover.Resize "1280x" }}
 
-            <a href="{{ $url }}" aria="Artist page for '{{ . }}'">
               <img class="align-center release-artist-image release-artist-image-single" src="{{ $resized.Permalink }}"
                                                                             alt="Cover image for {{ $.Params.title }}" />
-            </a>
             {{ with $page.Params.artistphotocredit }}
             <figcaption class="align-center photo-caption caption release-artist-image-single-caption ">Photo by {{ . }}</figcaption>
             {{ end }}

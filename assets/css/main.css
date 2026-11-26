@@ -826,7 +826,39 @@ article img.release-artist-image-single,
   text-align: left;
   color: var(--grey);
 }
+@media (min-width: 768px) {
+  .release-artist.bordered-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1.5rem;
+    align-items: start;            /* ← image aligns to top, natural height */
+  }
 
+  .release-artist.bordered-box > h3,
+  .release-artist.bordered-box > p {
+    grid-column: 1;
+  }
+
+  .release-artist.bordered-box > div:has(img) {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: start;
+    /* NO height:100%, NO min-height:100% */
+  }
+
+  .release-artist.bordered-box > div img {
+    width: 100%;
+    height: auto;                  /* ← natural aspect ratio */
+    display: block;
+  }
+
+  /* Override any theme cap on the image class */
+  .release-artist.bordered-box .release-artist-image-single {
+    max-width: 100%;
+    max-height: none;
+    width: 100%;
+  }
+}
 img.website-logo {
   max-width: 100px;
   max-height: 50px;
